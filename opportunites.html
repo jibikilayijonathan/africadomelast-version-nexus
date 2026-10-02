@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr">
+<head>
+  <meta charset="utf-8">
+  <script>try { if (localStorage.getItem("africadome-theme") === "light") document.documentElement.classList.add("light"); } catch (e) {}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opportunités — Africadôme</title>
+  <meta name="description" content="Appels à projets, résidences, castings, bourses et formations pour les créateurs africains et de la diaspora.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind-config.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-surface font-sans text-on-surface antialiased">
+
+  <!-- ================= HEADER ================= -->
+  <header id="header" class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl border-b border-surface-container-high/80">
+    <div class="h-20 max-w-[1600px] mx-auto px-margin md:px-margin-md flex items-center justify-between gap-4">
+      <a href="#" class="shrink-0" aria-label="Africadôme - Accueil">
+        <img src="logo.png" alt="Africadôme — Créer • Produire • Entreprendre • Diffuser • Rayonner" class="h-10 sm:h-12 xl:h-10 2xl:h-12 w-auto">
+      </a>
+
+      <nav id="nav" class="hidden xl:flex items-center gap-1" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="videos.html" class="nav-link">Vidéos</a>
+        <a href="radio.html#podcasts" class="nav-link">Podcasts</a>
+        <a href="articles.html" class="nav-link">Articles</a>
+        <a href="radio.html" class="nav-link">Radio</a>
+        <div class="relative dropdown">
+          <button class="nav-link flex items-center gap-0.5" aria-expanded="false">
+            Afrique <span class="material-symbols-outlined text-[18px]">expand_more</span>
+          </button>
+          <div class="dropdown-menu absolute left-0 top-full mt-2 w-56 bg-surface-container-high rounded-xl p-2 shadow-2xl border border-surface-container-highest">
+            <a href="afrique.html" class="dropdown-item">Vue d'ensemble</a>
+            <a href="afrique.html?region=west" class="dropdown-item">Afrique de l'Ouest</a>
+            <a href="afrique.html?region=central" class="dropdown-item">Afrique Centrale</a>
+            <a href="afrique.html?region=east" class="dropdown-item">Afrique de l'Est</a>
+            <a href="afrique.html?region=south" class="dropdown-item">Afrique Australe</a>
+            <a href="afrique.html?region=north" class="dropdown-item">Afrique du Nord</a>
+            <a href="afrique.html?region=diaspora" class="dropdown-item">Diasporas</a>
+          </div>
+        </div>
+        <a href="culture.html" class="nav-link">Culture</a>
+        <a href="createurs.html" class="nav-link">Créateurs</a>
+        <a href="apprendre.html" class="nav-link">Apprendre</a>
+        <a href="opportunites.html" class="nav-link is-active" aria-current="page">Opportunités</a>
+      </nav>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <button id="themeBtn" aria-label="Passer en mode clair" title="Mode clair / sombre" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-[20px]">light_mode</span>
+        </button>
+        <button id="searchBtn" aria-label="Rechercher" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-[20px]">search</span>
+        </button>
+        <div class="relative dropdown hidden sm:block">
+          <button id="langBtn" class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors text-xs font-semibold" aria-expanded="false">
+            <span class="material-symbols-outlined text-[16px]">language</span>
+            <span id="langLabel">FR</span>
+            <span class="material-symbols-outlined text-[14px]">expand_more</span>
+          </button>
+          <div class="dropdown-menu absolute right-0 top-full mt-2 w-40 bg-surface-container-high rounded-xl p-2 shadow-2xl border border-surface-container-highest">
+            <button class="dropdown-item w-full text-left" data-lang="FR">Français</button>
+            <button class="dropdown-item w-full text-left" data-lang="EN">English</button>
+            <button class="dropdown-item w-full text-left" data-lang="PT">Português</button>
+            <button class="dropdown-item w-full text-left" data-lang="SW">Kiswahili</button>
+          </div>
+        </div>
+        <div class="h-5 w-px bg-surface-container-highest hidden sm:block"></div>
+        <a href="#" class="hidden sm:inline-flex px-4 py-2 rounded-lg bg-primary-container text-on-primary-container text-sm font-semibold hover:bg-primary transition-colors">Se connecter</a>
+        <a href="#" class="hidden md:inline-flex xl:hidden 2xl:inline-flex px-4 py-2 rounded-lg border border-outline-variant text-on-surface text-sm font-semibold hover:bg-surface-container-high transition-colors">S'inscrire</a>
+        <button id="burger" class="xl:hidden w-9 h-9 rounded-lg flex items-center justify-center hover:bg-surface-container-high" aria-label="Menu" aria-expanded="false">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Barre de recherche -->
+    <div id="searchBar" class="search-bar max-w-[1600px] mx-auto px-margin md:px-margin-md">
+      <div class="relative flex items-center pb-4">
+        <span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px]">search</span>
+        <input type="search" placeholder="Rechercher une vidéo, un podcast, un créateur…" class="w-full bg-surface-container-low text-on-surface pl-10 pr-4 py-3 rounded-lg text-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:bg-surface-container-high transition-colors">
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu mobile -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-x-0 bottom-0 top-20 z-40 bg-surface xl:hidden overflow-y-auto p-6">
+    <nav class="flex flex-col gap-1 text-lg">
+      <a href="index.html" class="mobile-link">Accueil</a>
+      <a href="videos.html" class="mobile-link">Vidéos</a>
+      <a href="radio.html#podcasts" class="mobile-link">Podcasts</a>
+      <a href="articles.html" class="mobile-link">Articles</a>
+      <a href="radio.html" class="mobile-link">Radio</a>
+      <a href="afrique.html" class="mobile-link">Afrique</a>
+      <a href="culture.html" class="mobile-link">Culture</a>
+      <a href="createurs.html" class="mobile-link">Créateurs</a>
+      <a href="apprendre.html" class="mobile-link">Apprendre</a>
+      <a href="opportunites.html" class="mobile-link">Opportunités</a>
+    </nav>
+    <div class="grid grid-cols-2 gap-3 mt-6">
+      <a href="#" class="text-center px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-semibold">Se connecter</a>
+      <a href="#" class="text-center px-4 py-3 rounded-lg border border-outline-variant font-semibold">S'inscrire</a>
+    </div>
+  </div>
+
+  <main class="pt-20">
+    <!-- ================= EN-TÊTE & FILTRES ================= -->
+    <section class="relative w-full overflow-hidden bg-surface-container-lowest">
+      <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-0 left-1/4 w-80 h-80 rounded-full bg-secondary/5 blur-3xl pointer-events-none"></div>
+      <div class="relative max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-xl">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg mb-space-xl">
+          <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-primary text-label-badge uppercase mb-space-sm">
+              <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+              Hub Panafricain des ICC &amp; Financements
+            </div>
+            <h1 class="text-headline-xl-mobile md:text-display-hero text-white">Propulsez vos projets créatifs en Afrique</h1>
+            <p class="text-body-lg text-on-surface-variant mt-space-sm">Accédez aux financements, résidences artistiques, castings et formations certifiantes pour transformer votre potentiel en impact continental.</p>
+          </div>
+          <div class="flex items-center gap-space-md shrink-0 bg-surface-container p-space-sm rounded-xl self-start lg:self-auto">
+            <div class="px-space-md py-space-xs text-center">
+              <div class="text-headline-lg text-primary tnum">142</div>
+              <div class="text-label-meta text-on-surface-variant uppercase">Appels actifs</div>
+            </div>
+            <div class="w-px h-10 bg-surface-container-highest"></div>
+            <div class="px-space-md py-space-xs text-center">
+              <div class="text-headline-lg text-secondary tnum">3,4 M€</div>
+              <div class="text-label-meta text-on-surface-variant uppercase">Fonds disponibles</div>
+            </div>
+            <div class="w-px h-10 bg-surface-container-highest"></div>
+            <div class="px-space-md py-space-xs text-center">
+              <div class="text-headline-lg text-white tnum">28</div>
+              <div class="text-label-meta text-on-surface-variant uppercase">Pays couverts</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barre de filtres -->
+        <div class="bg-surface-container rounded-2xl p-space-md shadow-xl">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-space-sm">
+            <div class="lg:col-span-4 relative flex items-center">
+              <span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px]">search</span>
+              <input id="oppSearch" type="search" placeholder="Rechercher une bourse, un festival, une discipline…" class="w-full bg-surface-container-low text-on-surface pl-10 pr-4 py-3 rounded-lg text-body-md placeholder:text-on-surface-variant/60 focus:outline-none focus:bg-surface-container-high transition-colors">
+            </div>
+            <div class="lg:col-span-3 relative">
+              <select id="oppType" class="select-field">
+                <option value="">Tous les types d'opportunités</option>
+                <option value="appel-projet">Appel à projets</option>
+                <option value="residence">Résidence artistique</option>
+                <option value="bourse">Bourse &amp; Financement</option>
+                <option value="casting">Casting &amp; Audition</option>
+                <option value="concours">Concours &amp; Prix</option>
+                <option value="emploi">Emploi créatif &amp; Stage</option>
+              </select>
+              <span class="material-symbols-outlined select-caret">expand_more</span>
+            </div>
+            <div class="lg:col-span-3 relative">
+              <select id="oppRegion" class="select-field">
+                <option value="">Toutes les régions / Diasporas</option>
+                <option value="ouest">Afrique de l'Ouest</option>
+                <option value="centrale">Afrique Centrale</option>
+                <option value="est">Afrique de l'Est &amp; Océan Indien</option>
+                <option value="maghreb">Maghreb &amp; Afrique du Nord</option>
+                <option value="australe">Afrique Australe</option>
+                <option value="panafricain">Panafricain &amp; Diaspora globale</option>
+              </select>
+              <span class="material-symbols-outlined select-caret">expand_more</span>
+            </div>
+            <div class="lg:col-span-2 relative">
+              <select id="oppStatus" class="select-field">
+                <option value="">Statut (tous)</option>
+                <option value="urgent">Clôture imminente</option>
+                <option value="nouveau">Nouvellement publié</option>
+                <option value="permanent">Session permanente</option>
+              </select>
+              <span class="material-symbols-outlined select-caret">expand_more</span>
+            </div>
+          </div>
+          <div id="oppDomains" data-chip-group class="flex items-center gap-space-xs mt-space-sm pt-space-xs overflow-x-auto no-scrollbar">
+            <span class="text-label-meta text-on-surface-variant uppercase mr-2 shrink-0">Domaines phares :</span>
+            <button class="chip is-active" data-domain="">Tous</button>
+            <button class="chip" data-domain="cinema">Cinéma &amp; Documentaire</button>
+            <button class="chip" data-domain="musique">Musique &amp; Afrobeat</button>
+            <button class="chip" data-domain="ia">IA &amp; Nouveaux Médias</button>
+            <button class="chip" data-domain="arts">Arts Visuels &amp; Mode</button>
+            <button class="chip" data-domain="podcast">Podcasts &amp; Journalisme</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= À LA UNE & CLÔTURE IMMINENTE ================= -->
+    <section class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-xl">
+      <div class="flex items-center justify-between mb-space-lg gap-4">
+        <div class="flex items-center gap-3">
+          <span class="w-3 h-3 rounded-full bg-red-500 animate-ping shrink-0"></span>
+          <h2 class="text-headline-lg md:text-headline-xl text-white">Opportunités à la une &amp; clôture imminente</h2>
+        </div>
+        <div class="hidden sm:flex items-center gap-2">
+          <button id="urgentPrev" class="circle-btn" aria-label="Précédent"><span class="material-symbols-outlined text-[20px]">chevron_left</span></button>
+          <button id="urgentNext" class="circle-btn" aria-label="Suivant"><span class="material-symbols-outlined text-[20px]">chevron_right</span></button>
+        </div>
+      </div>
+
+      <div id="urgentTrack" class="flex gap-gutter-lg overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth">
+        <article class="urgent-card group">
+          <div class="relative h-60 overflow-hidden">
+            <img src="cinema-tournage.jpg" alt="Une réalisatrice règle sa caméra sur un plateau de tournage" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/30 to-transparent"></div>
+            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+              <span class="bg-error-container text-on-error-container text-label-badge uppercase px-3 py-1 rounded-full shadow-md">Reste 2 jours</span>
+              <span class="bg-surface-container-lowest/90 backdrop-blur-md text-primary text-label-badge uppercase px-2.5 py-1 rounded-full">Dotation 15 000 €</span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex items-center gap-2">
+              <span class="bg-secondary-container/90 text-white text-label-badge px-2.5 py-0.5 rounded-full">Cinéma</span>
+              <span class="text-white/80 text-label-meta">Cameroun &amp; Afrique Centrale</span>
+            </div>
+          </div>
+          <div class="p-space-md flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-on-surface-variant text-label-meta mb-1">
+                <span class="material-symbols-outlined text-[16px] text-primary">local_movies</span>
+                <span>Association Écrans Noirs</span>
+              </div>
+              <h3 class="text-headline-md text-white group-hover:text-primary transition-colors mb-2">Festival Écrans Noirs 2026 : fonds de soutien au court-métrage de fiction</h3>
+              <p class="text-body-sm text-on-surface-variant line-clamp-2">Bourse de production complète et mentorat technique d'un an pour 5 cinéastes émergents d'Afrique centrale. Post-production assurée à Douala.</p>
+            </div>
+            <div class="mt-space-md pt-space-sm border-t border-surface-container-highest/60 flex items-center justify-between">
+              <div class="flex flex-col">
+                <span class="text-label-meta text-on-surface-variant">Date limite</span>
+                <span class="text-title-sm text-error tnum">3 octobre 2026</span>
+              </div>
+              <a href="#" class="btn-amber">Postuler <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="urgent-card group">
+          <div class="relative h-60 overflow-hidden">
+            <img src="atelier-artiste.jpg" alt="Une artiste peint dans un atelier lumineux" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/30 to-transparent"></div>
+            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+              <span class="bg-primary-container text-on-primary-container text-label-badge uppercase px-3 py-1 rounded-full shadow-md">Reste 5 jours</span>
+              <span class="bg-surface-container-lowest/90 backdrop-blur-md text-secondary text-label-badge uppercase px-2.5 py-1 rounded-full">100 % pris en charge</span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex items-center gap-2">
+              <span class="bg-surface-variant/90 text-tertiary-fixed text-label-badge px-2.5 py-0.5 rounded-full">Résidence d'écriture</span>
+              <span class="text-white/80 text-label-meta">Panafricain</span>
+            </div>
+          </div>
+          <div class="p-space-md flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-on-surface-variant text-label-meta mb-1">
+                <span class="material-symbols-outlined text-[16px] text-secondary">brush</span>
+                <span>Yaoundé Creative Lab</span>
+              </div>
+              <h3 class="text-headline-md text-white group-hover:text-primary transition-colors mb-2">Yaoundé Creative Lab : résidence d'écriture narrative &amp; arts visuels</h3>
+              <p class="text-body-sm text-on-surface-variant line-clamp-2">6 semaines d'immersion avec hébergement, allocation de vie mensuelle et exposition de clôture pour auteurs, scénaristes et illustrateurs.</p>
+            </div>
+            <div class="mt-space-md pt-space-sm border-t border-surface-container-highest/60 flex items-center justify-between">
+              <div class="flex flex-col">
+                <span class="text-label-meta text-on-surface-variant">Date limite</span>
+                <span class="text-title-sm text-primary tnum">6 octobre 2026</span>
+              </div>
+              <a href="#" class="btn-dark">Voir le dossier <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="urgent-card group">
+          <div class="relative h-60 overflow-hidden">
+            <img src="tech-ia.jpg" alt="De jeunes créatifs autour d'une interface holographique" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/30 to-transparent"></div>
+            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+              <span class="bg-surface-bright text-white text-label-badge uppercase px-3 py-1 rounded-full shadow-md">Reste 7 jours</span>
+              <span class="bg-surface-container-lowest/90 backdrop-blur-md text-tertiary text-label-badge uppercase px-2.5 py-1 rounded-full">Bourse d'excellence</span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex items-center gap-2">
+              <span class="bg-primary/20 backdrop-blur-md text-primary text-label-badge px-2.5 py-0.5 rounded-full">Tech &amp; IA</span>
+              <span class="text-white/80 text-label-meta">En ligne &amp; présentiel Dakar</span>
+            </div>
+          </div>
+          <div class="p-space-md flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-on-surface-variant text-label-meta mb-1">
+                <span class="material-symbols-outlined text-[16px] text-tertiary">memory</span>
+                <span>Africadôme Academy</span>
+              </div>
+              <h3 class="text-headline-md text-white group-hover:text-primary transition-colors mb-2">Programme IA &amp; création numérique : 20 bourses intensives de formation</h3>
+              <p class="text-body-sm text-on-surface-variant line-clamp-2">Certification avancée sur les workflows d'IA générative appliquée à l'animation 3D, au sound design et à la post-production audiovisuelle.</p>
+            </div>
+            <div class="mt-space-md pt-space-sm border-t border-surface-container-highest/60 flex items-center justify-between">
+              <div class="flex flex-col">
+                <span class="text-label-meta text-on-surface-variant">Date limite</span>
+                <span class="text-title-sm text-white tnum">8 octobre 2026</span>
+              </div>
+              <a href="#" class="btn-dark">Détails &amp; inscription <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= OPPORTUNITÉS RÉCENTES ================= -->
+    <section class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-xl">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm mb-space-lg">
+        <div>
+          <h2 class="text-headline-lg md:text-headline-xl text-white">Appels à projets, résidences &amp; castings récents</h2>
+          <p class="text-body-md text-on-surface-variant mt-1">Explorez les opportunités vérifiées et ouvertes aux créateurs africains et diasporiques.</p>
+        </div>
+        <label class="flex items-center gap-2 self-start md:self-auto">
+          <span class="text-label-meta text-on-surface-variant">Trier par :</span>
+          <span class="relative">
+            <select id="oppSort" class="appearance-none cursor-pointer bg-surface-container text-on-surface pl-3 pr-8 py-1.5 rounded-lg text-body-sm focus:outline-none">
+              <option value="recent">Plus récents</option>
+              <option value="cloture">Clôture prochaine</option>
+              <option value="dotation">Montant de dotation</option>
+            </select>
+            <span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-[16px] text-on-surface-variant pointer-events-none">expand_more</span>
+          </span>
+        </label>
+      </div>
+
+      <div id="oppGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+        <div class="opp-card group" data-type="casting" data-domain="arts musique" data-region="ouest" data-days="14" data-status="nouveau" data-amount="0">
+          <div>
+            <div class="flex items-start justify-between gap-space-sm mb-3">
+              <div class="opp-card-ico text-primary"><span class="material-symbols-outlined text-[24px]">theater_comedy</span></div>
+              <span class="bg-surface-container-lowest text-secondary text-label-badge uppercase px-2.5 py-1 rounded-full">Nouveau</span>
+            </div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="bg-secondary-container/30 text-secondary text-label-badge uppercase px-2 py-0.5 rounded">Casting national</span>
+              <span class="text-on-surface-variant text-label-meta">Abidjan, Côte d'Ivoire</span>
+            </div>
+            <h3 class="text-headline-md text-white group-hover:text-primary transition-colors mb-2">Casting principal : tournée panafricaine de la comédie musicale « Sunjata »</h3>
+            <p class="text-body-sm text-on-surface-variant line-clamp-2 mb-4">Recherche de 14 chanteurs, danseurs contemporains et conteurs pour une grande production scénique programmée dans 8 capitales africaines.</p>
+          </div>
+          <div class="opp-card-foot">
+            <span class="flex items-center gap-1.5 text-on-surface-variant text-label-meta"><span class="material-symbols-outlined text-[16px]">schedule</span>Clôture dans 14 jours</span>
+            <a href="#" class="opp-card-link">Postuler <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+          </div>
+        </div>
+
+        <div class="opp-card group" data-type="bourse" data-domain="podcast" data-region="ouest" data-days="18" data-amount="8000">
+          <div>
+            <div class="flex items-start justify-between gap-space-sm mb-3">
+              <div class="opp-card-ico text-tertiary"><span class="material-symbols-outlined text-[24px]">article</span></div>
+              <span class="bg-surface-container-lowest text-primary text-label-badge uppercase px-2.5 py-1 rounded-full">Dotation 8 000 €</span>
+            </div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="bg-primary/20 text-primary text-label-badge uppercase px-2 py-0.5 rounded">Journalisme</span>
+              <span class="text-on-surface-variant text-label-meta">Afrique de l'Ouest &amp; Sahel</span>
+            </div>
+            <h3 class="text-headline-md text-white group-hover:text-primary transition-colors mb-2">Fonds panafricain de journalisme environnemental &amp; données</h3>
+            <p class="text-body-sm text-on-surface-variant line-clamp-2 mb-4">Bourse de grand reportage multimédia consacrée à la transition énergétique et aux initiatives communautaires face au dérèglement climatique.</p>
+          </div>
+          <div class="opp-card-foot">
+            <span class="flex items-center gap-1.5 text-on-surface-variant text-label-meta"><span class="material-symbols-outlined text-[16px]">schedule</span>Clôture dans 18 jours</span>
+            <a href="#" class="opp-card-link">Postuler <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+          </div>
+        </div>
+
+        <div class="opp-card group" data-type="appel-projet" data-domain="podcast" data-region="panafricain" data-days="21" data-status="nouveau" data-amount="0">
+          <div>
+            <div class="flex items-start justify-between gap-space-sm mb-3">
+              <div class="opp-card-ico text-secondary"><span class="material-symbols-outlined text-[24px]">podcasts</span></div>
+              <span class="bg-surface-container-lowest text-tertiary text-label-badge uppercase px-2.5 py-1 rounded-full">Matériel offert</span>
+            </div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="bg-tertiary-container/30 text-tertiary text-label-badge uppercase px-2 py-0.5 rounded">Podcast &amp; Son</span>
+              <span class="text-on-surface-variant text-label-meta">Dakar, Lagos &amp; à distance</span>
+            </div>
+            <h3 class="text-headline-md text-white group-hover:text-primary transition-colors mb-2">Africa Voice Labs : incubation de 10 séries de podcasts narratifs</h3>
+            <p class="text-body-sm text-on-surface-variant line-clamp-2 mb-4">Accompagnement éditorial de 4 mois, kit de studio nomade professionnel fourni et diffusion sur le réseau Africadôme Radio.</p>
+          </div>
+          <div class="opp-card-foot">
+            <span class="flex items-center gap-1.5 text-on-surface-variant text-label-meta"><span class="material-symbols-outlined text-[16px]">schedule</span>Clôture dans 21 jours</span>
+            <a href="#" class="opp-card-link">Postuler <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+          </div>
+        </div>
+
+        <div class="opp-card group" data-type="concours" data-domain="arts" data-region="panafricain" data-days="25" data-status="permanent" data-amount="0">
+          <div>
+            <div class="flex items-start justify-between gap-space-sm mb-3">
+              <div class="opp-card-ico text-primary"><span class="material-symbols-outlined text-[24px]">styler</span></div>
+              <span class="bg-surface-container-lowest text-white text-label-badge uppercase px-2.5 py-1 rounded-full">Showcase Dakar</span>
+            </div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="bg-surface-container-highest text-on-surface text-label-badge uppercase px-2 py-0.5 rounded">Mode africaine</span>
+              <span class="text-on-surface-variant text-label-meta">Panafricain &amp; Diaspora</span>
+            </div>
+            <h3 class="text-headline-md text-white group-hover:text-primary transition-colors mb-2">Prix du jeune créateur textile &amp; upcycling panafricain</h3>
+            <p class="text-body-sm text-on-surface-variant line-clamp-2 mb-4">Concours récompensant l'innovation dans l'utilisation des fibres naturelles locales : coton bio, raphia, bogolan contemporain.</p>
+          </div>
+          <div class="opp-card-foot">
+            <span class="flex items-center gap-1.5 text-on-surface-variant text-label-meta"><span class="material-symbols-outlined text-[16px]">schedule</span>Clôture dans 25 jours</span>
+            <a href="#" class="opp-card-link">Postuler <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+          </div>
+        </div>
+
+        <div class="opp-card group" data-type="residence" data-domain="musique" data-region="ouest" data-days="30" data-amount="0">
+          <div>
+            <div class="flex items-start justify-between gap-space-sm mb-3">
+              <div class="opp-card-ico text-primary-container"><span class="material-symbols-outlined text-[24px]">graphic_eq</span></div>
+              <span class="bg-surface-container-lowest text-primary-container text-label-badge uppercase px-2.5 py-1 rounded-full">Contrat éditorial</span>
+            </div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="bg-primary-container/20 text-primary-container text-label-badge uppercase px-2 py-0.5 rounded">Musique</span>
+              <span class="text-on-surface-variant text-label-meta">Nigeria &amp; Ghana</span>
+            </div>
+            <h3 class="text-headline-md text-white group-hover:text-primary transition-colors mb-2">Afrobeats Beatmakers Showcase : sessions de co-production à Lagos</h3>
+            <p class="text-body-sm text-on-surface-variant line-clamp-2 mb-4">Accès à des studios d'enregistrement de premier plan à Lagos et masterclass avec des ingénieurs du son expérimentés.</p>
+          </div>
+          <div class="opp-card-foot">
+            <span class="flex items-center gap-1.5 text-on-surface-variant text-label-meta"><span class="material-symbols-outlined text-[16px]">schedule</span>Clôture dans 30 jours</span>
+            <a href="#" class="opp-card-link">Postuler <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+          </div>
+        </div>
+
+        <div class="opp-card group" data-type="residence" data-domain="arts" data-region="est" data-days="35" data-status="permanent" data-amount="5000">
+          <div>
+            <div class="flex items-start justify-between gap-space-sm mb-3">
+              <div class="opp-card-ico text-white"><span class="material-symbols-outlined text-[24px]">menu_book</span></div>
+              <span class="bg-surface-container-lowest text-secondary text-label-badge uppercase px-2.5 py-1 rounded-full">Bourse 5 000 €</span>
+            </div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="bg-secondary-container/20 text-secondary text-label-badge uppercase px-2 py-0.5 rounded">Édition &amp; BD</span>
+              <span class="text-on-surface-variant text-label-meta">Kigali, Rwanda</span>
+            </div>
+            <h3 class="text-headline-md text-white group-hover:text-primary transition-colors mb-2">Résidence Kigali Graphic Novels : raconter l'Afrique de demain</h3>
+            <p class="text-body-sm text-on-surface-variant line-clamp-2 mb-4">Accueil de deux mois pour achever un manuscrit ou un album illustré sur les thématiques de l'afrofuturisme.</p>
+          </div>
+          <div class="opp-card-foot">
+            <span class="flex items-center gap-1.5 text-on-surface-variant text-label-meta"><span class="material-symbols-outlined text-[16px]">schedule</span>Clôture dans 35 jours</span>
+            <a href="#" class="opp-card-link">Postuler <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+          </div>
+        </div>
+      </div>
+      <p id="oppEmpty" class="hidden text-on-surface-variant py-12 text-center">Aucune opportunité ne correspond à ces critères. Essayez d'élargir votre recherche.</p>
+
+      <div class="mt-space-xl flex flex-col sm:flex-row items-center justify-between gap-space-md bg-surface-container-low p-space-md rounded-xl">
+        <span class="text-body-sm text-on-surface-variant">Affichage de <span id="oppCount" class="font-semibold text-white">6</span> sur <span class="font-semibold text-white">142</span> opportunités actives</span>
+        <div class="flex items-center gap-2">
+          <button class="px-4 py-2 rounded-lg bg-surface-container-high text-title-sm hover:text-white transition-colors">Page précédente</button>
+          <button class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container text-title-sm">1</button>
+          <button class="w-10 h-10 rounded-lg bg-surface-container text-on-surface-variant hover:text-white text-title-sm">2</button>
+          <button class="w-10 h-10 rounded-lg bg-surface-container text-on-surface-variant hover:text-white text-title-sm">3</button>
+          <button class="px-4 py-2 rounded-lg bg-surface-container-high text-title-sm hover:text-white transition-colors">Page suivante</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FORMATIONS ================= -->
+    <section id="formations" class="w-full bg-surface-container-low py-space-2xl">
+      <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-secondary text-label-badge uppercase mb-space-xs">
+              <span class="material-symbols-outlined text-[16px]">school</span> Africadôme Campus Pro
+            </div>
+            <h2 class="text-headline-lg md:text-headline-xl text-white">Formations &amp; masterclasses certifiantes</h2>
+            <p class="text-body-md text-on-surface-variant mt-1">Montez en compétences aux côtés des créateurs chevronnés du continent.</p>
+          </div>
+          <a href="apprendre.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-surface-container-high text-white text-title-sm hover:bg-primary hover:text-on-primary transition-all self-start md:self-auto">
+            Découvrir le catalogue complet (40+) <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter-lg">
+          <div class="training-card group">
+            <div class="relative h-48 overflow-hidden">
+              <img src="studio-musique.jpg" alt="Ingénieurs du son devant une console de mixage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md text-primary text-label-badge px-2.5 py-1 rounded-md uppercase">12 modules</span>
+            </div>
+            <div class="p-space-md flex flex-col flex-1 justify-between">
+              <div>
+                <div class="flex items-center gap-2 text-label-meta text-secondary mb-1"><span class="material-symbols-outlined text-[14px]">verified</span>Certificat professionnel</div>
+                <h3 class="text-headline-md text-white group-hover:text-primary transition-colors mb-2">Production musicale &amp; mastering afro-pop</h3>
+                <p class="text-body-sm text-on-surface-variant mb-4">Structuration des stems, mixage et mastering pour le streaming.</p>
+              </div>
+              <div class="pt-space-sm border-t border-surface-container-highest flex items-center justify-between">
+                <span class="text-title-sm text-white">Gratuit (membres)</span>
+                <span class="text-label-meta text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">star</span>4,9/5</span>
+              </div>
+            </div>
+          </div>
+          <div class="training-card group">
+            <div class="relative h-48 overflow-hidden">
+              <img src="documentariste.jpg" alt="Un documentariste filme une rue animée" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md text-tertiary text-label-badge px-2.5 py-1 rounded-md uppercase">8 séances</span>
+            </div>
+            <div class="p-space-md flex flex-col flex-1 justify-between">
+              <div>
+                <div class="flex items-center gap-2 text-label-meta text-secondary mb-1"><span class="material-symbols-outlined text-[14px]">verified</span>Certificat professionnel</div>
+                <h3 class="text-headline-md text-white group-hover:text-primary transition-colors mb-2">Réalisation documentaire &amp; cinéma d'impact</h3>
+                <p class="text-body-sm text-on-surface-variant mb-4">Écriture de synopsis, négociation avec les diffuseurs et direction d'acteurs.</p>
+              </div>
+              <div class="pt-space-sm border-t border-surface-container-highest flex items-center justify-between">
+                <span class="text-title-sm text-white">Session novembre</span>
+                <span class="text-label-meta text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">star</span>4,8/5</span>
+              </div>
+            </div>
+          </div>
+          <div class="training-card group">
+            <div class="relative h-48 overflow-hidden">
+              <img src="journaliste-micro.jpg" alt="Une journaliste interviewe une commerçante au marché" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md text-primary text-label-badge px-2.5 py-1 rounded-md uppercase">6 modules</span>
+            </div>
+            <div class="p-space-md flex flex-col flex-1 justify-between">
+              <div>
+                <div class="flex items-center gap-2 text-label-meta text-secondary mb-1"><span class="material-symbols-outlined text-[14px]">verified</span>Certificat professionnel</div>
+                <h3 class="text-headline-md text-white group-hover:text-primary transition-colors mb-2">Journalisme mobile &amp; formats verticaux</h3>
+                <p class="text-body-sm text-on-surface-variant mb-4">Filmer, monter et diffuser des reportages au smartphone pour les réseaux et la TV.</p>
+              </div>
+              <div class="pt-space-sm border-t border-surface-container-highest flex items-center justify-between">
+                <span class="text-title-sm text-white">Accès immédiat</span>
+                <span class="text-label-meta text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">star</span>5,0/5</span>
+              </div>
+            </div>
+          </div>
+          <div class="training-card group">
+            <div class="relative h-48 overflow-hidden">
+              <img src="entrepreneurs.jpg" alt="Une intervenante présente des données devant une équipe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md text-secondary text-label-badge px-2.5 py-1 rounded-md uppercase">10 séances</span>
+            </div>
+            <div class="p-space-md flex flex-col flex-1 justify-between">
+              <div>
+                <div class="flex items-center gap-2 text-label-meta text-secondary mb-1"><span class="material-symbols-outlined text-[14px]">verified</span>Certificat professionnel</div>
+                <h3 class="text-headline-md text-white group-hover:text-primary transition-colors mb-2">Économie des médias &amp; monétisation créative</h3>
+                <p class="text-body-sm text-on-surface-variant mb-4">Droits d'auteur, partenariats de marques et monétisation d'audiences panafricaines.</p>
+              </div>
+              <div class="pt-space-sm border-t border-surface-container-highest flex items-center justify-between">
+                <span class="text-title-sm text-white">Session décembre</span>
+                <span class="text-label-meta text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">star</span>4,9/5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BANNIÈRE PARTENAIRES ================= -->
+    <section class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-2xl">
+      <div class="relative overflow-hidden rounded-3xl bg-surface-container p-space-lg md:p-space-2xl shadow-2xl">
+        <div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-primary/10 blur-2xl pointer-events-none"></div>
+        <div class="absolute top-0 right-1/3 w-64 h-64 rounded-full bg-secondary/10 blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+          <div class="lg:col-span-8 space-y-space-md">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-surface-container-high text-primary text-label-badge uppercase">
+              <span class="material-symbols-outlined text-[16px]">campaign</span> Espace bailleurs, fondations &amp; festivals
+            </div>
+            <h2 class="text-headline-lg md:text-headline-xl text-white">Vous proposez une bourse, une résidence ou un appel à candidatures ?</h2>
+            <p class="text-body-lg text-on-surface-variant max-w-2xl">Touchez plus de <strong class="text-white">25 000 créateurs</strong> à travers l'Afrique et sa diaspora. Africadôme référence gratuitement vos opportunités vérifiées.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md pt-space-xs">
+              <div class="flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary"><span class="material-symbols-outlined text-[18px]">verified</span></span><span class="text-body-sm">Audience 100 % qualifiée</span></div>
+              <div class="flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[18px]">speed</span></span><span class="text-body-sm">Publication sous 24 h</span></div>
+              <div class="flex items-center gap-3"><span class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary"><span class="material-symbols-outlined text-[18px]">insights</span></span><span class="text-body-sm">Rapport de candidatures</span></div>
+            </div>
+          </div>
+          <div class="lg:col-span-4 flex flex-col gap-space-sm items-stretch lg:items-end">
+            <a href="#" class="px-6 py-3.5 rounded-xl bg-primary-container text-on-primary-container text-title-sm font-bold hover:bg-primary transition-all shadow-lg flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-[20px]">add_circle</span> Déposer une opportunité
+            </a>
+            <a href="#" class="px-6 py-3.5 rounded-xl bg-surface-container-high hover:text-white text-title-sm transition-colors flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-[20px]">handshake</span> Devenir partenaire média
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-surface-container-lowest border-t border-surface-container-high mt-12">
+    <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div class="lg:col-span-2 space-y-4">
+        <img src="logo.png" alt="Africadôme" class="h-12 w-auto">
+        <p class="text-on-surface-variant max-w-md text-sm">L'écosystème médiatique panafricain dédié aux créateurs, innovateurs et bâtisseurs du continent. Une voix contemporaine, audacieuse et connectée pour faire rayonner l'Afrique.</p>
+        <div class="flex gap-2">
+          <a href="#" aria-label="Podcasts" class="social"><span class="material-symbols-outlined text-[18px]">podcasts</span></a>
+          <a href="#" aria-label="Vidéos" class="social"><span class="material-symbols-outlined text-[18px]">smart_display</span></a>
+          <a href="#" aria-label="Radio" class="social"><span class="material-symbols-outlined text-[18px]">radio</span></a>
+          <a href="#" aria-label="Flux RSS" class="social"><span class="material-symbols-outlined text-[18px]">rss_feed</span></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Explorer</h3>
+        <ul class="space-y-2 text-sm text-on-surface-variant">
+          <li><a href="videos.html" class="hover:text-on-surface">Vidéos &amp; Reportages</a></li>
+          <li><a href="radio.html#podcasts" class="hover:text-on-surface">Podcasts Originaux</a></li>
+          <li><a href="culture.html" class="hover:text-on-surface">Arts &amp; Cultures</a></li>
+          <li><a href="createurs.html" class="hover:text-on-surface">Portraits de Créateurs</a></li>
+          <li><a href="opportunites.html" class="hover:text-on-surface">Appels &amp; Bourses</a></li>
+          <li><a href="evenement.html" class="hover:text-on-surface">Événements Africadôme</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Radios</h3>
+        <ul class="space-y-2 text-sm text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Afro Inspiration</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Creative Talks</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>New African Sounds</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Business &amp; ICC</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Heritage</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Newsletter</h3>
+        <p class="text-sm text-on-surface-variant mb-3">Chaque vendredi, la sélection des meilleures créations et opportunités du continent.</p>
+        <form id="newsletter" class="flex">
+          <input type="email" required placeholder="votre.email@domaine.com" class="w-full bg-surface-container border border-surface-container-high rounded-l-lg px-3 py-2 text-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:border-primary">
+          <button class="bg-primary-container text-on-primary-container px-3 rounded-r-lg hover:bg-primary transition-colors" aria-label="S'abonner"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+        </form>
+        <p id="newsletterMsg" class="text-xs text-secondary mt-2 hidden">Merci ! Votre inscription est bien prise en compte.</p>
+      </div>
+    </div>
+    <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md py-6 border-t border-surface-container-high/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-on-surface-variant">
+      <p>© 2026 Africadôme Media Network. Tous droits réservés.</p>
+      <div class="flex gap-5"><a href="#" class="hover:text-on-surface">Mentions légales</a><a href="#" class="hover:text-on-surface">Confidentialité</a><a href="#" class="hover:text-on-surface">Contact</a></div>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+  <script src="opportunites.js"></script>
+</body>
+</html>

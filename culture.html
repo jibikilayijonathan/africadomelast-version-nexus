@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr">
+<head>
+  <meta charset="utf-8">
+  <script>try { if (localStorage.getItem("africadome-theme") === "light") document.documentElement.classList.add("light"); } catch (e) {}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture & arts visuels — Africadôme</title>
+  <meta name="description" content="Expositions, collections, marché de l'art et observatoire des restitutions du patrimoine africain.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind-config.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-surface font-sans text-on-surface antialiased">
+
+  <!-- ================= HEADER ================= -->
+  <header id="header" class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl border-b border-surface-container-high/80">
+    <div class="h-20 max-w-[1600px] mx-auto px-margin md:px-margin-md flex items-center justify-between gap-4">
+      <a href="#" class="shrink-0" aria-label="Africadôme - Accueil">
+        <img src="logo.png" alt="Africadôme — Créer • Produire • Entreprendre • Diffuser • Rayonner" class="h-10 sm:h-12 xl:h-10 2xl:h-12 w-auto">
+      </a>
+
+      <nav id="nav" class="hidden xl:flex items-center gap-1" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="videos.html" class="nav-link">Vidéos</a>
+        <a href="radio.html#podcasts" class="nav-link">Podcasts</a>
+        <a href="articles.html" class="nav-link">Articles</a>
+        <a href="radio.html" class="nav-link">Radio</a>
+        <div class="relative dropdown">
+          <button class="nav-link flex items-center gap-0.5" aria-expanded="false">
+            Afrique <span class="material-symbols-outlined text-[18px]">expand_more</span>
+          </button>
+          <div class="dropdown-menu absolute left-0 top-full mt-2 w-56 bg-surface-container-high rounded-xl p-2 shadow-2xl border border-surface-container-highest">
+            <a href="afrique.html" class="dropdown-item">Vue d'ensemble</a>
+            <a href="afrique.html?region=west" class="dropdown-item">Afrique de l'Ouest</a>
+            <a href="afrique.html?region=central" class="dropdown-item">Afrique Centrale</a>
+            <a href="afrique.html?region=east" class="dropdown-item">Afrique de l'Est</a>
+            <a href="afrique.html?region=south" class="dropdown-item">Afrique Australe</a>
+            <a href="afrique.html?region=north" class="dropdown-item">Afrique du Nord</a>
+            <a href="afrique.html?region=diaspora" class="dropdown-item">Diasporas</a>
+          </div>
+        </div>
+        <a href="culture.html" class="nav-link is-active" aria-current="page">Culture</a>
+        <a href="createurs.html" class="nav-link">Créateurs</a>
+        <a href="apprendre.html" class="nav-link">Apprendre</a>
+        <a href="opportunites.html" class="nav-link">Opportunités</a>
+      </nav>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <button id="themeBtn" aria-label="Passer en mode clair" title="Mode clair / sombre" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-[20px]">light_mode</span>
+        </button>
+        <button id="searchBtn" aria-label="Rechercher" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-[20px]">search</span>
+        </button>
+        <div class="relative dropdown hidden sm:block">
+          <button id="langBtn" class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors text-xs font-semibold" aria-expanded="false">
+            <span class="material-symbols-outlined text-[16px]">language</span>
+            <span id="langLabel">FR</span>
+            <span class="material-symbols-outlined text-[14px]">expand_more</span>
+          </button>
+          <div class="dropdown-menu absolute right-0 top-full mt-2 w-40 bg-surface-container-high rounded-xl p-2 shadow-2xl border border-surface-container-highest">
+            <button class="dropdown-item w-full text-left" data-lang="FR">Français</button>
+            <button class="dropdown-item w-full text-left" data-lang="EN">English</button>
+            <button class="dropdown-item w-full text-left" data-lang="PT">Português</button>
+            <button class="dropdown-item w-full text-left" data-lang="SW">Kiswahili</button>
+          </div>
+        </div>
+        <div class="h-5 w-px bg-surface-container-highest hidden sm:block"></div>
+        <a href="#" class="hidden sm:inline-flex px-4 py-2 rounded-lg bg-primary-container text-on-primary-container text-sm font-semibold hover:bg-primary transition-colors">Se connecter</a>
+        <a href="#" class="hidden md:inline-flex xl:hidden 2xl:inline-flex px-4 py-2 rounded-lg border border-outline-variant text-on-surface text-sm font-semibold hover:bg-surface-container-high transition-colors">S'inscrire</a>
+        <button id="burger" class="xl:hidden w-9 h-9 rounded-lg flex items-center justify-center hover:bg-surface-container-high" aria-label="Menu" aria-expanded="false">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Barre de recherche -->
+    <div id="searchBar" class="search-bar max-w-[1600px] mx-auto px-margin md:px-margin-md">
+      <div class="relative flex items-center pb-4">
+        <span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px]">search</span>
+        <input type="search" placeholder="Rechercher une vidéo, un podcast, un créateur…" class="w-full bg-surface-container-low text-on-surface pl-10 pr-4 py-3 rounded-lg text-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:bg-surface-container-high transition-colors">
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu mobile -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-x-0 bottom-0 top-20 z-40 bg-surface xl:hidden overflow-y-auto p-6">
+    <nav class="flex flex-col gap-1 text-lg">
+      <a href="index.html" class="mobile-link">Accueil</a>
+      <a href="videos.html" class="mobile-link">Vidéos</a>
+      <a href="radio.html#podcasts" class="mobile-link">Podcasts</a>
+      <a href="articles.html" class="mobile-link">Articles</a>
+      <a href="radio.html" class="mobile-link">Radio</a>
+      <a href="afrique.html" class="mobile-link">Afrique</a>
+      <a href="culture.html" class="mobile-link">Culture</a>
+      <a href="createurs.html" class="mobile-link">Créateurs</a>
+      <a href="apprendre.html" class="mobile-link">Apprendre</a>
+      <a href="opportunites.html" class="mobile-link">Opportunités</a>
+    </nav>
+    <div class="grid grid-cols-2 gap-3 mt-6">
+      <a href="#" class="text-center px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-semibold">Se connecter</a>
+      <a href="#" class="text-center px-4 py-3 rounded-lg border border-outline-variant font-semibold">S'inscrire</a>
+    </div>
+  </div>
+
+  <main class="pt-20">
+    <!-- ================= EN-TÊTE & FILTRES ================= -->
+    <section class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pt-space-xl pb-space-lg">
+      <nav aria-label="Fil d'Ariane" class="flex items-center gap-space-xs text-label-meta text-on-surface-variant/70 mb-space-sm">
+        <a href="index.html" class="hover:text-primary transition-colors">Accueil</a>
+        <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+        <span class="text-primary font-semibold">Culture &amp; arts visuels</span>
+        <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+        <span class="text-on-surface">Éditions &amp; galeries 2026</span>
+      </nav>
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg mb-space-xl">
+        <div class="max-w-4xl space-y-space-xs">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-primary text-label-badge uppercase"><span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>Pavillon numérique panafricain • Saison 2026</div>
+          <h1 class="text-headline-xl-mobile md:text-display-hero text-white !leading-tight">Culture, arts visuels &amp; <span class="text-primary italic">héritage contemporain</span></h1>
+          <p class="text-body-lg text-on-surface-variant max-w-3xl pt-space-xs">Du patrimoine restitué aux avant-gardes de l'art contemporain, du design bioclimatique à la haute couture sahélienne.</p>
+        </div>
+        <div class="flex items-center gap-space-md shrink-0 bg-surface-container px-space-md py-space-sm rounded-xl self-start lg:self-auto">
+          <div class="flex flex-col"><span class="text-label-badge uppercase text-on-surface-variant">Œuvres référencées</span><span class="text-headline-lg text-primary tnum">1 240+</span></div>
+          <div class="w-px h-8 bg-surface-container-highest"></div>
+          <div class="flex flex-col"><span class="text-label-badge uppercase text-on-surface-variant">Modèles 3D</span><span class="text-headline-lg text-secondary tnum">86</span></div>
+          <div class="w-px h-8 bg-surface-container-highest"></div>
+          <div class="flex flex-col"><span class="text-label-badge uppercase text-on-surface-variant">Lieux partenaires</span><span class="text-headline-lg text-white tnum">34</span></div>
+        </div>
+      </div>
+      <div id="artFilters" data-chip-group class="flex items-center gap-space-xs overflow-x-auto pb-space-xs no-scrollbar">
+        <button class="chip !px-5 !py-2.5 is-active" data-cat="">Tous les arts</button>
+        <button class="chip !px-5 !py-2.5" data-cat="sculpture">Arts plastiques &amp; sculptures</button>
+        <button class="chip !px-5 !py-2.5" data-cat="textile">Haute couture &amp; textile</button>
+        <button class="chip !px-5 !py-2.5" data-cat="photo">Photographie &amp; archives</button>
+        <button class="chip !px-5 !py-2.5" data-cat="architecture">Architecture &amp; espaces</button>
+        <button class="chip !px-5 !py-2.5" data-cat="design">Design &amp; artisanat d'art</button>
+        <button class="chip !px-5 !py-2.5" data-cat="litterature">Littérature &amp; pensées</button>
+      </div>
+    </section>
+
+    <!-- ================= EXPOSITION À LA UNE ================= -->
+    <section class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pb-space-2xl" data-cat-block="textile">
+      <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-surface-container-low group">
+        <img src="culture-expo-bogolan.jpg" alt="Grands tissus bogolan suspendus dans une galerie" class="w-full h-[560px] md:h-[620px] object-cover transition-transform duration-700 group-hover:scale-[1.02]">
+        <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest/90 via-surface-container-lowest/40 to-transparent"></div>
+        <div class="absolute top-4 left-4 right-4 md:top-6 md:left-6 md:right-6 flex flex-wrap items-center justify-between gap-space-sm z-10">
+          <div class="flex flex-wrap items-center gap-space-xs">
+            <span class="px-3 py-1.5 rounded-lg bg-secondary-container text-white text-label-badge uppercase flex items-center gap-1.5 shadow-lg"><span class="material-symbols-outlined text-[16px]">view_in_ar</span>Visite virtuelle 3D</span>
+            <span class="px-3 py-1.5 rounded-lg bg-surface-container-highest/90 backdrop-blur-md text-label-meta flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-primary">verified</span>Commissariat : Fatou Sylla</span>
+          </div>
+          <span class="px-3 py-1.5 rounded-lg bg-surface-container-lowest/80 backdrop-blur-md text-primary text-label-badge uppercase">À l'affiche jusqu'au 30 nov. 2026</span>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-space-md md:p-space-xl z-10 max-w-4xl space-y-space-md">
+          <div class="space-y-space-xs">
+            <span class="text-label-badge text-primary uppercase tracking-widest">Rétrospective majeure</span>
+            <h2 class="text-headline-xl md:text-[40px] md:leading-[48px] text-white font-extrabold">Les maîtres du bogolan et le futur du textile sahélien</h2>
+            <p class="text-body-md md:text-body-lg text-on-surface-variant max-w-2xl line-clamp-3 md:line-clamp-none">Une immersion au croisement des géométries maliennes, des teintures à la boue fermentée et des biomatériaux tissés en haute couture par les créateurs de Bamako et d'Abidjan.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+            <button class="px-6 py-3.5 rounded-xl bg-primary-container text-on-primary-container text-title-sm font-bold flex items-center gap-2 hover:bg-primary transition-all shadow-xl" data-soon="La visite virtuelle 3D ouvrira avec le lancement du pavillon numérique."><span class="material-symbols-outlined text-[20px]">explore</span>Entrer dans l'exposition virtuelle</button>
+            <button class="px-5 py-3.5 rounded-xl bg-surface-container-high/90 hover:bg-surface-bright text-white text-title-sm backdrop-blur-md transition-colors flex items-center gap-2" data-soon="Le catalogue des 48 œuvres sera disponible en téléchargement prochainement."><span class="material-symbols-outlined text-[20px] text-primary">menu_book</span>Catalogue (48 œuvres)</button>
+            <button id="audioGuide" class="px-5 py-3.5 rounded-xl bg-surface-container-high/90 hover:bg-surface-bright text-white text-title-sm backdrop-blur-md transition-colors flex items-center gap-2" aria-pressed="false"><span class="material-symbols-outlined text-[20px] text-secondary">headphones</span><span>Audioguide (24 min)</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COLLECTIONS ================= -->
+    <section class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pb-space-2xl">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm mb-space-lg">
+        <div class="space-y-1">
+          <span class="text-label-badge uppercase text-primary">Sélection curatée</span>
+          <h2 class="text-headline-lg md:text-headline-xl text-white">Collections remarquables &amp; galeries</h2>
+        </div>
+        <div class="flex items-center gap-space-xs">
+          <button id="artPrev" class="circle-btn" aria-label="Précédent"><span class="material-symbols-outlined text-[20px]">arrow_back</span></button>
+          <button id="artNext" class="circle-btn" aria-label="Suivant"><span class="material-symbols-outlined text-[20px]">arrow_forward</span></button>
+        </div>
+      </div>
+      <div id="artTrack" class="flex gap-gutter-lg overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth pb-2">
+        <article class="art-card group" data-cat="sculpture design">
+          <div class="art-thumb"><img src="culture-oeuvre-bronze.jpg" alt="Tête sculptée en résine sombre et filaments de bronze"><span class="art-tag text-primary">Sculpture numérique</span><span class="art-meta"><span class="material-symbols-outlined text-[14px] text-secondary">3d_rotation</span>Modèle 3D</span></div>
+          <div class="p-space-md flex-1 flex flex-col justify-between gap-space-sm">
+            <div class="space-y-space-xs">
+              <div class="flex items-center justify-between text-label-meta text-on-surface-variant"><span>Studio Oba</span><span class="text-primary font-semibold">Lagos • Nigéria</span></div>
+              <h3 class="art-title">Mémoires de bronze : les têtes d'Ifé réinterprétées en impression 3D et résine</h3>
+              <p class="text-body-sm text-on-surface-variant line-clamp-2">Une relecture contemporaine des chefs-d'œuvre d'Ifé, mêlant alliages anciens et polymères.</p>
+            </div>
+            <div class="flex items-center justify-between text-label-meta text-on-surface-variant pt-space-xs"><span>Galerie partenaire, Lagos</span><button class="text-primary hover:underline flex items-center gap-1" data-soon="La fiche détaillée de l'œuvre sera bientôt en ligne.">Voir la pièce <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button></div>
+          </div>
+        </article>
+        <article class="art-card group" data-cat="photo textile">
+          <div class="art-thumb"><img src="culture-oeuvre-indigo.jpg" alt="Mains d'une teinturière plongeant une étoffe dans une cuve d'indigo"><span class="art-tag text-tertiary-fixed">Photographie d'art</span><span class="art-meta"><span class="material-symbols-outlined text-[14px] text-primary">collections</span>16 tirages</span></div>
+          <div class="p-space-md flex-1 flex flex-col justify-between gap-space-sm">
+            <div class="space-y-space-xs">
+              <div class="flex items-center justify-between text-label-meta text-on-surface-variant"><span>Souleymane Bachir &amp; Awa Diallo</span><span class="text-primary font-semibold">Conakry • Guinée</span></div>
+              <h3 class="art-title">L'indigo sacré : portraits argentiques des maîtres teinturiers de Kindia</h3>
+              <p class="text-body-sm text-on-surface-variant line-clamp-2">Une documentation photographique au moyen format des savoir-faire de teinture végétale.</p>
+            </div>
+            <div class="flex items-center justify-between text-label-meta text-on-surface-variant pt-space-xs"><span>Exposition itinérante</span><button class="text-primary hover:underline flex items-center gap-1" data-soon="La fiche détaillée de l'œuvre sera bientôt en ligne.">Voir la pièce <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button></div>
+          </div>
+        </article>
+        <article class="art-card group" data-cat="sculpture">
+          <div class="art-thumb"><img src="culture-oeuvre-lave.jpg" alt="Sculpture monumentale en pierre volcanique"><span class="art-tag text-secondary">Art monumental</span><span class="art-meta"><span class="material-symbols-outlined text-[14px] text-primary">location_on</span>Parc de sculptures</span></div>
+          <div class="p-space-md flex-1 flex flex-col justify-between gap-space-sm">
+            <div class="space-y-space-xs">
+              <div class="flex items-center justify-between text-label-meta text-on-surface-variant"><span>Collectif Kivu Pierre</span><span class="text-primary font-semibold">Goma • RDC</span></div>
+              <h3 class="art-title">Afrofuturisme minéral : sculptures monumentales en pierre de lave</h3>
+              <p class="text-body-sm text-on-surface-variant line-clamp-2">Les roches volcaniques de la région de Goma façonnées en totems explorant la résilience congolaise.</p>
+            </div>
+            <div class="flex items-center justify-between text-label-meta text-on-surface-variant pt-space-xs"><span>Parc de sculptures, Goma</span><button class="text-primary hover:underline flex items-center gap-1" data-soon="La fiche détaillée de l'œuvre sera bientôt en ligne.">Voir la pièce <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button></div>
+          </div>
+        </article>
+        <article class="art-card group" data-cat="architecture design">
+          <div class="art-thumb"><img src="culture-oeuvre-terre.jpg" alt="Maquette d'un centre culturel en terre crue"><span class="art-tag text-primary">Design &amp; espace</span><span class="art-meta"><span class="material-symbols-outlined text-[14px] text-tertiary">architecture</span>Plan &amp; maquette</span></div>
+          <div class="p-space-md flex-1 flex flex-col justify-between gap-space-sm">
+            <div class="space-y-space-xs">
+              <div class="flex items-center justify-between text-label-meta text-on-surface-variant"><span>Atelier Sahel Terre</span><span class="text-primary font-semibold">Niamey • Niger</span></div>
+              <h3 class="art-title">Architecture bioclimatique : les palais de terre crue du Sahel revisités</h3>
+              <p class="text-body-sm text-on-surface-variant line-clamp-2">Repenser la climatisation passive des constructions soudano-sahéliennes à l'échelle de la ville.</p>
+            </div>
+            <div class="flex items-center justify-between text-label-meta text-on-surface-variant pt-space-xs"><span>Projet de recherche</span><button class="text-primary hover:underline flex items-center gap-1" data-soon="La fiche détaillée de l'œuvre sera bientôt en ligne.">Voir la pièce <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button></div>
+          </div>
+        </article>
+        <article class="art-card group" data-cat="textile design">
+          <div class="art-thumb"><img src="atelier-artiste.jpg" alt="Une artiste peint dans un atelier lumineux"><span class="art-tag text-primary">Peinture &amp; textile</span><span class="art-meta"><span class="material-symbols-outlined text-[14px] text-secondary">palette</span>Atelier ouvert</span></div>
+          <div class="p-space-md flex-1 flex flex-col justify-between gap-space-sm">
+            <div class="space-y-space-xs">
+              <div class="flex items-center justify-between text-label-meta text-on-surface-variant"><span>Résidence Africadôme</span><span class="text-primary font-semibold">Yaoundé • Cameroun</span></div>
+              <h3 class="art-title">Motifs vivants : quand la peinture rencontre le pagne contemporain</h3>
+              <p class="text-body-sm text-on-surface-variant line-clamp-2">Des toiles qui deviennent étoffes, fruit d'une résidence croisée entre peintres et stylistes.</p>
+            </div>
+            <div class="flex items-center justify-between text-label-meta text-on-surface-variant pt-space-xs"><span>Yaoundé Creative Lab</span><a href="opportunites.html" class="text-primary hover:underline flex items-center gap-1">Voir la résidence <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div>
+          </div>
+        </article>
+      </div>
+      <p data-empty class="hidden text-on-surface-variant py-8 text-center">Aucune collection dans cette catégorie pour le moment.</p>
+    </section>
+
+    <!-- ================= MARCHÉ DE L'ART ================= -->
+    <section class="w-full bg-surface-container-lowest py-space-2xl my-space-lg">
+      <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+        <div class="flex flex-col lg:flex-row items-start justify-between gap-space-lg mb-space-xl">
+          <div class="space-y-space-xs max-w-2xl">
+            <span class="text-label-badge uppercase text-primary">Baromètre économique &amp; éditorial</span>
+            <h2 class="text-headline-lg md:text-headline-xl text-white">Marché de l'art &amp; cote des créateurs panafricains</h2>
+            <p class="text-body-md text-on-surface-variant">Volumes des ventes par grande place du continent et analyse de la valeur patrimoniale face à la spéculation internationale.</p>
+          </div>
+          <span class="flex items-center gap-space-sm bg-surface-container px-4 py-2 rounded-xl text-label-meta"><span class="w-2.5 h-2.5 rounded-full bg-primary"></span>Données de démonstration — à remplacer par les chiffres de l'Observatoire</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-stretch">
+          <div class="lg:col-span-4 bg-surface-container rounded-2xl p-space-lg flex flex-col justify-between gap-space-md">
+            <div>
+              <div class="flex items-center justify-between mb-space-sm"><h3 class="text-headline-md text-white">Volumes par place de marché</h3><span class="text-label-meta text-primary font-semibold">Exemple</span></div>
+              <p class="text-body-sm text-on-surface-variant mb-space-md">Progression des ventes conclues sur le continent, en monnaies locales et devises.</p>
+              <div id="marketBars" class="space-y-space-sm">
+                <div><div class="flex justify-between text-body-sm mb-1"><span class="text-white font-medium">Le Cap</span><span class="text-primary font-bold tnum">18,9 M$ (+15 %)</span></div><div class="hub-bar !h-2.5 !bg-surface-container-high"><span class="bg-secondary" data-w="92"></span></div></div>
+                <div><div class="flex justify-between text-body-sm mb-1"><span class="text-white font-medium">Lagos</span><span class="text-primary font-bold tnum">14,2 M$ (+22 %)</span></div><div class="hub-bar !h-2.5 !bg-surface-container-high"><span class="bg-primary" data-w="78"></span></div></div>
+                <div><div class="flex justify-between text-body-sm mb-1"><span class="text-white font-medium">Marrakech</span><span class="text-primary font-bold tnum">9,4 M$ (+31 %)</span></div><div class="hub-bar !h-2.5 !bg-surface-container-high"><span class="bg-primary-container" data-w="58"></span></div></div>
+                <div><div class="flex justify-between text-body-sm mb-1"><span class="text-white font-medium">Dakar</span><span class="text-primary font-bold tnum">6,1 M$ (+44 %)</span></div><div class="hub-bar !h-2.5 !bg-surface-container-high"><span class="bg-tertiary-container" data-w="42"></span></div></div>
+              </div>
+            </div>
+            <div class="bg-surface-container-high/60 p-space-sm rounded-xl flex items-start gap-space-xs text-on-surface-variant text-body-sm"><span class="material-symbols-outlined text-primary text-[20px] shrink-0">insights</span><span>Une part croissante des acheteurs réside sur le continent ou dans la diaspora.</span></div>
+          </div>
+
+          <div class="lg:col-span-4 bg-surface-container rounded-2xl p-space-lg flex flex-col justify-between gap-space-md">
+            <div>
+              <div class="flex items-center justify-between mb-space-sm"><h3 class="text-headline-md text-white">Talents en forte ascension</h3><span class="material-symbols-outlined text-secondary">trending_up</span></div>
+              <p class="text-body-sm text-on-surface-variant mb-space-sm">Indice calculé selon la présence en institutions et l'évolution de la cote en galerie.</p>
+              <div class="space-y-space-sm">
+                <div class="rising"><div class="flex items-center gap-space-sm"><span class="rising-avatar bg-primary/20 text-primary">AD</span><div><h4 class="text-title-sm text-white">Aminata Diop</h4><p class="text-label-meta text-on-surface-variant">Tapisserie d'art • Abidjan</p></div></div><svg class="w-16 h-8 text-secondary shrink-0" fill="none" viewBox="0 0 64 32" aria-hidden="true"><path d="M2 28L18 20L34 22L48 10L62 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/></svg></div>
+                <div class="rising"><div class="flex items-center gap-space-sm"><span class="rising-avatar bg-secondary/20 text-secondary">KO</span><div><h4 class="text-title-sm text-white">Kwabena Owusu</h4><p class="text-label-meta text-on-surface-variant">Sculpture sur bois • Accra</p></div></div><svg class="w-16 h-8 text-primary shrink-0" fill="none" viewBox="0 0 64 32" aria-hidden="true"><path d="M2 24L20 22L36 12L50 14L62 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/></svg></div>
+                <div class="rising"><div class="flex items-center gap-space-sm"><span class="rising-avatar bg-tertiary/20 text-tertiary">ZA</span><div><h4 class="text-title-sm text-white">Zineb Alaoui</h4><p class="text-label-meta text-on-surface-variant">Pigments minéraux • Casablanca</p></div></div><svg class="w-16 h-8 text-secondary shrink-0" fill="none" viewBox="0 0 64 32" aria-hidden="true"><path d="M2 30L16 26L32 18L46 8L62 2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/></svg></div>
+              </div>
+            </div>
+            <button class="inline-flex items-center justify-center gap-2 text-primary text-title-sm hover:underline" data-soon="Le rapport de cote 2026 sera publié prochainement.">Consulter le rapport de cote 2026 <span class="material-symbols-outlined text-[16px]">arrow_forward</span></button>
+          </div>
+
+          <div class="lg:col-span-4 bg-gradient-to-br from-surface-container via-surface-container-high to-surface-container rounded-2xl p-space-lg flex flex-col justify-between">
+            <div class="space-y-space-md">
+              <div class="flex items-center gap-space-xs"><span class="px-2.5 py-1 rounded bg-primary-container text-on-primary-container text-label-badge uppercase">Tribune</span><span class="text-label-meta text-on-surface-variant">6 min de lecture</span></div>
+              <h3 class="text-headline-lg text-white leading-tight">« Investir dans la création locale sans spéculation déracinée »</h3>
+              <p class="text-body-md text-on-surface-variant italic">« Le défi des dix prochaines années n'est plus la visibilité de l'art africain à Londres ou New York, mais la constitution de fondations, de réserves muséales et de cercles de mécènes sur le continent. »</p>
+              <div class="flex items-center gap-space-sm pt-space-xs">
+                <span class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold text-title-sm">NK</span>
+                <div class="flex flex-col"><span class="text-title-sm text-white">Nadège Kponou</span><span class="text-label-meta text-on-surface-variant">Commissaire d'exposition indépendante</span></div>
+              </div>
+            </div>
+            <a href="articles.html" class="mt-space-md w-full py-2.5 rounded-lg bg-surface-container-highest hover:bg-surface-bright text-title-sm transition-colors flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">article</span>Lire la tribune</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RESTITUTIONS & PATRIMOINE ================= -->
+    <section class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-xl" data-cat-block="photo sculpture">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl">
+        <div class="space-y-space-xs max-w-3xl">
+          <span class="text-label-badge uppercase text-secondary">Mémoire &amp; accès ouvert</span>
+          <h2 class="text-headline-lg md:text-headline-xl text-white">L'observatoire des restitutions &amp; du patrimoine numérisé</h2>
+          <p class="text-body-lg text-on-surface-variant">Suivi des œuvres restituées ou prêtées aux pays d'origine et des grands projets de numérisation du patrimoine africain.</p>
+        </div>
+        <a href="#carnet" class="px-4 py-2.5 rounded-lg bg-secondary text-on-secondary text-title-sm font-bold flex items-center gap-2 hover:bg-secondary-container hover:text-white transition-colors shrink-0"><span class="material-symbols-outlined text-[18px]">notifications</span>Être averti de l'ouverture de la banque 3D</a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg">
+        <div class="heritage-card group">
+          <div class="space-y-space-sm">
+            <div class="flex items-center justify-between gap-2">
+              <span class="px-2.5 py-1 rounded-full bg-secondary-container/30 text-secondary text-label-badge uppercase flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary"></span>Restitué • Novembre 2021</span>
+              <span class="text-label-meta text-on-surface-variant">Bénin / France</span>
+            </div>
+            <div class="heritage-thumb"><img src="culture-patrimoine-abomey.jpg" alt="Illustration : statue royale sculptée"><span class="heritage-chip">Image d'illustration</span></div>
+            <div>
+              <h3 class="text-headline-md text-white group-hover:text-primary transition-colors">Les trésors royaux d'Abomey</h3>
+              <p class="text-body-sm text-on-surface-variant pt-1">26 œuvres du royaume de Dahomey, dont des statues royales, restituées par la France au Bénin en novembre 2021.</p>
+            </div>
+          </div>
+          <div class="heritage-foot"><span class="text-on-surface-variant">26 œuvres restituées</span><a href="articles.html" class="text-primary hover:text-white flex items-center gap-1">Lire le dossier <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div>
+        </div>
+        <div class="heritage-card group">
+          <div class="space-y-space-sm">
+            <div class="flex items-center justify-between gap-2">
+              <span class="px-2.5 py-1 rounded-full bg-primary-container/30 text-primary text-label-badge uppercase flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span>Prêt • 2024</span>
+              <span class="text-label-meta text-on-surface-variant">Ghana / Royaume-Uni</span>
+            </div>
+            <div class="heritage-thumb"><img src="culture-patrimoine-asante.jpg" alt="Illustration : insigne royal en or"><span class="heritage-chip">Image d'illustration</span></div>
+            <div>
+              <h3 class="text-headline-md text-white group-hover:text-primary transition-colors">L'or royal asante de retour à Kumasi</h3>
+              <p class="text-body-sm text-on-surface-variant pt-1">32 objets d'orfèvrerie asante prêtés en 2024 par des musées britanniques au musée du palais de Manhyia, pour le jubilé d'argent de l'Asantehene.</p>
+            </div>
+          </div>
+          <div class="heritage-foot"><span class="text-on-surface-variant">32 pièces prêtées</span><a href="articles.html" class="text-primary hover:text-white flex items-center gap-1">Lire le dossier <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div>
+        </div>
+        <div class="heritage-card group">
+          <div class="space-y-space-sm">
+            <div class="flex items-center justify-between gap-2">
+              <span class="px-2.5 py-1 rounded-full bg-secondary-container/30 text-secondary text-label-badge uppercase flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary"></span>Numérisation</span>
+              <span class="text-label-meta text-on-surface-variant">Mali / Tombouctou</span>
+            </div>
+            <div class="heritage-thumb"><img src="culture-patrimoine-tombouctou.jpg" alt="Illustration : manuscrit ancien enluminé"><span class="heritage-chip">Image d'illustration</span></div>
+            <div>
+              <h3 class="text-headline-md text-white group-hover:text-primary transition-colors">Les manuscrits de Tombouctou</h3>
+              <p class="text-body-sm text-on-surface-variant pt-1">Des projets de numérisation rendent accessibles en ligne une partie de ces manuscrits, témoins de siècles de savoirs en sciences, droit et religion.</p>
+            </div>
+          </div>
+          <div class="heritage-foot"><span class="text-on-surface-variant">Archives en ligne</span><a href="articles.html" class="text-primary hover:text-white flex items-center gap-1">Lire le dossier <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CARNET DES CONSERVATEURS ================= -->
+    <section id="carnet" class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pb-space-2xl pt-space-md">
+      <div class="relative rounded-2xl overflow-hidden bg-gradient-to-r from-surface-container-low via-surface-container to-surface-container-low p-space-lg md:p-space-2xl shadow-xl">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+          <div class="lg:col-span-7 space-y-space-sm">
+            <span class="text-label-badge uppercase tracking-widest text-primary">Le carnet des conservateurs • Hebdomadaire</span>
+            <h2 class="text-headline-lg md:text-headline-xl text-white">Recevez chaque dimanche les coulisses des biennales, vernissages et analyses de cote.</h2>
+            <p class="text-body-lg text-on-surface-variant max-w-xl">Pour les directeurs d'institutions, commissaires d'exposition, architectes et collectionneurs passionnés par les scènes visuelles d'Afrique et de ses diasporas.</p>
+            <div class="flex flex-wrap items-center gap-space-md pt-space-xs text-label-meta text-on-surface-variant/80">
+              <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>Invitations aux vernissages</span>
+              <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>Analyses des ventes</span>
+              <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>Désabonnement en 1 clic</span>
+            </div>
+          </div>
+          <div class="lg:col-span-5">
+            <form id="curatorForm" class="bg-surface-container-high/90 backdrop-blur-xl p-space-md md:p-space-lg rounded-xl shadow-lg space-y-space-sm">
+              <label class="block space-y-1"><span class="text-title-sm text-white">Votre adresse e-mail</span>
+                <span class="relative block"><span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">mail</span><input type="email" required placeholder="vous@institution.org" class="w-full bg-surface-container rounded-lg pl-11 pr-4 py-3 text-body-md text-white placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary"></span>
+              </label>
+              <label class="block space-y-1"><span class="text-title-sm text-white">Votre profil</span>
+                <span class="relative block"><select class="select-field !bg-surface-container !text-white"><option>Commissaire / conservateur</option><option>Collectionneur / mécène</option><option>Artiste / designer / architecte</option><option>Amateur d'art / étudiant</option></select><span class="material-symbols-outlined select-caret">expand_more</span></span>
+              </label>
+              <button class="w-full py-3.5 rounded-lg bg-primary-container text-on-primary-container text-title-sm font-bold hover:bg-primary transition-all shadow-md flex items-center justify-center gap-2">S'abonner au carnet <span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+              <p id="curatorMsg" class="text-[11px] leading-4 text-on-surface-variant/60 text-center">Votre adresse n'est utilisée que pour l'envoi du carnet.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-surface-container-lowest border-t border-surface-container-high mt-12">
+    <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div class="lg:col-span-2 space-y-4">
+        <img src="logo.png" alt="Africadôme" class="h-12 w-auto">
+        <p class="text-on-surface-variant max-w-md text-sm">L'écosystème médiatique panafricain dédié aux créateurs, innovateurs et bâtisseurs du continent. Une voix contemporaine, audacieuse et connectée pour faire rayonner l'Afrique.</p>
+        <div class="flex gap-2">
+          <a href="#" aria-label="Podcasts" class="social"><span class="material-symbols-outlined text-[18px]">podcasts</span></a>
+          <a href="#" aria-label="Vidéos" class="social"><span class="material-symbols-outlined text-[18px]">smart_display</span></a>
+          <a href="#" aria-label="Radio" class="social"><span class="material-symbols-outlined text-[18px]">radio</span></a>
+          <a href="#" aria-label="Flux RSS" class="social"><span class="material-symbols-outlined text-[18px]">rss_feed</span></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Explorer</h3>
+        <ul class="space-y-2 text-sm text-on-surface-variant">
+          <li><a href="videos.html" class="hover:text-on-surface">Vidéos &amp; Reportages</a></li>
+          <li><a href="radio.html#podcasts" class="hover:text-on-surface">Podcasts Originaux</a></li>
+          <li><a href="culture.html" class="hover:text-on-surface">Arts &amp; Cultures</a></li>
+          <li><a href="createurs.html" class="hover:text-on-surface">Portraits de Créateurs</a></li>
+          <li><a href="opportunites.html" class="hover:text-on-surface">Appels &amp; Bourses</a></li>
+          <li><a href="evenement.html" class="hover:text-on-surface">Événements Africadôme</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Radios</h3>
+        <ul class="space-y-2 text-sm text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Afro Inspiration</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Creative Talks</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>New African Sounds</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Business &amp; ICC</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Heritage</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Newsletter</h3>
+        <p class="text-sm text-on-surface-variant mb-3">Chaque vendredi, la sélection des meilleures créations et opportunités du continent.</p>
+        <form id="newsletter" class="flex">
+          <input type="email" required placeholder="votre.email@domaine.com" class="w-full bg-surface-container border border-surface-container-high rounded-l-lg px-3 py-2 text-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:border-primary">
+          <button class="bg-primary-container text-on-primary-container px-3 rounded-r-lg hover:bg-primary transition-colors" aria-label="S'abonner"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+        </form>
+        <p id="newsletterMsg" class="text-xs text-secondary mt-2 hidden">Merci ! Votre inscription est bien prise en compte.</p>
+      </div>
+    </div>
+    <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md py-6 border-t border-surface-container-high/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-on-surface-variant">
+      <p>© 2026 Africadôme Media Network. Tous droits réservés.</p>
+      <div class="flex gap-5"><a href="#" class="hover:text-on-surface">Mentions légales</a><a href="#" class="hover:text-on-surface">Confidentialité</a><a href="#" class="hover:text-on-surface">Contact</a></div>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+  <script src="culture.js"></script>
+</body>
+</html>

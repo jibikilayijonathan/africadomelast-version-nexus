@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr">
+<head>
+  <meta charset="utf-8">
+  <script>try { if (localStorage.getItem("africadome-theme") === "light") document.documentElement.classList.add("light"); } catch (e) {}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Créateurs — Africadôme</title>
+  <meta name="description" content="L'annuaire des talents et créateurs panafricains : réalisateurs, musiciens, designers, journalistes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind-config.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-surface font-sans text-on-surface antialiased">
+
+  <!-- ================= HEADER ================= -->
+  <header id="header" class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl border-b border-surface-container-high/80">
+    <div class="h-20 max-w-[1600px] mx-auto px-margin md:px-margin-md flex items-center justify-between gap-4">
+      <a href="#" class="shrink-0" aria-label="Africadôme - Accueil">
+        <img src="logo.png" alt="Africadôme — Créer • Produire • Entreprendre • Diffuser • Rayonner" class="h-10 sm:h-12 xl:h-10 2xl:h-12 w-auto">
+      </a>
+
+      <nav id="nav" class="hidden xl:flex items-center gap-1" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="videos.html" class="nav-link">Vidéos</a>
+        <a href="radio.html#podcasts" class="nav-link">Podcasts</a>
+        <a href="articles.html" class="nav-link">Articles</a>
+        <a href="radio.html" class="nav-link">Radio</a>
+        <div class="relative dropdown">
+          <button class="nav-link flex items-center gap-0.5" aria-expanded="false">
+            Afrique <span class="material-symbols-outlined text-[18px]">expand_more</span>
+          </button>
+          <div class="dropdown-menu absolute left-0 top-full mt-2 w-56 bg-surface-container-high rounded-xl p-2 shadow-2xl border border-surface-container-highest">
+            <a href="afrique.html" class="dropdown-item">Vue d'ensemble</a>
+            <a href="afrique.html?region=west" class="dropdown-item">Afrique de l'Ouest</a>
+            <a href="afrique.html?region=central" class="dropdown-item">Afrique Centrale</a>
+            <a href="afrique.html?region=east" class="dropdown-item">Afrique de l'Est</a>
+            <a href="afrique.html?region=south" class="dropdown-item">Afrique Australe</a>
+            <a href="afrique.html?region=north" class="dropdown-item">Afrique du Nord</a>
+            <a href="afrique.html?region=diaspora" class="dropdown-item">Diasporas</a>
+          </div>
+        </div>
+        <a href="culture.html" class="nav-link">Culture</a>
+        <a href="createurs.html" class="nav-link is-active" aria-current="page">Créateurs</a>
+        <a href="apprendre.html" class="nav-link">Apprendre</a>
+        <a href="opportunites.html" class="nav-link">Opportunités</a>
+      </nav>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <button id="themeBtn" aria-label="Passer en mode clair" title="Mode clair / sombre" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-[20px]">light_mode</span>
+        </button>
+        <button id="searchBtn" aria-label="Rechercher" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-[20px]">search</span>
+        </button>
+        <div class="relative dropdown hidden sm:block">
+          <button id="langBtn" class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors text-xs font-semibold" aria-expanded="false">
+            <span class="material-symbols-outlined text-[16px]">language</span>
+            <span id="langLabel">FR</span>
+            <span class="material-symbols-outlined text-[14px]">expand_more</span>
+          </button>
+          <div class="dropdown-menu absolute right-0 top-full mt-2 w-40 bg-surface-container-high rounded-xl p-2 shadow-2xl border border-surface-container-highest">
+            <button class="dropdown-item w-full text-left" data-lang="FR">Français</button>
+            <button class="dropdown-item w-full text-left" data-lang="EN">English</button>
+            <button class="dropdown-item w-full text-left" data-lang="PT">Português</button>
+            <button class="dropdown-item w-full text-left" data-lang="SW">Kiswahili</button>
+          </div>
+        </div>
+        <div class="h-5 w-px bg-surface-container-highest hidden sm:block"></div>
+        <a href="#" class="hidden sm:inline-flex px-4 py-2 rounded-lg bg-primary-container text-on-primary-container text-sm font-semibold hover:bg-primary transition-colors">Se connecter</a>
+        <a href="#" class="hidden md:inline-flex xl:hidden 2xl:inline-flex px-4 py-2 rounded-lg border border-outline-variant text-on-surface text-sm font-semibold hover:bg-surface-container-high transition-colors">S'inscrire</a>
+        <button id="burger" class="xl:hidden w-9 h-9 rounded-lg flex items-center justify-center hover:bg-surface-container-high" aria-label="Menu" aria-expanded="false">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Barre de recherche -->
+    <div id="searchBar" class="search-bar max-w-[1600px] mx-auto px-margin md:px-margin-md">
+      <div class="relative flex items-center pb-4">
+        <span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px]">search</span>
+        <input type="search" placeholder="Rechercher une vidéo, un podcast, un créateur…" class="w-full bg-surface-container-low text-on-surface pl-10 pr-4 py-3 rounded-lg text-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:bg-surface-container-high transition-colors">
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu mobile -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-x-0 bottom-0 top-20 z-40 bg-surface xl:hidden overflow-y-auto p-6">
+    <nav class="flex flex-col gap-1 text-lg">
+      <a href="index.html" class="mobile-link">Accueil</a>
+      <a href="videos.html" class="mobile-link">Vidéos</a>
+      <a href="radio.html#podcasts" class="mobile-link">Podcasts</a>
+      <a href="articles.html" class="mobile-link">Articles</a>
+      <a href="radio.html" class="mobile-link">Radio</a>
+      <a href="afrique.html" class="mobile-link">Afrique</a>
+      <a href="culture.html" class="mobile-link">Culture</a>
+      <a href="createurs.html" class="mobile-link">Créateurs</a>
+      <a href="apprendre.html" class="mobile-link">Apprendre</a>
+      <a href="opportunites.html" class="mobile-link">Opportunités</a>
+    </nav>
+    <div class="grid grid-cols-2 gap-3 mt-6">
+      <a href="#" class="text-center px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-semibold">Se connecter</a>
+      <a href="#" class="text-center px-4 py-3 rounded-lg border border-outline-variant font-semibold">S'inscrire</a>
+    </div>
+  </div>
+
+  <main class="pt-20">
+    <!-- ================= EN-TÊTE & MÉTRIQUES ================= -->
+    <div class="relative w-full overflow-hidden">
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-gradient-to-b from-primary-container/15 via-primary/5 to-transparent blur-3xl pointer-events-none rounded-full"></div>
+      <div class="absolute top-20 right-10 w-96 h-96 bg-secondary/10 blur-[110px] pointer-events-none rounded-full"></div>
+      <section class="relative max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pt-space-xl pb-space-2xl">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-xl">
+          <div class="max-w-4xl space-y-space-md">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-primary text-label-badge uppercase">
+              <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span> Écosystème panafricain créatif 2026
+            </div>
+            <h1 class="text-headline-xl-mobile md:text-display-hero text-white">
+              L'annuaire des <span class="bg-gradient-to-r from-primary via-primary-container to-secondary bg-clip-text text-transparent">talents &amp; créateurs</span> panafricains
+            </h1>
+            <p class="text-body-lg text-on-surface-variant max-w-3xl">Découvrez, collaborez et connectez-vous avec les réalisateurs, musiciens, photographes, designers et créateurs numériques qui façonnent la culture africaine contemporaine.</p>
+          </div>
+          <div class="flex flex-wrap sm:flex-nowrap items-center gap-space-sm shrink-0">
+            <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary-container text-on-primary-container text-title-sm font-bold shadow-lg hover:bg-primary transition-all">
+              <span class="material-symbols-outlined text-[20px]">badge</span> Rejoindre le réseau
+            </a>
+            <a href="#collaborations" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-surface-container-high text-title-sm hover:bg-surface-bright transition-colors">
+              <span class="material-symbols-outlined text-[20px]">handshake</span> Proposer une collaboration
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-gutter mt-space-2xl">
+          <div class="metric-tile">
+            <div class="flex items-center justify-between mb-2"><span class="text-label-badge uppercase text-on-surface-variant">Créateurs vérifiés</span><span class="material-symbols-outlined text-primary text-[20px]">verified</span></div>
+            <div class="text-headline-lg md:text-headline-xl text-white tnum">4 820+</div>
+            <p class="text-body-sm text-on-surface-variant mt-1">Profils audités avec showreel actif</p>
+            <div class="metric-bar"><div class="bg-primary" style="width:88%"></div></div>
+          </div>
+          <div class="metric-tile">
+            <div class="flex items-center justify-between mb-2"><span class="text-label-badge uppercase text-on-surface-variant">Filières &amp; métiers</span><span class="material-symbols-outlined text-secondary text-[20px]">category</span></div>
+            <div class="text-headline-lg md:text-headline-xl text-white tnum">32</div>
+            <p class="text-body-sm text-on-surface-variant mt-1">De la 3D à la production afrobeats</p>
+            <div class="metric-bar"><div class="bg-secondary" style="width:74%"></div></div>
+          </div>
+          <div class="metric-tile">
+            <div class="flex items-center justify-between mb-2"><span class="text-label-badge uppercase text-on-surface-variant">Présence géographique</span><span class="material-symbols-outlined text-tertiary text-[20px]">public</span></div>
+            <div class="text-headline-lg md:text-headline-xl text-white tnum">45 pays</div>
+            <p class="text-body-sm text-on-surface-variant mt-1">Continent + diasporas mondiales</p>
+            <div class="metric-bar"><div class="bg-tertiary" style="width:92%"></div></div>
+          </div>
+          <div class="metric-tile">
+            <div class="flex items-center justify-between mb-2"><span class="text-label-badge uppercase text-on-surface-variant">Co-créations actées</span><span class="material-symbols-outlined text-primary-fixed text-[20px]">hub</span></div>
+            <div class="text-headline-lg md:text-headline-xl text-white tnum">850+</div>
+            <p class="text-body-sm text-on-surface-variant mt-1">Projets nés via Africadôme</p>
+            <div class="metric-bar"><div class="bg-primary-container" style="width:80%"></div></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= RECHERCHE & FILTRES ================= -->
+    <section class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg mb-space-xl">
+      <div class="bg-surface-container-low p-space-lg rounded-xl space-y-space-md shadow-md">
+        <div class="flex flex-col lg:flex-row gap-space-sm items-stretch">
+          <div class="relative flex-1">
+            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-[22px]">search</span>
+            <input id="creatorSearch" type="search" placeholder="Rechercher par talent, discipline (ex : beatmaker, DaVinci Resolve, Blender) ou mots-clés…" class="w-full pl-12 pr-4 py-3.5 rounded-lg bg-surface-container text-on-surface placeholder:text-on-surface-variant/60 text-body-md focus:outline-none focus:bg-surface-container-high transition-colors">
+          </div>
+          <div class="flex items-center gap-space-sm">
+            <div class="relative flex-1 lg:w-60">
+              <select id="creatorCountry" class="select-field select-field--alt">
+                <option value="">Tous les territoires</option>
+                <option value="sn">Sénégal (Dakar)</option>
+                <option value="ng">Nigéria (Lagos, Abuja)</option>
+                <option value="ci">Côte d'Ivoire (Abidjan)</option>
+                <option value="cm">Cameroun (Douala)</option>
+                <option value="ke">Kenya (Nairobi)</option>
+                <option value="za">Afrique du Sud (Johannesburg, Le Cap)</option>
+                <option value="ma">Maroc (Casablanca)</option>
+                <option value="diaspora">Diaspora européenne &amp; nord-américaine</option>
+              </select>
+              <span class="material-symbols-outlined select-caret">expand_more</span>
+            </div>
+            <div class="relative flex-1 lg:w-56">
+              <select id="creatorAvail" class="select-field select-field--alt">
+                <option value="">Disponibilité</option>
+                <option value="projets">Disponible immédiatement</option>
+                <option value="residence">En résidence de création</option>
+                <option value="mentor">Ouvert au mentorat</option>
+              </select>
+              <span class="material-symbols-outlined select-caret">event_available</span>
+            </div>
+          </div>
+        </div>
+        <div id="creatorChips" data-chip-group class="flex items-center gap-2 overflow-x-auto no-scrollbar pt-space-xs pb-1">
+          <button class="chip is-active" data-metier="">Tous les profils (4,8k)</button>
+          <button class="chip" data-metier="cinema">Réalisateurs &amp; cadreurs</button>
+          <button class="chip" data-metier="son">Producteurs son &amp; afrobeats</button>
+          <button class="chip" data-metier="3d">Illustrateurs &amp; animateurs 3D</button>
+          <button class="chip" data-metier="journalisme">Journalistes &amp; podcasteurs</button>
+          <button class="chip" data-metier="mojo">Créateurs MoJo &amp; formats courts</button>
+          <button class="chip" data-metier="mode">Photographes d'art &amp; mode</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TALENTS À LA UNE ================= -->
+    <section class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg mb-space-2xl">
+      <div class="flex items-center justify-between mb-space-lg gap-4">
+        <div class="flex items-center gap-space-sm flex-wrap">
+          <h2 class="text-headline-lg md:text-headline-xl text-white">Talents vérifiés à la une</h2>
+          <span class="px-2.5 py-0.5 rounded-full bg-secondary/15 text-secondary text-label-badge">TOP SÉLECTION</span>
+        </div>
+        <div class="flex items-center gap-2"><span class="text-body-sm text-on-surface-variant hidden sm:inline">Trié par impact &amp; récence</span><button class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-white transition-colors" aria-label="Réglages du tri" onclick="document.getElementById('creatorSearch').focus()"><span class="material-symbols-outlined text-[18px]">tune</span></button></div>
+      </div>
+
+      <div id="creatorGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter-lg">
+        <!-- Kemi Adeyemi -->
+        <article class="creator-card group" data-metier="son" data-country="ng" data-avail="projets">
+          <div class="relative h-48 overflow-hidden bg-surface-container-highest">
+            <img src="createurs-kemi-studio.jpg" alt="Studio de production musicale" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+            <div class="status-pill text-secondary"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>Disponible pour projets</div>
+            <button class="bookmark" data-toggle-fill aria-label="Ajouter aux favoris"><span class="material-symbols-outlined text-[18px]">bookmark</span></button>
+          </div>
+          <div class="p-space-lg flex-1 flex flex-col -mt-8 relative z-10">
+            <div class="flex items-end justify-between">
+              <div class="relative">
+                <img src="createurs-kemi-avatar.jpg" alt="Portrait de Kemi Adeyemi" class="w-16 h-16 rounded-xl object-cover shadow-md bg-surface-container">
+                <span class="verified-dot"><span class="material-symbols-outlined text-[12px]">check</span></span>
+              </div>
+              <span class="flex items-center gap-1 text-on-surface-variant text-label-meta"><span class="material-symbols-outlined text-[16px] text-primary">location_on</span>Lagos, Nigéria</span>
+            </div>
+            <div class="mt-space-md">
+              <h3 class="text-headline-md text-white group-hover:text-primary transition-colors">Kemi Adeyemi</h3>
+              <p class="text-title-sm text-primary mt-0.5">Productrice son &amp; beatmaker afrobeats</p>
+              <p class="text-body-sm text-on-surface-variant mt-2 line-clamp-2">Spécialiste de la fusion néo-highlife &amp; amapiano futuriste. Architecte sonore pour plus de 25 artistes.</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 my-space-md">
+              <span class="skill">Ableton Live 12</span><span class="skill">Sound design</span><span class="skill">Dolby Atmos</span><span class="skill">Amapiano</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2 py-3 px-3 rounded-lg bg-surface-container text-center mb-space-md">
+              <div><div class="text-title-sm text-white tnum">140M+</div><div class="text-label-meta text-on-surface-variant">Streams</div></div>
+              <div><div class="text-title-sm text-white tnum">38</div><div class="text-label-meta text-on-surface-variant">Albums</div></div>
+              <div><div class="text-title-sm text-secondary">2 prix</div><div class="text-label-meta text-on-surface-variant">Trophées</div></div>
+            </div>
+            <div class="mb-space-md">
+              <span class="text-label-meta uppercase tracking-wider text-on-surface-variant mb-2 block">Derniers projets récents</span>
+              <div class="grid grid-cols-3 gap-2">
+                <div class="thumb"><img src="createurs-kemi-p1.jpg" alt="Pochette d'album afro-futuriste"></div>
+                <div class="thumb"><img src="createurs-kemi-p2.jpg" alt="Console de mixage"></div>
+                <div class="thumb"><img src="createurs-kemi-p3.jpg" alt="Foule de concert"></div>
+              </div>
+            </div>
+            <div class="mt-auto grid grid-cols-2 gap-space-xs pt-space-xs">
+              <a href="#" class="btn-card"><span class="material-symbols-outlined text-[16px]">folder_open</span>Portfolio</a>
+              <a href="#" class="btn-card btn-card--amber"><span class="material-symbols-outlined text-[16px]">send</span>Collaborer</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Amadou Sow -->
+        <article class="creator-card group" data-metier="cinema" data-country="sn" data-avail="residence">
+          <div class="relative h-48 overflow-hidden bg-surface-container-highest">
+            <img src="createurs-amadou-goree.jpg" alt="Cadreur filmant au coucher du soleil" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+            <div class="status-pill text-primary"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>En résidence de création</div>
+            <button class="bookmark" data-toggle-fill aria-label="Ajouter aux favoris"><span class="material-symbols-outlined text-[18px]">bookmark</span></button>
+          </div>
+          <div class="p-space-lg flex-1 flex flex-col -mt-8 relative z-10">
+            <div class="flex items-end justify-between">
+              <div class="relative">
+                <img src="createurs-amadou-avatar.jpg" alt="Portrait d'Amadou Sow" class="w-16 h-16 rounded-xl object-cover shadow-md bg-surface-container">
+                <span class="verified-dot"><span class="material-symbols-outlined text-[12px]">check</span></span>
+              </div>
+              <span class="flex items-center gap-1 text-on-surface-variant text-label-meta"><span class="material-symbols-outlined text-[16px] text-primary">location_on</span>Dakar, Sénégal</span>
+            </div>
+            <div class="mt-space-md">
+              <h3 class="text-headline-md text-white group-hover:text-primary transition-colors">Amadou Sow</h3>
+              <p class="text-title-sm text-primary mt-0.5">Réalisateur documentaire &amp; directeur photo</p>
+              <p class="text-body-sm text-on-surface-variant mt-2 line-clamp-2">Explore les mémoires orales sahéliennes et l'écologie côtière. Sélectionné dans plusieurs festivals internationaux.</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 my-space-md">
+              <span class="skill">Caméra cinéma</span><span class="skill">Étalonnage HDR</span><span class="skill">Prise de son terrain</span><span class="skill">Drone</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2 py-3 px-3 rounded-lg bg-surface-container text-center mb-space-md">
+              <div><div class="text-title-sm text-white tnum">12</div><div class="text-label-meta text-on-surface-variant">Films docu</div></div>
+              <div><div class="text-title-sm text-secondary">4 prix</div><div class="text-label-meta text-on-surface-variant">Festivals</div></div>
+              <div><div class="text-title-sm text-white tnum">14</div><div class="text-label-meta text-on-surface-variant">Pays tournés</div></div>
+            </div>
+            <div class="mb-space-md">
+              <span class="text-label-meta uppercase tracking-wider text-on-surface-variant mb-2 block">Derniers projets récents</span>
+              <div class="grid grid-cols-3 gap-2">
+                <div class="thumb"><img src="createurs-amadou-p1.jpg" alt="Pirogues à l'aube"></div>
+                <div class="thumb"><img src="createurs-amadou-p2.jpg" alt="Architecture de Dakar au coucher du soleil"></div>
+                <div class="thumb"><img src="createurs-amadou-p3.jpg" alt="Griot jouant de la kora"></div>
+              </div>
+            </div>
+            <div class="mt-auto grid grid-cols-2 gap-space-xs pt-space-xs">
+              <a href="#" class="btn-card"><span class="material-symbols-outlined text-[16px]">folder_open</span>Portfolio</a>
+              <a href="#" class="btn-card btn-card--amber"><span class="material-symbols-outlined text-[16px]">send</span>Collaborer</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Nadia Mansouri -->
+        <article class="creator-card group" data-metier="3d" data-country="ma" data-avail="mentor">
+          <div class="relative h-48 overflow-hidden bg-surface-container-highest">
+            <img src="createurs-nadia-3d.jpg" alt="Écran de modélisation 3D afro-futuriste" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+            <div class="status-pill text-tertiary"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>Mentorat disponible</div>
+            <button class="bookmark" data-toggle-fill aria-label="Ajouter aux favoris"><span class="material-symbols-outlined text-[18px]">bookmark</span></button>
+          </div>
+          <div class="p-space-lg flex-1 flex flex-col -mt-8 relative z-10">
+            <div class="flex items-end justify-between">
+              <div class="relative">
+                <img src="createurs-nadia-avatar.jpg" alt="Portrait de Nadia Mansouri" class="w-16 h-16 rounded-xl object-cover shadow-md bg-surface-container">
+                <span class="verified-dot"><span class="material-symbols-outlined text-[12px]">check</span></span>
+              </div>
+              <span class="flex items-center gap-1 text-on-surface-variant text-label-meta"><span class="material-symbols-outlined text-[16px] text-primary">location_on</span>Casablanca, Maroc</span>
+            </div>
+            <div class="mt-space-md">
+              <h3 class="text-headline-md text-white group-hover:text-primary transition-colors">Nadia Mansouri</h3>
+              <p class="text-title-sm text-primary mt-0.5">Directrice artistique &amp; animatrice 3D</p>
+              <p class="text-body-sm text-on-surface-variant mt-2 line-clamp-2">Pionnière de l'animation CGI inspirée du zellige et des mythologies maghrébines.</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 my-space-md">
+              <span class="skill">Blender</span><span class="skill">Unreal Engine 5</span><span class="skill">Motion design</span><span class="skill">Branding</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2 py-3 px-3 rounded-lg bg-surface-container text-center mb-space-md">
+              <div><div class="text-title-sm text-white tnum">45+</div><div class="text-label-meta text-on-surface-variant">Campagnes</div></div>
+              <div><div class="text-title-sm text-secondary">3 prix</div><div class="text-label-meta text-on-surface-variant">Design</div></div>
+              <div><div class="text-title-sm text-white tnum">88k</div><div class="text-label-meta text-on-surface-variant">Abonnés</div></div>
+            </div>
+            <div class="mb-space-md">
+              <span class="text-label-meta uppercase tracking-wider text-on-surface-variant mb-2 block">Derniers projets récents</span>
+              <div class="grid grid-cols-3 gap-2">
+                <div class="thumb"><img src="createurs-nadia-p1.jpg" alt="Palais futuriste en 3D"></div>
+                <div class="thumb"><img src="createurs-nadia-p2.jpg" alt="Affiche typographique calligraphique"></div>
+                <div class="thumb"><img src="createurs-nadia-p3.jpg" alt="Tissage numérique en 3D"></div>
+              </div>
+            </div>
+            <div class="mt-auto grid grid-cols-2 gap-space-xs pt-space-xs">
+              <a href="#" class="btn-card"><span class="material-symbols-outlined text-[16px]">folder_open</span>Portfolio</a>
+              <a href="#" class="btn-card btn-card--amber"><span class="material-symbols-outlined text-[16px]">send</span>Collaborer</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p id="creatorEmpty" class="hidden text-on-surface-variant py-12 text-center">Aucun talent ne correspond à ces critères pour le moment.</p>
+
+      <div class="mt-space-xl flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-lg">
+        <div class="text-body-sm text-on-surface-variant">Affichage de <span id="creatorCount" class="text-white font-semibold">3</span> sur <span class="text-white font-semibold">4 820</span> talents enregistrés</div>
+        <div class="flex items-center gap-2">
+          <button class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface-variant" disabled aria-label="Page précédente"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button>
+          <button class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container text-title-sm">1</button>
+          <button class="w-10 h-10 rounded-lg bg-surface-container text-on-surface-variant hover:text-white text-title-sm">2</button>
+          <button class="w-10 h-10 rounded-lg bg-surface-container text-on-surface-variant hover:text-white text-title-sm">3</button>
+          <span class="text-on-surface-variant px-1">…</span>
+          <button class="w-10 h-10 rounded-lg bg-surface-container text-on-surface-variant hover:text-white text-title-sm">160</button>
+          <button class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-white" aria-label="Page suivante"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CRÉATRICE DU MOIS ================= -->
+    <section class="w-full bg-surface-container-lowest py-space-2xl my-space-xl relative overflow-hidden">
+      <div class="absolute -right-24 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <div class="relative max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+        <div class="flex items-center gap-3 mb-space-lg">
+          <span class="flex h-3 w-3 relative"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span></span>
+          <span class="text-label-badge uppercase text-primary">À la une • Couverture Africadôme octobre 2026</span>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+          <div class="lg:col-span-7 flex flex-col space-y-space-md">
+            <div class="relative rounded-2xl overflow-hidden aspect-[16/10] bg-surface-container-high shadow-2xl">
+              <img src="createurs-amani-plateau.jpg" alt="Une réalisatrice sur un plateau de tournage de nuit" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent"></div>
+              <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+                <span class="px-3 py-1 rounded-md bg-surface-container-lowest/80 backdrop-blur-md text-white text-label-badge">Prix du jury 2026</span>
+                <span class="px-2.5 py-1 rounded-md bg-secondary/80 text-on-secondary text-label-badge">Sélection officielle</span>
+              </div>
+              <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-4">
+                <div>
+                  <span class="text-label-meta text-primary">Extrait exclusif en avant-première</span>
+                  <h3 class="text-headline-md md:text-headline-lg text-white mt-1">« Les Échos du Grand Rift » (18 min)</h3>
+                </div>
+                <button class="w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-xl hover:scale-105 transition-transform shrink-0" aria-label="Lire l'extrait">
+                  <span class="material-symbols-outlined fill text-[32px]">play_arrow</span>
+                </button>
+              </div>
+            </div>
+            <div class="bg-surface-container-low p-4 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-[24px]">school</span>
+                <div>
+                  <p class="text-title-sm text-white">Masterclass exclusive sur Africadôme Campus</p>
+                  <p class="text-body-sm text-on-surface-variant">« Financer et tourner un long-métrage indépendant en Afrique de l'Est » (2 h 40)</p>
+                </div>
+              </div>
+              <a href="apprendre.html" class="px-4 py-2 rounded-lg bg-surface-container-high hover:bg-surface-bright text-title-sm shrink-0 transition-colors text-center">Rejoindre le cours</a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 flex flex-col space-y-space-md">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-label-meta text-on-surface-variant">Nairobi, Kenya</span><span class="text-on-surface-variant">•</span><span class="text-label-meta text-primary">Réalisatrice &amp; scénariste</span>
+              </div>
+              <h2 class="text-headline-xl text-white">Amani Wangari</h2>
+              <p class="text-body-md text-on-surface-variant mt-2">À 29 ans, sa caméra hybride insuffle un nouveau souffle au cinéma d'auteur kényan, entre mythologies kikuyu et cyberpunk urbain.</p>
+            </div>
+            <div class="space-y-space-sm pt-2">
+              <div class="bg-surface-container p-space-md rounded-xl">
+                <span class="text-label-badge text-primary uppercase">Q1. Votre vision du cinéma contemporain ?</span>
+                <p class="text-body-sm text-on-surface mt-1">« Cesser d'expliquer l'Afrique aux autres. Nous racontons nos drames, nos joies et nos futurs pour nous-mêmes d'abord. »</p>
+              </div>
+              <div class="bg-surface-container p-space-md rounded-xl">
+                <span class="text-label-badge text-secondary uppercase">Q2. Votre plus grande fierté technique ?</span>
+                <p class="text-body-sm text-on-surface mt-1">« Avoir réuni une équipe technique 100 % panafricaine venant de 7 pays, financée en monnaies locales et par des subventions régionales. »</p>
+              </div>
+              <div class="bg-surface-container p-space-md rounded-xl">
+                <span class="text-label-badge text-tertiary uppercase">Q3. Que cherchez-vous sur Africadôme ?</span>
+                <p class="text-body-sm text-on-surface mt-1">« Un compositeur d'instruments traditionnels éthiopiens et un studio VFX pour mon prochain film de science-fiction. »</p>
+              </div>
+            </div>
+            <div class="pt-2 flex items-center gap-space-sm">
+              <a href="#" class="flex-1 py-3 px-4 rounded-xl bg-primary text-on-primary text-title-sm font-bold hover:bg-primary-fixed transition-colors flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">mail</span> Proposer un projet à Amani
+              </a>
+              <button id="shareBtn" class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-white transition-colors" aria-label="Partager">
+                <span class="material-symbols-outlined text-[20px]">share</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BOURSE AUX COLLABORATIONS ================= -->
+    <section id="collaborations" class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pb-space-2xl">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md mb-space-lg">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="material-symbols-outlined text-secondary text-[22px]">rocket_launch</span>
+            <span class="text-label-badge uppercase text-secondary">Bourse aux collaborations</span>
+          </div>
+          <h2 class="text-headline-lg md:text-headline-xl text-white">Projets en quête de partenaires</h2>
+        </div>
+        <a href="#" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-high hover:bg-surface-bright text-title-sm transition-colors self-start sm:self-auto">
+          <span class="material-symbols-outlined text-[18px]">add_circle</span> Publier une annonce de collaboration
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+        <div class="collab-card group">
+          <div>
+            <div class="flex items-start justify-between gap-3 mb-space-sm">
+              <span class="px-2.5 py-1 rounded-full bg-secondary/15 text-secondary text-label-badge uppercase">Son &amp; Cinéma</span>
+              <span class="text-label-meta text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>Il y a 3 h</span>
+            </div>
+            <h3 class="text-title-sm text-white group-hover:text-primary transition-colors">Recherche sound designer pour court-métrage de science-fiction africain</h3>
+            <p class="text-body-sm text-on-surface-variant mt-2 line-clamp-3">Projet « Neo-Kush ». Besoin d'un univers sonore spatial incorporant percussions dogon et nappes modulaires.</p>
+            <div class="flex items-center gap-2 my-space-md">
+              <img src="createurs-moussa-avatar.jpg" alt="" class="w-7 h-7 rounded-full object-cover">
+              <span class="text-label-meta text-on-surface">Initiateur : Moussa Diallo (Bamako)</span>
+            </div>
+          </div>
+          <div class="pt-space-sm flex items-center justify-between">
+            <div class="flex items-center gap-2"><span class="tag-soft">Rémunéré</span><span class="tag-soft">Télétravail</span></div>
+            <a href="#" class="opp-card-link">Postuler <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+          </div>
+        </div>
+        <div class="collab-card group">
+          <div>
+            <div class="flex items-start justify-between gap-3 mb-space-sm">
+              <span class="px-2.5 py-1 rounded-full bg-primary-container/20 text-primary-container text-label-badge uppercase">Musique • Feat</span>
+              <span class="text-label-meta text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>Hier</span>
+            </div>
+            <h3 class="text-title-sm text-white group-hover:text-primary transition-colors">Beatmaker cherche voix soul / afropop pour EP studio à Abidjan</h3>
+            <p class="text-body-sm text-on-surface-variant mt-2 line-clamp-3">Recherche chanteuse ou vocaliste bilingue (français/anglais ou baoulé/yoruba) pour des refrains sur 4 titres.</p>
+            <div class="flex items-center gap-2 my-space-md">
+              <img src="createurs-cedric-avatar.jpg" alt="" class="w-7 h-7 rounded-full object-cover">
+              <span class="text-label-meta text-on-surface">Initiateur : Cédric « Vibe » K. (Abidjan)</span>
+            </div>
+          </div>
+          <div class="pt-space-sm flex items-center justify-between">
+            <div class="flex items-center gap-2"><span class="tag-soft">Royalties 50/50</span><span class="tag-soft">Studio sur place</span></div>
+            <a href="#" class="opp-card-link">Postuler <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+          </div>
+        </div>
+        <div class="collab-card group">
+          <div>
+            <div class="flex items-start justify-between gap-3 mb-space-sm">
+              <span class="px-2.5 py-1 rounded-full bg-tertiary-container/20 text-tertiary text-label-badge uppercase">Mode &amp; 3D digital</span>
+              <span class="text-label-meta text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>Il y a 2 j</span>
+            </div>
+            <h3 class="text-title-sm text-white group-hover:text-primary transition-colors">Modélisateur vêtement 3D pour capsule digitale à Dakar</h3>
+            <p class="text-body-sm text-on-surface-variant mt-2 line-clamp-3">Maison de couture recherche artiste 3D spécialisé dans la physique des tissus légers et l'intégration AR pour un défilé.</p>
+            <div class="flex items-center gap-2 my-space-md">
+              <img src="createurs-ndoye-avatar.jpg" alt="" class="w-7 h-7 rounded-full object-cover">
+              <span class="text-label-meta text-on-surface">Initiateur : Atelier N'Doye (Dakar)</span>
+            </div>
+          </div>
+          <div class="pt-space-sm flex items-center justify-between">
+            <div class="flex items-center gap-2"><span class="tag-soft">Contrat pro</span><span class="tag-soft">Hybride</span></div>
+            <a href="#" class="opp-card-link">Postuler <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-surface-container-lowest border-t border-surface-container-high mt-12">
+    <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div class="lg:col-span-2 space-y-4">
+        <img src="logo.png" alt="Africadôme" class="h-12 w-auto">
+        <p class="text-on-surface-variant max-w-md text-sm">L'écosystème médiatique panafricain dédié aux créateurs, innovateurs et bâtisseurs du continent. Une voix contemporaine, audacieuse et connectée pour faire rayonner l'Afrique.</p>
+        <div class="flex gap-2">
+          <a href="#" aria-label="Podcasts" class="social"><span class="material-symbols-outlined text-[18px]">podcasts</span></a>
+          <a href="#" aria-label="Vidéos" class="social"><span class="material-symbols-outlined text-[18px]">smart_display</span></a>
+          <a href="#" aria-label="Radio" class="social"><span class="material-symbols-outlined text-[18px]">radio</span></a>
+          <a href="#" aria-label="Flux RSS" class="social"><span class="material-symbols-outlined text-[18px]">rss_feed</span></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Explorer</h3>
+        <ul class="space-y-2 text-sm text-on-surface-variant">
+          <li><a href="videos.html" class="hover:text-on-surface">Vidéos &amp; Reportages</a></li>
+          <li><a href="radio.html#podcasts" class="hover:text-on-surface">Podcasts Originaux</a></li>
+          <li><a href="culture.html" class="hover:text-on-surface">Arts &amp; Cultures</a></li>
+          <li><a href="createurs.html" class="hover:text-on-surface">Portraits de Créateurs</a></li>
+          <li><a href="opportunites.html" class="hover:text-on-surface">Appels &amp; Bourses</a></li>
+          <li><a href="evenement.html" class="hover:text-on-surface">Événements Africadôme</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Radios</h3>
+        <ul class="space-y-2 text-sm text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Afro Inspiration</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Creative Talks</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>New African Sounds</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Business &amp; ICC</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Heritage</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Newsletter</h3>
+        <p class="text-sm text-on-surface-variant mb-3">Chaque vendredi, la sélection des meilleures créations et opportunités du continent.</p>
+        <form id="newsletter" class="flex">
+          <input type="email" required placeholder="votre.email@domaine.com" class="w-full bg-surface-container border border-surface-container-high rounded-l-lg px-3 py-2 text-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:border-primary">
+          <button class="bg-primary-container text-on-primary-container px-3 rounded-r-lg hover:bg-primary transition-colors" aria-label="S'abonner"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+        </form>
+        <p id="newsletterMsg" class="text-xs text-secondary mt-2 hidden">Merci ! Votre inscription est bien prise en compte.</p>
+      </div>
+    </div>
+    <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md py-6 border-t border-surface-container-high/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-on-surface-variant">
+      <p>© 2026 Africadôme Media Network. Tous droits réservés.</p>
+      <div class="flex gap-5"><a href="#" class="hover:text-on-surface">Mentions légales</a><a href="#" class="hover:text-on-surface">Confidentialité</a><a href="#" class="hover:text-on-surface">Contact</a></div>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+  <script src="createurs.js"></script>
+</body>
+</html>

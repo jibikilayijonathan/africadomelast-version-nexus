@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr">
+<head>
+  <meta charset="utf-8">
+  <script>try { if (localStorage.getItem("africadome-theme") === "light") document.documentElement.classList.add("light"); } catch (e) {}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apprendre — Africadôme Campus</title>
+  <meta name="description" content="Parcours certifiants et masterclasses aux métiers de l'audiovisuel, du son et des médias, avec bourses et paiement échelonné.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind-config.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-surface font-sans text-on-surface antialiased">
+
+  <!-- ================= HEADER ================= -->
+  <header id="header" class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl border-b border-surface-container-high/80">
+    <div class="h-20 max-w-[1600px] mx-auto px-margin md:px-margin-md flex items-center justify-between gap-4">
+      <a href="#" class="shrink-0" aria-label="Africadôme - Accueil">
+        <img src="logo.png" alt="Africadôme — Créer • Produire • Entreprendre • Diffuser • Rayonner" class="h-10 sm:h-12 xl:h-10 2xl:h-12 w-auto">
+      </a>
+
+      <nav id="nav" class="hidden xl:flex items-center gap-1" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="videos.html" class="nav-link">Vidéos</a>
+        <a href="radio.html#podcasts" class="nav-link">Podcasts</a>
+        <a href="articles.html" class="nav-link">Articles</a>
+        <a href="radio.html" class="nav-link">Radio</a>
+        <div class="relative dropdown">
+          <button class="nav-link flex items-center gap-0.5" aria-expanded="false">
+            Afrique <span class="material-symbols-outlined text-[18px]">expand_more</span>
+          </button>
+          <div class="dropdown-menu absolute left-0 top-full mt-2 w-56 bg-surface-container-high rounded-xl p-2 shadow-2xl border border-surface-container-highest">
+            <a href="afrique.html" class="dropdown-item">Vue d'ensemble</a>
+            <a href="afrique.html?region=west" class="dropdown-item">Afrique de l'Ouest</a>
+            <a href="afrique.html?region=central" class="dropdown-item">Afrique Centrale</a>
+            <a href="afrique.html?region=east" class="dropdown-item">Afrique de l'Est</a>
+            <a href="afrique.html?region=south" class="dropdown-item">Afrique Australe</a>
+            <a href="afrique.html?region=north" class="dropdown-item">Afrique du Nord</a>
+            <a href="afrique.html?region=diaspora" class="dropdown-item">Diasporas</a>
+          </div>
+        </div>
+        <a href="culture.html" class="nav-link">Culture</a>
+        <a href="createurs.html" class="nav-link">Créateurs</a>
+        <a href="apprendre.html" class="nav-link is-active" aria-current="page">Apprendre</a>
+        <a href="opportunites.html" class="nav-link">Opportunités</a>
+      </nav>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <button id="themeBtn" aria-label="Passer en mode clair" title="Mode clair / sombre" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-[20px]">light_mode</span>
+        </button>
+        <button id="searchBtn" aria-label="Rechercher" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-[20px]">search</span>
+        </button>
+        <div class="relative dropdown hidden sm:block">
+          <button id="langBtn" class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors text-xs font-semibold" aria-expanded="false">
+            <span class="material-symbols-outlined text-[16px]">language</span>
+            <span id="langLabel">FR</span>
+            <span class="material-symbols-outlined text-[14px]">expand_more</span>
+          </button>
+          <div class="dropdown-menu absolute right-0 top-full mt-2 w-40 bg-surface-container-high rounded-xl p-2 shadow-2xl border border-surface-container-highest">
+            <button class="dropdown-item w-full text-left" data-lang="FR">Français</button>
+            <button class="dropdown-item w-full text-left" data-lang="EN">English</button>
+            <button class="dropdown-item w-full text-left" data-lang="PT">Português</button>
+            <button class="dropdown-item w-full text-left" data-lang="SW">Kiswahili</button>
+          </div>
+        </div>
+        <div class="h-5 w-px bg-surface-container-highest hidden sm:block"></div>
+        <a href="#" class="hidden sm:inline-flex px-4 py-2 rounded-lg bg-primary-container text-on-primary-container text-sm font-semibold hover:bg-primary transition-colors">Se connecter</a>
+        <a href="#" class="hidden md:inline-flex xl:hidden 2xl:inline-flex px-4 py-2 rounded-lg border border-outline-variant text-on-surface text-sm font-semibold hover:bg-surface-container-high transition-colors">S'inscrire</a>
+        <button id="burger" class="xl:hidden w-9 h-9 rounded-lg flex items-center justify-center hover:bg-surface-container-high" aria-label="Menu" aria-expanded="false">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Barre de recherche -->
+    <div id="searchBar" class="search-bar max-w-[1600px] mx-auto px-margin md:px-margin-md">
+      <div class="relative flex items-center pb-4">
+        <span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px]">search</span>
+        <input type="search" placeholder="Rechercher une vidéo, un podcast, un créateur…" class="w-full bg-surface-container-low text-on-surface pl-10 pr-4 py-3 rounded-lg text-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:bg-surface-container-high transition-colors">
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu mobile -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-x-0 bottom-0 top-20 z-40 bg-surface xl:hidden overflow-y-auto p-6">
+    <nav class="flex flex-col gap-1 text-lg">
+      <a href="index.html" class="mobile-link">Accueil</a>
+      <a href="videos.html" class="mobile-link">Vidéos</a>
+      <a href="radio.html#podcasts" class="mobile-link">Podcasts</a>
+      <a href="articles.html" class="mobile-link">Articles</a>
+      <a href="radio.html" class="mobile-link">Radio</a>
+      <a href="afrique.html" class="mobile-link">Afrique</a>
+      <a href="culture.html" class="mobile-link">Culture</a>
+      <a href="createurs.html" class="mobile-link">Créateurs</a>
+      <a href="apprendre.html" class="mobile-link">Apprendre</a>
+      <a href="opportunites.html" class="mobile-link">Opportunités</a>
+    </nav>
+    <div class="grid grid-cols-2 gap-3 mt-6">
+      <a href="#" class="text-center px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-semibold">Se connecter</a>
+      <a href="#" class="text-center px-4 py-3 rounded-lg border border-outline-variant font-semibold">S'inscrire</a>
+    </div>
+  </div>
+
+  <main class="pt-20">
+    <!-- ================= HERO CAMPUS ================= -->
+    <div class="relative w-full overflow-hidden">
+      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="absolute top-20 right-10 w-[380px] h-[380px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none"></div>
+      <section class="relative z-10 max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pt-space-xl pb-space-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+          <div class="lg:col-span-7 space-y-space-md">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+              <span class="text-label-badge text-primary uppercase tracking-widest">Africadôme Campus • Formation professionnelle ICC</span>
+            </div>
+            <h1 class="text-headline-xl md:text-display-hero text-on-surface !leading-[1.08]">Maîtrisez les métiers de l'audiovisuel, du son et des médias de demain</h1>
+            <p class="text-body-lg text-on-surface-variant max-w-2xl">Des parcours certifiants conçus et enseignés par des créateurs, producteurs et ingénieurs du continent. 100 % en ligne, projets pratiques tutorés et bourses disponibles.</p>
+
+            <div class="grid grid-cols-3 gap-space-sm pt-space-xs max-w-xl">
+              <div class="bg-surface-container-low p-4 rounded-xl shadow-sm"><div class="text-headline-lg text-primary tnum">45+</div><div class="text-label-meta text-on-surface-variant mt-1">Masterclasses certifiantes</div></div>
+              <div class="bg-surface-container-low p-4 rounded-xl shadow-sm"><div class="text-headline-lg text-secondary tnum">92 %</div><div class="text-label-meta text-on-surface-variant mt-1">Insertion professionnelle</div></div>
+              <div class="bg-surface-container-low p-4 rounded-xl shadow-sm"><div class="text-headline-lg text-on-surface tnum">120+</div><div class="text-label-meta text-on-surface-variant mt-1">Mentors professionnels</div></div>
+            </div>
+
+            <form id="courseSearchForm" class="bg-surface-container-low p-space-sm rounded-xl shadow-md space-y-space-xs">
+              <div class="flex flex-col sm:flex-row items-center gap-space-xs">
+                <div class="relative w-full flex items-center">
+                  <span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[22px]">search</span>
+                  <input id="courseSearch" type="search" placeholder="Rechercher une formation : VFX, sound design, MoJo, réalisation…" class="w-full bg-surface-container pl-11 pr-4 py-3 rounded-lg text-body-md text-on-surface placeholder:text-on-surface-variant/60 focus:outline-none focus:ring-1 focus:ring-primary" aria-label="Rechercher une formation">
+                </div>
+                <button class="w-full sm:w-auto px-6 py-3 rounded-lg bg-primary-container text-on-primary-container text-title-sm font-bold hover:bg-primary transition-all flex items-center justify-center gap-2 shrink-0">Explorer <span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+              </div>
+              <div id="levelChips" data-chip-group class="flex items-center gap-2 flex-wrap pt-1">
+                <span class="text-label-meta text-on-surface-variant font-medium">Niveau :</span>
+                <button type="button" class="chip !py-1 !px-3 is-active" data-level="">Tous</button>
+                <button type="button" class="chip !py-1 !px-3" data-level="debutant">Débutant</button>
+                <button type="button" class="chip !py-1 !px-3" data-level="intermediaire">Intermédiaire</button>
+                <button type="button" class="chip !py-1 !px-3" data-level="expert">Masterclass expert</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="relative rounded-xl overflow-hidden bg-surface-container-low shadow-xl group cursor-pointer" data-play data-title="Masterclass inaugurale — L'art du récit visuel panafricain" data-img="apprendre-hero-realisateur.jpg">
+              <div class="relative h-[400px] lg:h-[440px] overflow-hidden">
+                <img src="apprendre-hero-realisateur.jpg" alt="Un réalisateur règle une caméra cinéma sur un plateau" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/40 to-transparent"></div>
+                <div class="absolute top-4 left-4 flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-md bg-secondary text-on-secondary text-label-badge uppercase shadow-sm">Session ouverte</span>
+                  <span class="px-3 py-1 rounded-md bg-surface-container-high/90 backdrop-blur-md text-label-badge uppercase">Campus Afrique de l'Ouest</span>
+                </div>
+                <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transition-transform group-hover:scale-110"><span class="material-symbols-outlined fill text-[32px]">play_arrow</span></span>
+                <div class="absolute bottom-5 left-5 right-5 space-y-2">
+                  <div class="flex items-center gap-2 text-label-meta text-primary font-semibold"><span class="material-symbols-outlined text-[16px]">verified</span>Masterclass inaugurale 2026</div>
+                  <h3 class="text-headline-lg text-white leading-tight">L'art du récit visuel panafricain : de l'idée à l'écran mondial</h3>
+                  <div class="flex items-center justify-between text-body-sm text-on-surface-variant pt-1"><span>Animée par 4 réalisateurs</span><span class="text-secondary font-semibold">Accès libre 48 h</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= PARCOURS CERTIFIANTS ================= -->
+    <section id="parcours" class="w-full bg-surface-container-lowest py-space-2xl">
+      <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg space-y-space-xl">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+          <div>
+            <div class="inline-flex items-center gap-2 text-secondary text-label-badge uppercase mb-1"><span class="material-symbols-outlined text-[16px]">school</span>Cursus de spécialisation intensive</div>
+            <h2 class="text-headline-lg md:text-headline-xl text-on-surface">Parcours certifiants à la une</h2>
+            <p class="text-body-md text-on-surface-variant mt-1">Programmes complets de 6 à 12 semaines avec mentorat individuel hebdomadaire.</p>
+          </div>
+          <div class="flex items-center gap-space-xs shrink-0">
+            <button id="parcoursPrev" class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" aria-label="Précédent"><span class="material-symbols-outlined text-[20px]">chevron_left</span></button>
+            <button id="parcoursNext" class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" aria-label="Suivant"><span class="material-symbols-outlined text-[20px]">chevron_right</span></button>
+          </div>
+        </div>
+
+        <div id="parcoursTrack" class="flex gap-gutter-lg overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth pb-2">
+          <article class="course-card group" data-level="expert" data-price="450000" data-name="Direction artistique & effets spéciaux VFX">
+            <div class="course-thumb">
+              <img src="apprendre-parcours-vfx.jpg" alt="Modèle 3D d'une créature mythique sur un poste de travail VFX">
+              <div class="absolute top-3 left-3 flex gap-2"><span class="px-2.5 py-1 rounded bg-tertiary-container text-on-tertiary text-label-badge uppercase shadow-sm">Tech &amp; cinéma</span><span class="px-2.5 py-1 rounded bg-surface-container-highest/90 backdrop-blur-md text-primary text-label-badge uppercase">Expert</span></div>
+              <span class="course-duration"><span class="material-symbols-outlined text-[14px]">schedule</span>10 semaines • 120 h</span>
+            </div>
+            <div class="p-space-md flex-1 flex flex-col justify-between gap-space-md">
+              <div class="space-y-space-xs">
+                <div class="flex items-center justify-between text-label-meta">
+                  <span class="inline-flex items-center gap-1 text-secondary font-semibold"><span class="material-symbols-outlined fill text-[15px]">workspace_premium</span>Certificat Africadôme Campus</span>
+                  <span class="flex items-center gap-1 text-primary font-bold"><span class="material-symbols-outlined fill text-[15px]">star</span>4,9 <span class="text-on-surface-variant font-normal">(184)</span></span>
+                </div>
+                <h3 class="course-title">Direction artistique &amp; effets spéciaux VFX pour le cinéma africain</h3>
+                <p class="text-body-sm text-on-surface-variant line-clamp-2">Concevez des environnements visuels percutants, maîtrisez Houdini et Unreal Engine 5 appliqués aux mythes et décors contemporains du continent.</p>
+              </div>
+              <div class="space-y-space-sm">
+                <div class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container">
+                  <img src="apprendre-formateur-kwesi.jpg" alt="" class="w-10 h-10 rounded-full object-cover shrink-0">
+                  <div class="min-w-0"><div class="text-title-sm text-on-surface truncate">Kwesi Mensah</div><div class="text-label-meta text-on-surface-variant truncate">Superviseur VFX, 15 ans d'expérience</div></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <div><span class="text-label-meta text-secondary font-bold block">FINANÇABLE PAR BOURSE</span><span class="text-title-sm text-on-surface font-bold tnum">450 000 FCFA <span class="text-label-meta text-on-surface-variant font-normal">ou 3×</span></span></div>
+                  <button class="apply-btn" data-apply>Postuler <span class="material-symbols-outlined text-[16px]">arrow_outward</span></button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card group" data-level="intermediaire" data-price="380000" data-name="Production musicale avancée">
+            <div class="course-thumb">
+              <img src="apprendre-parcours-son.jpg" alt="Console de mixage d'un studio d'enregistrement">
+              <div class="absolute top-3 left-3 flex gap-2"><span class="px-2.5 py-1 rounded bg-primary-container text-on-primary-container text-label-badge uppercase shadow-sm">Son &amp; musique</span><span class="px-2.5 py-1 rounded bg-surface-container-highest/90 backdrop-blur-md text-secondary text-label-badge uppercase">Intermédiaire</span></div>
+              <span class="course-duration"><span class="material-symbols-outlined text-[14px]">schedule</span>8 semaines • 95 h</span>
+            </div>
+            <div class="p-space-md flex-1 flex flex-col justify-between gap-space-md">
+              <div class="space-y-space-xs">
+                <div class="flex items-center justify-between text-label-meta">
+                  <span class="inline-flex items-center gap-1 text-secondary font-semibold"><span class="material-symbols-outlined fill text-[15px]">workspace_premium</span>Certificat ingénierie audio</span>
+                  <span class="flex items-center gap-1 text-primary font-bold"><span class="material-symbols-outlined fill text-[15px]">star</span>5,0 <span class="text-on-surface-variant font-normal">(240)</span></span>
+                </div>
+                <h3 class="course-title">Production musicale avancée : du beatmaking afrobeats au mastering Dolby Atmos</h3>
+                <p class="text-body-sm text-on-surface-variant line-clamp-2">Enregistrement des polyrythmies traditionnelles, mixage moderne sous Pro Tools et spatialisation audio immersive.</p>
+              </div>
+              <div class="space-y-space-sm">
+                <div class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container">
+                  <img src="apprendre-formatrice-binta.jpg" alt="" class="w-10 h-10 rounded-full object-cover shrink-0">
+                  <div class="min-w-0"><div class="text-title-sm text-on-surface truncate">Binta Sy</div><div class="text-label-meta text-on-surface-variant truncate">Productrice &amp; ingénieure du son (Dakar / Paris)</div></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <div><span class="text-label-meta text-secondary font-bold block">FINANÇABLE PAR BOURSE</span><span class="text-title-sm text-on-surface font-bold tnum">380 000 FCFA <span class="text-label-meta text-on-surface-variant font-normal">ou 3×</span></span></div>
+                  <button class="apply-btn" data-apply>Postuler <span class="material-symbols-outlined text-[16px]">arrow_outward</span></button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card group" data-level="debutant intermediaire expert" data-price="295000" data-name="Journalisme d'investigation & formats verticaux (MoJo)">
+            <div class="course-thumb">
+              <img src="apprendre-parcours-mojo.jpg" alt="Smartphone sur stabilisateur filmant dans une rue animée">
+              <div class="absolute top-3 left-3 flex gap-2"><span class="px-2.5 py-1 rounded bg-secondary-container text-white text-label-badge uppercase shadow-sm">Journalisme</span><span class="px-2.5 py-1 rounded bg-surface-container-highest/90 backdrop-blur-md text-label-badge uppercase">Tous niveaux</span></div>
+              <span class="course-duration"><span class="material-symbols-outlined text-[14px]">schedule</span>6 semaines • 70 h</span>
+            </div>
+            <div class="p-space-md flex-1 flex flex-col justify-between gap-space-md">
+              <div class="space-y-space-xs">
+                <div class="flex items-center justify-between text-label-meta">
+                  <span class="inline-flex items-center gap-1 text-secondary font-semibold"><span class="material-symbols-outlined fill text-[15px]">workspace_premium</span>Certificat Africadôme Media Lab</span>
+                  <span class="flex items-center gap-1 text-primary font-bold"><span class="material-symbols-outlined fill text-[15px]">star</span>4,9 <span class="text-on-surface-variant font-normal">(312)</span></span>
+                </div>
+                <h3 class="course-title">Journalisme d'investigation &amp; nouveaux formats verticaux (MoJo)</h3>
+                <p class="text-body-sm text-on-surface-variant line-clamp-2">Enquêtes documentaires de terrain avec un kit smartphone, recherche en sources ouvertes (OSINT) et narration pour les formats courts.</p>
+              </div>
+              <div class="space-y-space-sm">
+                <div class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container">
+                  <img src="apprendre-formatrice-mariam.jpg" alt="" class="w-10 h-10 rounded-full object-cover shrink-0">
+                  <div class="min-w-0"><div class="text-title-sm text-on-surface truncate">Didier Ekwalla &amp; invités</div><div class="text-label-meta text-on-surface-variant truncate">Journaliste d'investigation &amp; documentariste</div></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <div><span class="text-label-meta text-secondary font-bold block">FINANÇABLE PAR BOURSE</span><span class="text-title-sm text-on-surface font-bold tnum">295 000 FCFA <span class="text-label-meta text-on-surface-variant font-normal">ou 3×</span></span></div>
+                  <button class="apply-btn" data-apply>Postuler <span class="material-symbols-outlined text-[16px]">arrow_outward</span></button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card group" data-level="debutant" data-price="250000" data-name="Réalisation documentaire : du repérage au montage">
+            <div class="course-thumb">
+              <img src="documentariste.jpg" alt="Un documentariste filme une rue animée au coucher du soleil">
+              <div class="absolute top-3 left-3 flex gap-2"><span class="px-2.5 py-1 rounded bg-sky-600 text-white text-label-badge uppercase shadow-sm">Cinéma</span><span class="px-2.5 py-1 rounded bg-surface-container-highest/90 backdrop-blur-md text-secondary text-label-badge uppercase">Débutant</span></div>
+              <span class="course-duration"><span class="material-symbols-outlined text-[14px]">schedule</span>8 semaines • 80 h</span>
+            </div>
+            <div class="p-space-md flex-1 flex flex-col justify-between gap-space-md">
+              <div class="space-y-space-xs">
+                <div class="flex items-center justify-between text-label-meta">
+                  <span class="inline-flex items-center gap-1 text-secondary font-semibold"><span class="material-symbols-outlined fill text-[15px]">workspace_premium</span>Certificat Africadôme Campus</span>
+                  <span class="flex items-center gap-1 text-primary font-bold"><span class="material-symbols-outlined fill text-[15px]">star</span>4,8 <span class="text-on-surface-variant font-normal">(156)</span></span>
+                </div>
+                <h3 class="course-title">Réalisation documentaire : du repérage au montage final</h3>
+                <p class="text-body-sm text-on-surface-variant line-clamp-2">Écriture, tournage léger, prise de son terrain et montage : réalisez votre premier court documentaire accompagné pas à pas.</p>
+              </div>
+              <div class="space-y-space-sm">
+                <div class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container">
+                  <span class="w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold shrink-0">AT</span>
+                  <div class="min-w-0"><div class="text-title-sm text-on-surface truncate">Aminata Touré</div><div class="text-label-meta text-on-surface-variant truncate">Réalisatrice documentaire</div></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <div><span class="text-label-meta text-secondary font-bold block">FINANÇABLE PAR BOURSE</span><span class="text-title-sm text-on-surface font-bold tnum">250 000 FCFA <span class="text-label-meta text-on-surface-variant font-normal">ou 3×</span></span></div>
+                  <button class="apply-btn" data-apply>Postuler <span class="material-symbols-outlined text-[16px]">arrow_outward</span></button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card group" data-level="debutant intermediaire" data-price="220000" data-name="Illustration, BD & création visuelle">
+            <div class="course-thumb">
+              <img src="atelier-artiste.jpg" alt="Une artiste peint dans un atelier lumineux">
+              <div class="absolute top-3 left-3 flex gap-2"><span class="px-2.5 py-1 rounded bg-orange-500 text-white text-label-badge uppercase shadow-sm">Arts visuels</span><span class="px-2.5 py-1 rounded bg-surface-container-highest/90 backdrop-blur-md text-label-badge uppercase">Débutant à intermédiaire</span></div>
+              <span class="course-duration"><span class="material-symbols-outlined text-[14px]">schedule</span>6 semaines • 60 h</span>
+            </div>
+            <div class="p-space-md flex-1 flex flex-col justify-between gap-space-md">
+              <div class="space-y-space-xs">
+                <div class="flex items-center justify-between text-label-meta">
+                  <span class="inline-flex items-center gap-1 text-secondary font-semibold"><span class="material-symbols-outlined fill text-[15px]">workspace_premium</span>Certificat Africadôme Campus</span>
+                  <span class="flex items-center gap-1 text-primary font-bold"><span class="material-symbols-outlined fill text-[15px]">star</span>4,7 <span class="text-on-surface-variant font-normal">(98)</span></span>
+                </div>
+                <h3 class="course-title">Illustration, bande dessinée &amp; création visuelle</h3>
+                <p class="text-body-sm text-on-surface-variant line-clamp-2">Du croquis à la planche finale : composition, couleur, narration séquentielle et outils numériques de l'illustrateur.</p>
+              </div>
+              <div class="space-y-space-sm">
+                <div class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container">
+                  <span class="w-10 h-10 rounded-full bg-secondary/20 text-secondary flex items-center justify-center font-bold shrink-0">NM</span>
+                  <div class="min-w-0"><div class="text-title-sm text-on-surface truncate">Nadia Mansouri</div><div class="text-label-meta text-on-surface-variant truncate">Directrice artistique &amp; animatrice 3D</div></div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <div><span class="text-label-meta text-secondary font-bold block">FINANÇABLE PAR BOURSE</span><span class="text-title-sm text-on-surface font-bold tnum">220 000 FCFA <span class="text-label-meta text-on-surface-variant font-normal">ou 3×</span></span></div>
+                  <button class="apply-btn" data-apply>Postuler <span class="material-symbols-outlined text-[16px]">arrow_outward</span></button>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p data-empty class="hidden text-on-surface-variant py-8 text-center">Aucun parcours ne correspond à votre recherche. Essayez un autre mot-clé ou niveau.</p>
+      </div>
+    </section>
+
+    <!-- ================= MASTERCLASSES ================= -->
+    <section id="masterclasses" class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-2xl w-full space-y-space-lg">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+        <div>
+          <div class="inline-flex items-center gap-2 text-primary text-label-badge uppercase mb-1"><span class="material-symbols-outlined text-[16px]">stars</span>Transmission &amp; savoir direct</div>
+          <h2 class="text-headline-lg md:text-headline-xl text-on-surface">Les masterclasses des créateurs confirmés</h2>
+          <p class="text-body-md text-on-surface-variant mt-1">Des cours intimistes au format cinématique de 3 à 5 heures pour repousser vos frontières artistiques.</p>
+        </div>
+        <a href="videos.html" class="inline-flex items-center gap-1 text-primary hover:text-primary-fixed transition-colors text-title-sm">Voir les 24 masterclasses <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+      </div>
+      <div id="mcGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+        <div class="mc-card group" data-level="expert" data-play data-title="L'esthétique du silence & la narration visuelle non linéaire" data-img="apprendre-mc-cinema.jpg">
+          <div class="mc-thumb"><img src="apprendre-mc-cinema.jpg" alt="Une réalisatrice s'exprime sur scène"><span class="mc-tag bg-primary-container text-on-primary-container">Cinéma</span><span class="mc-time tnum">18 leçons • 4 h 15</span><span class="mc-hover"><span class="material-symbols-outlined fill text-[24px]">play_arrow</span></span></div>
+          <div class="p-4 flex-1 flex flex-col justify-between gap-3">
+            <div><div class="text-label-meta text-secondary font-semibold">Awa Sène, réalisatrice</div><h4 class="mc-title">L'esthétique du silence &amp; la narration visuelle non linéaire</h4></div>
+            <div class="flex items-center justify-between text-body-sm pt-2"><span class="text-on-surface-variant">Inclus dans l'abonnement</span><span class="text-primary font-bold">Accès immédiat</span></div>
+          </div>
+        </div>
+        <div class="mc-card group" data-level="intermediaire expert" data-play data-title="Écrire l'histoire : de la mémoire collective au récit universel" data-img="apprendre-mc-scenario.jpg">
+          <div class="mc-thumb"><img src="apprendre-mc-scenario.jpg" alt="Un romancier dans une bibliothèque"><span class="mc-tag bg-tertiary-container text-on-tertiary">Scénario</span><span class="mc-time tnum">14 leçons • 3 h 40</span><span class="mc-hover"><span class="material-symbols-outlined fill text-[24px]">play_arrow</span></span></div>
+          <div class="p-4 flex-1 flex flex-col justify-between gap-3">
+            <div><div class="text-label-meta text-secondary font-semibold">Ibrahima Ndour, romancier &amp; scénariste</div><h4 class="mc-title">Écrire l'histoire : de la mémoire collective au récit universel</h4></div>
+            <div class="flex items-center justify-between text-body-sm pt-2"><span class="text-on-surface-variant">Inclus dans l'abonnement</span><span class="text-primary font-bold">Accès immédiat</span></div>
+          </div>
+        </div>
+        <div class="mc-card group" data-level="intermediaire" data-play data-title="Donner vie à l'afrofuturisme dans l'animation internationale" data-img="apprendre-mc-animation.jpg">
+          <div class="mc-thumb"><img src="apprendre-mc-animation.jpg" alt="Un animateur dessine des personnages sur tablette"><span class="mc-tag bg-secondary-container text-white">Animation 3D</span><span class="mc-time tnum">22 leçons • 5 h 10</span><span class="mc-hover"><span class="material-symbols-outlined fill text-[24px]">play_arrow</span></span></div>
+          <div class="p-4 flex-1 flex flex-col justify-between gap-3">
+            <div><div class="text-label-meta text-secondary font-semibold">Collectif d'animateurs de Lagos</div><h4 class="mc-title">Donner vie à l'afrofuturisme dans l'animation internationale</h4></div>
+            <div class="flex items-center justify-between text-body-sm pt-2"><span class="text-on-surface-variant">Inclus dans l'abonnement</span><span class="text-primary font-bold">Accès immédiat</span></div>
+          </div>
+        </div>
+        <div class="mc-card group" data-level="intermediaire expert" data-play data-title="Bâtir un label musical à rayonnement international depuis l'Afrique" data-img="apprendre-mc-musicbiz.jpg">
+          <div class="mc-thumb"><img src="apprendre-mc-musicbiz.jpg" alt="Un producteur étudie des contrats sur son ordinateur"><span class="mc-tag bg-primary-container text-on-primary-container">Music biz</span><span class="mc-time tnum">16 leçons • 3 h 50</span><span class="mc-hover"><span class="material-symbols-outlined fill text-[24px]">play_arrow</span></span></div>
+          <div class="p-4 flex-1 flex flex-col justify-between gap-3">
+            <div><div class="text-label-meta text-secondary font-semibold">Tunde Bakare, producteur &amp; directeur de label</div><h4 class="mc-title">Bâtir un label musical à rayonnement international depuis l'Afrique</h4></div>
+            <div class="flex items-center justify-between text-body-sm pt-2"><span class="text-on-surface-variant">Inclus dans l'abonnement</span><span class="text-primary font-bold">Accès immédiat</span></div>
+          </div>
+        </div>
+      </div>
+      <p data-empty class="hidden text-on-surface-variant py-8 text-center">Aucune masterclass ne correspond à votre recherche.</p>
+    </section>
+
+    <!-- ================= FINANCEMENT ================= -->
+    <section id="financement" class="w-full bg-surface-container-low py-space-2xl">
+      <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg space-y-space-xl">
+        <div class="text-center max-w-3xl mx-auto space-y-space-xs">
+          <span class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-label-badge uppercase">Accessibilité &amp; équité</span>
+          <h2 class="text-headline-lg md:text-headline-xl text-on-surface">Comment financer votre formation ?</h2>
+          <p class="text-body-lg text-on-surface-variant">Le talent ne doit jamais être limité par des barrières financières. Découvrez les 3 mécanismes d'accompagnement d'Africadôme Campus.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg">
+          <div class="fund-card">
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-secondary/10 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="relative space-y-space-sm">
+              <div class="w-12 h-12 rounded-xl bg-secondary/20 text-secondary flex items-center justify-center"><span class="material-symbols-outlined text-[28px]">redeem</span></div>
+              <span class="inline-block px-2.5 py-0.5 rounded bg-secondary-container text-white text-label-badge uppercase">Jusqu'à 100 % pris en charge</span>
+              <h3 class="text-headline-md text-on-surface font-bold">Bourses Africadôme &amp; partenaires</h3>
+              <p class="text-body-md text-on-surface-variant">Financement total ou partiel accordé sur dossier de création et lettre de motivation, soutenu par la Fondation Africadôme et ses fonds partenaires.</p>
+              <ul class="pt-2 text-label-meta text-on-surface space-y-1.5 font-medium">
+                <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>Priorité aux créateurs de moins de 30 ans</li>
+                <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>Dépôt des dossiers avant le 15 de chaque mois</li>
+              </ul>
+            </div>
+            <a href="opportunites.html" class="fund-btn">Déposer une candidature bourse <span class="material-symbols-outlined text-[16px]">north_east</span></a>
+          </div>
+          <div class="fund-card">
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="relative space-y-space-sm">
+              <div class="w-12 h-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center"><span class="material-symbols-outlined text-[28px]">payments</span></div>
+              <span class="inline-block px-2.5 py-0.5 rounded bg-primary-container text-on-primary-container text-label-badge uppercase">Souplesse maximale</span>
+              <h3 class="text-headline-md text-on-surface font-bold">Paiement échelonné en 3× ou 4×</h3>
+              <p class="text-body-md text-on-surface-variant">Réglez vos frais pédagogiques sans frais additionnels via mobile money ou carte bancaire.</p>
+              <ul class="pt-2 text-label-meta text-on-surface space-y-1.5 font-medium">
+                <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>0 % de frais d'échelonnement</li>
+                <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>Accès ouvert dès le premier versement</li>
+              </ul>
+            </div>
+            <button id="openSimulator" class="fund-btn">Simuler un plan de paiement <span class="material-symbols-outlined text-[16px]">calculate</span></button>
+          </div>
+          <div class="fund-card">
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-tertiary/10 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="relative space-y-space-sm">
+              <div class="w-12 h-12 rounded-xl bg-tertiary/20 text-tertiary flex items-center justify-center"><span class="material-symbols-outlined text-[28px]">corporate_fare</span></div>
+              <span class="inline-block px-2.5 py-0.5 rounded bg-tertiary-container text-on-tertiary text-label-badge uppercase">Studios &amp; médias</span>
+              <h3 class="text-headline-md text-on-surface font-bold">Prise en charge studio &amp; médias</h3>
+              <p class="text-body-md text-on-surface-variant">Chaîne de télévision, agence créative ou studio de post-production ? Formez vos équipes avec nos plans entreprise et conventions de formation continue.</p>
+              <ul class="pt-2 text-label-meta text-on-surface space-y-1.5 font-medium">
+                <li class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>Tableau de bord de suivi des équipes</li>
+                <li class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>Facturation professionnelle</li>
+              </ul>
+            </div>
+            <a href="mailto:campus@africadome.example?subject=Formation%20entreprise" class="fund-btn">Contacter l'équipe entreprises <span class="material-symbols-outlined text-[16px]">mail</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TÉMOIGNAGES ================= -->
+    <section class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-2xl w-full space-y-space-xl">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+        <div>
+          <span class="text-secondary text-label-badge uppercase block mb-1">Réseau alumni &amp; impact</span>
+          <h2 class="text-headline-lg md:text-headline-xl text-on-surface">Ils transforment l'industrie créative</h2>
+          <p class="text-body-md text-on-surface-variant mt-1">Découvrez les parcours de nos diplômés et les projets qu'ils réalisent.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="flex -space-x-2">
+            <span class="w-8 h-8 rounded-full bg-primary/30 border-2 border-surface flex items-center justify-center text-label-meta text-primary font-bold">AK</span>
+            <span class="w-8 h-8 rounded-full bg-secondary/30 border-2 border-surface flex items-center justify-center text-label-meta text-secondary font-bold">MD</span>
+            <span class="w-8 h-8 rounded-full bg-tertiary/30 border-2 border-surface flex items-center justify-center text-label-meta text-tertiary font-bold">SL</span>
+          </div>
+          <span class="text-body-sm text-on-surface-variant font-medium">+1 400 créateurs certifiés</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg">
+        <figure class="testimonial">
+          <div class="space-y-space-sm">
+            <div class="flex gap-1 text-primary" aria-label="5 étoiles sur 5"><span class="material-symbols-outlined fill text-[18px]">star</span><span class="material-symbols-outlined fill text-[18px]">star</span><span class="material-symbols-outlined fill text-[18px]">star</span><span class="material-symbols-outlined fill text-[18px]">star</span><span class="material-symbols-outlined fill text-[18px]">star</span></div>
+            <blockquote class="text-body-md text-on-surface italic leading-relaxed">« Grâce au mentorat VFX, j'ai pu monter le portfolio qui m'a permis d'intégrer l'équipe de post-production d'une série tournée à Abidjan. Les retours des formateurs sont directs et exigeants. »</blockquote>
+          </div>
+          <figcaption class="flex items-center gap-3 pt-space-xs">
+            <img src="apprendre-alumni-amina.jpg" alt="" class="w-12 h-12 rounded-full object-cover shrink-0">
+            <div><div class="text-title-sm text-on-surface">Amina Koné</div><div class="text-label-meta text-secondary font-medium">Compositrice VFX (Abidjan)</div><div class="text-label-meta text-on-surface-variant">Promo Parcours VFX 2025</div></div>
+          </figcaption>
+        </figure>
+        <figure class="testimonial">
+          <div class="space-y-space-sm">
+            <div class="flex gap-1 text-primary" aria-label="5 étoiles sur 5"><span class="material-symbols-outlined fill text-[18px]">star</span><span class="material-symbols-outlined fill text-[18px]">star</span><span class="material-symbols-outlined fill text-[18px]">star</span><span class="material-symbols-outlined fill text-[18px]">star</span><span class="material-symbols-outlined fill text-[18px]">star</span></div>
+            <blockquote class="text-body-md text-on-surface italic leading-relaxed">« Le module de spatialisation audio a transformé ma façon d'aborder les percussions traditionnelles sabar dans un mix moderne. Notre EP a trouvé un distributeur quelques mois après mon certificat. »</blockquote>
+          </div>
+          <figcaption class="flex items-center gap-3 pt-space-xs">
+            <img src="apprendre-alumni-malik.jpg" alt="" class="w-12 h-12 rounded-full object-cover shrink-0">
+            <div><div class="text-title-sm text-on-surface">Malik Diop</div><div class="text-label-meta text-primary font-medium">Ingénieur son indépendant &amp; producteur</div><div class="text-label-meta text-on-surface-variant">Promo Production musicale 2025</div></div>
+          </figcaption>
+        </figure>
+        <figure class="testimonial">
+          <div class="space-y-space-sm">
+            <div class="flex gap-1 text-primary" aria-label="5 étoiles sur 5"><span class="material-symbols-outlined fill text-[18px]">star</span><span class="material-symbols-outlined fill text-[18px]">star</span><span class="material-symbols-outlined fill text-[18px]">star</span><span class="material-symbols-outlined fill text-[18px]">star</span><span class="material-symbols-outlined fill text-[18px]">star</span></div>
+            <blockquote class="text-body-md text-on-surface italic leading-relaxed">« La bourse a été décisive. En 6 semaines de journalisme mobile, j'ai appris à cadrer, monter et vérifier mes sources. Mon documentaire de fin de parcours a largement circulé sur les réseaux. »</blockquote>
+          </div>
+          <figcaption class="flex items-center gap-3 pt-space-xs">
+            <img src="apprendre-alumni-sarah.jpg" alt="" class="w-12 h-12 rounded-full object-cover shrink-0">
+            <div><div class="text-title-sm text-on-surface">Sarah Lubamba</div><div class="text-label-meta text-tertiary font-medium">Journaliste reporter d'images (Kinshasa)</div><div class="text-label-meta text-on-surface-variant">Boursière promo MoJo 2024</div></div>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="p-space-lg rounded-xl bg-gradient-to-r from-surface-container via-surface-container-high to-surface-container shadow-xl flex flex-col lg:flex-row items-center justify-between gap-space-md">
+        <div class="space-y-1 text-center lg:text-left">
+          <h3 class="text-headline-md text-white font-bold">Prêt à accélérer votre carrière dans les ICC ?</h3>
+          <p class="text-body-md text-on-surface-variant">Inscrivez-vous dès maintenant ou échangez avec un conseiller pédagogique Africadôme.</p>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-space-sm w-full lg:w-auto">
+          <button class="w-full sm:w-auto px-6 py-3 rounded-lg bg-surface-container-highest hover:text-white text-title-sm transition-colors" data-apply data-subject="Rendez-vous conseil">Prendre un rendez-vous conseil</button>
+          <a href="#parcours" class="w-full sm:w-auto text-center px-6 py-3 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary text-title-sm font-bold transition-colors shadow-md">Voir le catalogue 2026</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FENÊTRES : lecteur, simulateur, candidature ================= -->
+    <div id="player" class="player" role="dialog" aria-modal="true" aria-labelledby="playerTitle" hidden>
+      <div class="player-box">
+        <button class="player-close" data-close aria-label="Fermer"><span class="material-symbols-outlined">close</span></button>
+        <div class="relative aspect-video bg-black">
+          <img id="playerImg" src="" alt="" class="w-full h-full object-cover opacity-60">
+          <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center p-6">
+            <span class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-xl"><span class="material-symbols-outlined fill text-[36px]">play_arrow</span></span>
+            <p class="text-body-sm text-white/90 max-w-md">Aperçu de démonstration — la vidéo sera branchée sur votre plateforme d'hébergement.</p>
+          </div>
+        </div>
+        <h2 id="playerTitle" class="p-4 text-headline-md text-white"></h2>
+      </div>
+    </div>
+
+    <div id="simulator" class="player" role="dialog" aria-modal="true" aria-labelledby="simTitle" hidden>
+      <div class="player-box !max-w-lg p-6 space-y-4">
+        <button class="player-close" data-close aria-label="Fermer"><span class="material-symbols-outlined">close</span></button>
+        <h2 id="simTitle" class="text-headline-md text-white pr-10">Simuler un plan de paiement</h2>
+        <label class="block space-y-1"><span class="text-label-meta text-on-surface-variant">Parcours</span>
+          <span class="relative block"><select id="simCourse" class="select-field"></select><span class="material-symbols-outlined select-caret">expand_more</span></span>
+        </label>
+        <div class="space-y-1"><span class="text-label-meta text-on-surface-variant">Nombre de versements</span>
+          <div id="simInstalments" data-chip-group class="flex gap-2"><button type="button" class="chip" data-n="1">1×</button><button type="button" class="chip is-active" data-n="3">3×</button><button type="button" class="chip" data-n="4">4×</button></div>
+        </div>
+        <div class="rounded-xl bg-surface-container-high p-4 space-y-2">
+          <div class="flex justify-between text-body-sm"><span class="text-on-surface-variant">Total de la formation</span><span id="simTotal" class="text-white font-semibold tnum"></span></div>
+          <div class="flex justify-between items-end"><span class="text-on-surface-variant text-body-sm">Par versement</span><span id="simEach" class="text-headline-lg text-primary tnum"></span></div>
+          <p id="simSchedule" class="text-label-meta text-on-surface-variant"></p>
+        </div>
+        <p class="text-label-meta text-on-surface-variant">Sans frais supplémentaires. Paiement par mobile money ou carte bancaire.</p>
+      </div>
+    </div>
+
+    <div id="applyModal" class="player" role="dialog" aria-modal="true" aria-labelledby="applyTitle" hidden>
+      <div class="player-box !max-w-lg p-6">
+        <button class="player-close" data-close aria-label="Fermer"><span class="material-symbols-outlined">close</span></button>
+        <form id="applyForm" class="space-y-4">
+          <h2 id="applyTitle" class="text-headline-md text-white pr-10">Candidater</h2>
+          <p id="applySubject" class="text-body-sm text-primary"></p>
+          <label class="block space-y-1"><span class="text-label-meta text-on-surface-variant">Nom complet</span><input required name="nom" class="w-full bg-surface-container text-on-surface px-3.5 py-2.5 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary-container"></label>
+          <label class="block space-y-1"><span class="text-label-meta text-on-surface-variant">E-mail</span><input required type="email" name="email" class="w-full bg-surface-container text-on-surface px-3.5 py-2.5 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary-container"></label>
+          <label class="block space-y-1"><span class="text-label-meta text-on-surface-variant">Pays &amp; ville</span><input name="ville" class="w-full bg-surface-container text-on-surface px-3.5 py-2.5 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary-container"></label>
+          <label class="flex items-center gap-2 text-body-sm text-on-surface-variant"><input type="checkbox" name="bourse" class="accent-amber-500 w-4 h-4"> Je souhaite demander une bourse</label>
+          <button class="w-full bg-primary-container text-on-primary-container hover:bg-primary py-3 rounded-lg text-title-sm font-bold transition-colors">Envoyer ma demande</button>
+        </form>
+        <div id="applyDone" class="hidden text-center space-y-3 py-6">
+          <span class="material-symbols-outlined fill text-secondary text-[48px]">check_circle</span>
+          <h2 class="text-headline-md text-white">Demande enregistrée</h2>
+          <p class="text-body-sm text-on-surface-variant">Démonstration : ce formulaire devra être relié à votre outil d'inscription (e-mail, CRM ou base de données) pour être réellement envoyé.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-surface-container-lowest border-t border-surface-container-high mt-12">
+    <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div class="lg:col-span-2 space-y-4">
+        <img src="logo.png" alt="Africadôme" class="h-12 w-auto">
+        <p class="text-on-surface-variant max-w-md text-sm">L'écosystème médiatique panafricain dédié aux créateurs, innovateurs et bâtisseurs du continent. Une voix contemporaine, audacieuse et connectée pour faire rayonner l'Afrique.</p>
+        <div class="flex gap-2">
+          <a href="#" aria-label="Podcasts" class="social"><span class="material-symbols-outlined text-[18px]">podcasts</span></a>
+          <a href="#" aria-label="Vidéos" class="social"><span class="material-symbols-outlined text-[18px]">smart_display</span></a>
+          <a href="#" aria-label="Radio" class="social"><span class="material-symbols-outlined text-[18px]">radio</span></a>
+          <a href="#" aria-label="Flux RSS" class="social"><span class="material-symbols-outlined text-[18px]">rss_feed</span></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Explorer</h3>
+        <ul class="space-y-2 text-sm text-on-surface-variant">
+          <li><a href="videos.html" class="hover:text-on-surface">Vidéos &amp; Reportages</a></li>
+          <li><a href="radio.html#podcasts" class="hover:text-on-surface">Podcasts Originaux</a></li>
+          <li><a href="culture.html" class="hover:text-on-surface">Arts &amp; Cultures</a></li>
+          <li><a href="createurs.html" class="hover:text-on-surface">Portraits de Créateurs</a></li>
+          <li><a href="opportunites.html" class="hover:text-on-surface">Appels &amp; Bourses</a></li>
+          <li><a href="evenement.html" class="hover:text-on-surface">Événements Africadôme</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Radios</h3>
+        <ul class="space-y-2 text-sm text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Afro Inspiration</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Creative Talks</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>New African Sounds</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Business &amp; ICC</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Heritage</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Newsletter</h3>
+        <p class="text-sm text-on-surface-variant mb-3">Chaque vendredi, la sélection des meilleures créations et opportunités du continent.</p>
+        <form id="newsletter" class="flex">
+          <input type="email" required placeholder="votre.email@domaine.com" class="w-full bg-surface-container border border-surface-container-high rounded-l-lg px-3 py-2 text-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:border-primary">
+          <button class="bg-primary-container text-on-primary-container px-3 rounded-r-lg hover:bg-primary transition-colors" aria-label="S'abonner"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+        </form>
+        <p id="newsletterMsg" class="text-xs text-secondary mt-2 hidden">Merci ! Votre inscription est bien prise en compte.</p>
+      </div>
+    </div>
+    <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md py-6 border-t border-surface-container-high/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-on-surface-variant">
+      <p>© 2026 Africadôme Media Network. Tous droits réservés.</p>
+      <div class="flex gap-5"><a href="#" class="hover:text-on-surface">Mentions légales</a><a href="#" class="hover:text-on-surface">Confidentialité</a><a href="#" class="hover:text-on-surface">Contact</a></div>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+  <script src="apprendre.js"></script>
+</body>
+</html>

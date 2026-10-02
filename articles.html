@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr">
+<head>
+  <meta charset="utf-8">
+  <script>try { if (localStorage.getItem("africadome-theme") === "light") document.documentElement.classList.add("light"); } catch (e) {}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L'essor des industries créatives en Afrique — Africadôme</title>
+  <meta name="description" content="Grand format : comment la tech et les studios indépendants bâtissent l'économie créative africaine.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind-config.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-surface font-sans text-on-surface antialiased">
+
+  <!-- ================= HEADER ================= -->
+  <header id="header" class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl border-b border-surface-container-high/80">
+    <div class="h-20 max-w-[1600px] mx-auto px-margin md:px-margin-md flex items-center justify-between gap-4">
+      <a href="#" class="shrink-0" aria-label="Africadôme - Accueil">
+        <img src="logo.png" alt="Africadôme — Créer • Produire • Entreprendre • Diffuser • Rayonner" class="h-10 sm:h-12 xl:h-10 2xl:h-12 w-auto">
+      </a>
+
+      <nav id="nav" class="hidden xl:flex items-center gap-1" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="videos.html" class="nav-link">Vidéos</a>
+        <a href="radio.html#podcasts" class="nav-link">Podcasts</a>
+        <a href="articles.html" class="nav-link is-active" aria-current="page">Articles</a>
+        <a href="radio.html" class="nav-link">Radio</a>
+        <div class="relative dropdown">
+          <button class="nav-link flex items-center gap-0.5" aria-expanded="false">
+            Afrique <span class="material-symbols-outlined text-[18px]">expand_more</span>
+          </button>
+          <div class="dropdown-menu absolute left-0 top-full mt-2 w-56 bg-surface-container-high rounded-xl p-2 shadow-2xl border border-surface-container-highest">
+            <a href="afrique.html" class="dropdown-item">Vue d'ensemble</a>
+            <a href="afrique.html?region=west" class="dropdown-item">Afrique de l'Ouest</a>
+            <a href="afrique.html?region=central" class="dropdown-item">Afrique Centrale</a>
+            <a href="afrique.html?region=east" class="dropdown-item">Afrique de l'Est</a>
+            <a href="afrique.html?region=south" class="dropdown-item">Afrique Australe</a>
+            <a href="afrique.html?region=north" class="dropdown-item">Afrique du Nord</a>
+            <a href="afrique.html?region=diaspora" class="dropdown-item">Diasporas</a>
+          </div>
+        </div>
+        <a href="culture.html" class="nav-link">Culture</a>
+        <a href="createurs.html" class="nav-link">Créateurs</a>
+        <a href="apprendre.html" class="nav-link">Apprendre</a>
+        <a href="opportunites.html" class="nav-link">Opportunités</a>
+      </nav>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <button id="themeBtn" aria-label="Passer en mode clair" title="Mode clair / sombre" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-[20px]">light_mode</span>
+        </button>
+        <button id="searchBtn" aria-label="Rechercher" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-[20px]">search</span>
+        </button>
+        <div class="relative dropdown hidden sm:block">
+          <button id="langBtn" class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors text-xs font-semibold" aria-expanded="false">
+            <span class="material-symbols-outlined text-[16px]">language</span>
+            <span id="langLabel">FR</span>
+            <span class="material-symbols-outlined text-[14px]">expand_more</span>
+          </button>
+          <div class="dropdown-menu absolute right-0 top-full mt-2 w-40 bg-surface-container-high rounded-xl p-2 shadow-2xl border border-surface-container-highest">
+            <button class="dropdown-item w-full text-left" data-lang="FR">Français</button>
+            <button class="dropdown-item w-full text-left" data-lang="EN">English</button>
+            <button class="dropdown-item w-full text-left" data-lang="PT">Português</button>
+            <button class="dropdown-item w-full text-left" data-lang="SW">Kiswahili</button>
+          </div>
+        </div>
+        <div class="h-5 w-px bg-surface-container-highest hidden sm:block"></div>
+        <a href="#" class="hidden sm:inline-flex px-4 py-2 rounded-lg bg-primary-container text-on-primary-container text-sm font-semibold hover:bg-primary transition-colors">Se connecter</a>
+        <a href="#" class="hidden md:inline-flex xl:hidden 2xl:inline-flex px-4 py-2 rounded-lg border border-outline-variant text-on-surface text-sm font-semibold hover:bg-surface-container-high transition-colors">S'inscrire</a>
+        <button id="burger" class="xl:hidden w-9 h-9 rounded-lg flex items-center justify-center hover:bg-surface-container-high" aria-label="Menu" aria-expanded="false">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Barre de recherche -->
+    <div id="searchBar" class="search-bar max-w-[1600px] mx-auto px-margin md:px-margin-md">
+      <div class="relative flex items-center pb-4">
+        <span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px]">search</span>
+        <input type="search" placeholder="Rechercher une vidéo, un podcast, un créateur…" class="w-full bg-surface-container-low text-on-surface pl-10 pr-4 py-3 rounded-lg text-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:bg-surface-container-high transition-colors">
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu mobile -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-x-0 bottom-0 top-20 z-40 bg-surface xl:hidden overflow-y-auto p-6">
+    <nav class="flex flex-col gap-1 text-lg">
+      <a href="index.html" class="mobile-link">Accueil</a>
+      <a href="videos.html" class="mobile-link">Vidéos</a>
+      <a href="radio.html#podcasts" class="mobile-link">Podcasts</a>
+      <a href="articles.html" class="mobile-link">Articles</a>
+      <a href="radio.html" class="mobile-link">Radio</a>
+      <a href="afrique.html" class="mobile-link">Afrique</a>
+      <a href="culture.html" class="mobile-link">Culture</a>
+      <a href="createurs.html" class="mobile-link">Créateurs</a>
+      <a href="apprendre.html" class="mobile-link">Apprendre</a>
+      <a href="opportunites.html" class="mobile-link">Opportunités</a>
+    </nav>
+    <div class="grid grid-cols-2 gap-3 mt-6">
+      <a href="#" class="text-center px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-semibold">Se connecter</a>
+      <a href="#" class="text-center px-4 py-3 rounded-lg border border-outline-variant font-semibold">S'inscrire</a>
+    </div>
+  </div>
+
+  <main class="pt-20">
+    <!-- Barre de progression de lecture -->
+    <div class="sticky top-20 z-40 h-1 w-full bg-surface-container-highest overflow-hidden">
+      <div id="readingProgress" class="h-full w-0 bg-gradient-to-r from-primary-container via-primary to-secondary transition-[width] duration-150"></div>
+    </div>
+
+    <!-- Fil d'Ariane -->
+    <section class="w-full bg-surface-container-lowest/60 py-space-sm backdrop-blur-md">
+      <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex flex-wrap items-center justify-between gap-space-sm">
+        <nav aria-label="Fil d'Ariane" class="flex items-center gap-2 text-label-meta text-on-surface-variant flex-wrap">
+          <a href="index.html" class="hover:text-primary transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">home</span>Accueil</a>
+          <span class="text-surface-container-highest">/</span>
+          <a href="articles.html" class="hover:text-primary transition-colors">Articles &amp; grands formats</a>
+          <span class="text-surface-container-highest">/</span>
+          <span class="text-primary font-semibold">Culture &amp; économie créative</span>
+        </nav>
+        <div class="flex items-center gap-space-sm text-label-meta text-on-surface-variant">
+          <span class="flex items-center gap-1 bg-surface-container px-2.5 py-1 rounded-full text-secondary"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>Grand format Africadôme</span>
+          <span class="hidden sm:flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">visibility</span><span class="tnum">34 820 lectures</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EN-TÊTE DE L'ARTICLE ================= -->
+    <section class="relative w-full overflow-hidden pt-space-lg pb-space-xl">
+      <div class="absolute -top-40 left-1/4 w-96 h-96 bg-primary-container/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <div class="absolute top-20 right-10 w-80 h-80 bg-secondary/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="relative max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+        <div class="max-w-4xl space-y-space-md">
+          <div class="flex flex-wrap items-center gap-space-xs">
+            <span class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container text-label-badge uppercase">Grand format • Enquête</span>
+            <span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-label-badge uppercase flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">schedule</span>12 min de lecture</span>
+            <span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant text-label-badge uppercase">Économie numérique</span>
+            <span class="text-on-surface-variant text-label-meta ml-2">Publié le 28 septembre 2026 • Mis à jour il y a 2 h</span>
+          </div>
+
+          <h1 class="text-headline-xl-mobile md:text-display-hero text-on-surface">
+            L'essor des industries créatives en Afrique : comment la tech et les studios indépendants bâtissent un marché à <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-fixed via-primary-container to-secondary">100 milliards de dollars</span>.
+          </h1>
+          <p class="text-headline-md !font-normal text-on-surface-variant">De Lagos à Nairobi, en passant par Dakar et Abidjan, la nouvelle vague d'animateurs 3D, de producteurs de musique et de créateurs de jeux vidéo réinvente la souveraineté narrative du continent, portée par l'investissement panafricain et les plateformes numériques.</p>
+
+          <!-- Autrice + écoute + partage -->
+          <div class="pt-space-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md bg-surface-container-low p-space-md rounded-xl">
+            <div class="flex items-center gap-space-sm">
+              <img src="articles-autrice-amina.jpg" alt="Portrait d'Amina Diallo" class="w-14 h-14 rounded-full object-cover ring-2 ring-primary-container/40 shrink-0">
+              <div>
+                <div class="flex items-center gap-1.5"><span class="text-title-sm text-on-surface">Amina Diallo</span><span class="material-symbols-outlined fill text-primary text-[17px]">verified</span></div>
+                <p class="text-body-sm text-on-surface-variant">Rédactrice en chef adjointe • Correspondante Innovation (Lagos, Nigéria)</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap items-center gap-space-sm">
+              <button id="listenBtn" class="flex items-center gap-2 bg-surface-container-highest hover:bg-surface-bright px-4 py-2.5 rounded-full transition-all group shadow-sm" aria-pressed="false">
+                <span class="w-7 h-7 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform"><span class="material-symbols-outlined text-[18px]">volume_up</span></span>
+                <span class="flex flex-col text-left">
+                  <span class="text-label-meta font-bold text-on-surface">Écouter l'article</span>
+                  <span id="listenState" class="text-label-badge text-primary">Lecture vocale (≈ 8 min)</span>
+                </span>
+              </button>
+              <div class="flex items-center gap-1.5 bg-surface-container px-2 py-1.5 rounded-full">
+                <a data-share="x" target="_blank" rel="noopener" class="share-btn" aria-label="Partager sur X"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                <a data-share="linkedin" target="_blank" rel="noopener" class="share-btn" aria-label="Partager sur LinkedIn"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 0 0 0-3.28 1.64 1.64 0 0 0 0 3.28M5.07 18.5h2.78v-8.37H5.07v8.37Z"/></svg></a>
+                <a data-share="whatsapp" target="_blank" rel="noopener" class="share-btn hover:!text-secondary" aria-label="Partager sur WhatsApp"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.78.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29Z"/></svg></a>
+                <button id="copyLink" class="share-btn" aria-label="Copier le lien"><span class="material-symbols-outlined text-[17px]">link</span></button>
+                <button class="share-btn" data-toggle-fill aria-label="Sauvegarder l'article"><span class="material-symbols-outlined text-[17px]">bookmark</span></button>
+              </div>
+              <span id="copyMsg" class="hidden text-label-meta text-secondary">Lien copié !</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo bannière -->
+        <figure class="mt-space-lg relative rounded-2xl overflow-hidden shadow-2xl bg-surface-container">
+          <div class="aspect-[16/9] md:aspect-[21/9] w-full relative">
+            <img src="articles-banniere-studio-lagos.jpg" alt="De jeunes créateurs travaillent dans un studio de production virtuelle entouré d'écrans LED" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-80"></div>
+            <figcaption class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 flex flex-col md:flex-row md:items-end justify-between gap-2">
+              <p class="text-body-sm text-on-surface-variant/90 max-w-2xl bg-surface-container-lowest/80 backdrop-blur-md px-3 py-2 rounded-lg"><strong class="text-on-surface">Studio de production virtuelle :</strong> des animateurs conçoivent les prochaines sagas afro-futuristes destinées au marché mondial du streaming.</p>
+              <span class="text-label-meta text-on-surface-variant/75 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1.5 rounded-lg shrink-0 self-start md:self-auto">Image d'illustration</span>
+            </figcaption>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= CORPS DE L'ARTICLE + COLONNE ================= -->
+    <section class="w-full pb-space-2xl">
+      <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start">
+          <article id="articleBody" class="lg:col-span-8 space-y-space-xl">
+            <div class="bg-surface-container-low p-space-lg md:p-space-xl rounded-2xl shadow-md relative overflow-hidden">
+              <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-primary-container via-primary to-secondary"></div>
+              <p class="text-body-lg md:text-[19px] md:leading-[30px] font-semibold text-on-surface tracking-tight">Longtemps réduites au rang de secteur informel ou folklorique, les industries créatives africaines s'affirment comme un accélérateur de croissance, d'emplois qualifiés et de « soft power » pour le continent. En combinant l'essor des réseaux à haut débit, les micropaiements mobiles et une audace stylistique sans précédent, une constellation de studios indépendants redessine l'économie mondiale du divertissement.</p>
+            </div>
+
+            <div id="section-1" class="article-section space-y-space-md">
+              <h2 class="text-headline-lg md:text-headline-xl text-white">1. Le basculement numérique : l'indépendance narrative financée par le mobile</h2>
+              <p class="article-p">À Yaba, le district technologique de Lagos, l'effervescence ne faiblit jamais. Dans un loft vitré où ronronnent des serveurs de rendu, une trentaine de créateurs âgés de 20 à 28 ans finalisent la post-production d'une série d'animation 4K doublée en yoruba, swahili et français. Il y a encore quelques années, un tel projet dépendait presque exclusivement de subventions internationales ou de chaînes étrangères souvent déconnectées des réalités locales.</p>
+              <p class="article-p">Aujourd'hui, le modèle économique a muté. Avec la généralisation de l'Internet mobile et des portefeuilles numériques (mobile money), les studios monétisent directement leurs contenus auprès des diasporas et des jeunesses urbaines.</p>
+            </div>
+
+            <figure class="relative py-space-md px-space-lg md:px-space-xl bg-gradient-to-r from-surface-container-high/60 via-surface-container-high/30 to-transparent rounded-2xl">
+              <div class="flex items-start gap-space-md">
+                <span class="text-[64px] leading-none text-primary-container font-serif select-none" aria-hidden="true">“</span>
+                <div class="space-y-2">
+                  <blockquote class="text-headline-lg text-white italic leading-snug">Nous ne demandons plus la permission de raconter nos histoires. Nous créons nos propres chaînes de valeur, et le monde vient désormais acheter nos licences à nos conditions.</blockquote>
+                  <figcaption class="text-title-sm text-primary">— Adjoa Mensah-Fall, directrice d'un fonds d'investissement dédié à la création</figcaption>
+                </div>
+              </div>
+            </figure>
+
+            <div id="section-2" class="article-section space-y-space-md">
+              <h2 class="text-headline-lg md:text-headline-xl text-white">2. Chiffres repères : la cartographie d'une explosion sectorielle</h2>
+              <p class="article-p">Les indicateurs compilés par Africadôme montrent une croissance à deux chiffres dans quatre segments clés : l'animation &amp; les VFX, la musique enregistrée &amp; les concerts, le jeu vidéo mobile et la mode digitale.</p>
+
+              <div class="bg-surface-container-high p-space-lg rounded-2xl shadow-xl space-y-space-lg">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+                  <div>
+                    <span class="text-label-badge text-primary uppercase">Infographie</span>
+                    <h3 class="text-headline-md text-white font-bold">Baromètre de l'économie créative panafricaine 2026</h3>
+                  </div>
+                  <span class="text-label-meta text-on-surface-variant bg-surface-container px-3 py-1 rounded-full">Source : Africadôme Data Hub</span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-gutter">
+                  <div class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between">
+                    <div class="flex items-center justify-between"><span class="material-symbols-outlined text-primary text-[24px]">trending_up</span><span class="text-label-badge bg-primary-container/20 text-primary-container px-2 py-0.5 rounded-full">+48 %</span></div>
+                    <div class="mt-4"><span class="text-headline-xl text-white tnum">4,2 Mds $</span><p class="text-body-sm text-on-surface-variant mt-1">Revenus du streaming musical et de la VOD locale</p></div>
+                  </div>
+                  <div class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between">
+                    <div class="flex items-center justify-between"><span class="material-symbols-outlined text-secondary text-[24px]">rocket_launch</span><span class="text-label-badge bg-secondary-container/20 text-secondary px-2 py-0.5 rounded-full">Record</span></div>
+                    <div class="mt-4"><span class="text-headline-xl text-white tnum">1,1 Md $</span><p class="text-body-sm text-on-surface-variant mt-1">Levées de fonds des startups créatives</p></div>
+                  </div>
+                  <div class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between">
+                    <div class="flex items-center justify-between"><span class="material-symbols-outlined text-tertiary-fixed text-[24px]">group</span><span class="text-label-badge bg-tertiary-container/30 text-tertiary px-2 py-0.5 rounded-full">2030</span></div>
+                    <div class="mt-4"><span class="text-headline-xl text-white tnum">20 millions</span><p class="text-body-sm text-on-surface-variant mt-1">D'emplois directs et indirects visés d'ici 2030</p></div>
+                  </div>
+                </div>
+
+                <div class="space-y-space-sm pt-space-xs">
+                  <h4 class="text-title-sm text-white flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">location_city</span>Top 5 des métropoles de production créative (indice de rayonnement)</h4>
+                  <div class="space-y-3 text-body-sm">
+                    <div class="hub-row"><div class="flex justify-between text-on-surface mb-1 font-semibold"><span>1. Lagos <span class="text-on-surface-variant font-normal text-label-meta">(cinéma, afrobeats, gaming)</span></span><span class="text-primary font-bold tnum">94 / 100</span></div><div class="hub-bar"><span class="bg-primary-container" data-w="94"></span></div></div>
+                    <div class="hub-row"><div class="flex justify-between text-on-surface mb-1 font-semibold"><span>2. Nairobi <span class="text-on-surface-variant font-normal text-label-meta">(animation 3D, podcasting, edtech)</span></span><span class="text-primary font-bold tnum">86 / 100</span></div><div class="hub-bar"><span class="bg-primary" data-w="86"></span></div></div>
+                    <div class="hub-row"><div class="flex justify-between text-on-surface mb-1 font-semibold"><span>3. Dakar <span class="text-on-surface-variant font-normal text-label-meta">(arts visuels, mode, musique urbaine)</span></span><span class="text-secondary font-bold tnum">81 / 100</span></div><div class="hub-bar"><span class="bg-secondary" data-w="81"></span></div></div>
+                    <div class="hub-row"><div class="flex justify-between text-on-surface mb-1 font-semibold"><span>4. Abidjan <span class="text-on-surface-variant font-normal text-label-meta">(humour digital, fiction TV, festivals)</span></span><span class="text-secondary font-bold tnum">78 / 100</span></div><div class="hub-bar"><span class="bg-secondary-container" data-w="78"></span></div></div>
+                    <div class="hub-row"><div class="flex justify-between text-on-surface mb-1 font-semibold"><span>5. Le Caire <span class="text-on-surface-variant font-normal text-label-meta">(post-production, électro, game dev)</span></span><span class="text-tertiary font-bold tnum">75 / 100</span></div><div class="hub-bar"><span class="bg-tertiary-container" data-w="75"></span></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="section-3" class="article-section space-y-space-md">
+              <h2 class="text-headline-lg md:text-headline-xl text-white">3. L'intelligence artificielle générative : menace ou super-pouvoir d'émancipation ?</h2>
+              <p class="article-p">Loin de subir la vague des modèles occidentaux, des ingénieurs et créateurs africains constituent des jeux de données ancrés dans la tradition orale, les langues locales et les cosmogonies du continent. Le grand défi reste celui du droit d'auteur et de la juste rémunération des artistes dont les œuvres nourrissent ces modèles.</p>
+
+              <div class="bg-gradient-to-br from-surface-container-high to-surface-container-low p-space-md md:p-space-lg rounded-2xl shadow-xl flex flex-col md:flex-row items-center gap-space-md">
+                <div class="relative w-36 h-36 rounded-xl overflow-hidden shrink-0 shadow-lg">
+                  <img src="articles-podcast-console.jpg" alt="Pochette du podcast : console de mixage et micro" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-surface-container-lowest/40 flex items-center justify-center">
+                    <button id="podPlay" class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg hover:scale-110 transition-transform" aria-label="Écouter le podcast"><span class="material-symbols-outlined fill text-[24px]">play_arrow</span></button>
+                  </div>
+                </div>
+                <div class="flex-1 space-y-2 text-center md:text-left w-full">
+                  <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                    <span class="px-2.5 py-0.5 rounded-full bg-primary-container/20 text-primary-container text-label-badge uppercase">Podcast Africadôme</span>
+                    <span class="text-label-meta text-on-surface-variant">Épisode #42 • 28 min</span>
+                  </div>
+                  <h4 class="text-headline-md text-white font-bold">« IA &amp; héritage narratif : les nouveaux conteurs du cyberespace »</h4>
+                  <p class="text-body-sm text-on-surface-variant line-clamp-2">Invités : un fondateur de startup d'IA linguistique (Accra) et une conceptrice de jeux vidéo (Dakar).</p>
+                  <div class="pt-2 flex items-center gap-2">
+                    <span id="podTime" class="text-label-meta text-primary font-mono tnum">04:12</span>
+                    <div id="podWave" class="flex-1 flex items-center gap-1 h-6" aria-hidden="true"></div>
+                    <span class="text-label-meta text-on-surface-variant font-mono tnum">28:40</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="section-4" class="article-section space-y-space-md">
+              <h2 class="text-headline-lg md:text-headline-xl text-white">4. Vers une ère de souveraineté culturelle et financière</h2>
+              <p class="article-p">La conquête des marchés mondiaux n'est plus un objectif d'assimilation mais un acte de rayonnement choisi. En structurant des incubateurs spécialisés, en développant des cadres juridiques régionaux protecteurs pour la propriété intellectuelle et en favorisant les coproductions sud-sud, l'Afrique démontre la profondeur de son réservoir de talents.</p>
+              <p class="article-p">Le rendez-vous de la décennie ne se jouera pas seulement dans la capacité à exporter des rythmes ou des motifs, mais dans la maîtrise des plateformes et des infrastructures qui acheminent la mémoire et les futurs du continent vers le reste du monde.</p>
+            </div>
+
+            <div class="pt-space-lg flex flex-wrap items-center justify-between gap-space-md bg-surface-container-low p-space-md rounded-xl">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="text-label-meta text-on-surface-variant">Mots-clés :</span>
+                <a href="index.html#pour-vous" class="tag-link">#ÉconomieCréative</a>
+                <a href="index.html#pour-vous" class="tag-link">#Afrobeats</a>
+                <a href="videos.html" class="tag-link">#Animation3D</a>
+                <a href="index.html#pour-vous" class="tag-link">#TechAfrique</a>
+              </div>
+              <div class="flex items-center gap-space-sm">
+                <button id="likeBtn" class="flex items-center gap-1.5 text-on-surface-variant hover:text-error transition-colors text-label-meta" aria-pressed="false"><span class="material-symbols-outlined text-[18px]">favorite</span><span><span id="likeCount" class="tnum">1 420</span> J'aime</span></button>
+                <a href="#commentaires" class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors text-label-meta"><span class="material-symbols-outlined text-[18px]">chat_bubble</span><span><span class="tnum" data-comment-total>86</span> commentaires</span></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Colonne latérale -->
+          <aside class="lg:col-span-4 space-y-space-lg lg:sticky lg:top-24">
+            <div class="bg-surface-container-low p-space-md rounded-2xl shadow-md">
+              <div class="flex items-center justify-between pb-space-sm">
+                <h3 class="text-title-sm text-white flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">format_list_bulleted</span>Sommaire de l'enquête</h3>
+                <span class="text-label-badge text-secondary">4 CHAPITRES</span>
+              </div>
+              <nav id="toc" class="space-y-1 mt-2">
+                <a href="#section-1" class="toc-link"><span class="truncate">1. Le basculement numérique</span><span class="text-label-meta text-on-surface-variant">3 min</span></a>
+                <a href="#section-2" class="toc-link"><span class="truncate">2. Chiffres repères &amp; baromètre</span><span class="text-label-meta text-on-surface-variant">4 min</span></a>
+                <a href="#section-3" class="toc-link"><span class="truncate">3. L'IA générative</span><span class="text-label-meta text-on-surface-variant">3 min</span></a>
+                <a href="#section-4" class="toc-link"><span class="truncate">4. Vers une souveraineté culturelle</span><span class="text-label-meta text-on-surface-variant">2 min</span></a>
+              </nav>
+            </div>
+
+            <div class="bg-surface-container-low p-space-md rounded-2xl shadow-md space-y-space-sm">
+              <div class="flex items-center gap-space-sm">
+                <img src="articles-autrice-amina-2.jpg" alt="Portrait d'Amina Diallo" class="w-16 h-16 rounded-full object-cover shrink-0">
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center gap-1"><h4 class="text-title-sm text-white truncate">Amina Diallo</h4><span class="material-symbols-outlined fill text-primary text-[16px]">verified</span></div>
+                  <p class="text-label-meta text-primary">Rédactrice en chef adjointe</p>
+                  <p class="text-label-meta text-on-surface-variant">Spécialiste économies digitales</p>
+                </div>
+              </div>
+              <p class="text-body-sm text-on-surface-variant">Basée entre Lagos et Nairobi, Amina couvre les mutations culturelles, les levées de fonds tech et les nouvelles vagues médiatiques du continent depuis plus de 9 ans.</p>
+              <div class="pt-2 flex items-center gap-2">
+                <button id="followBtn" class="flex-1 bg-primary-container text-on-primary-container hover:bg-primary py-2 px-3 rounded-lg text-title-sm transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-pressed="false"><span class="material-symbols-outlined text-[16px]">person_add</span><span>Suivre l'autrice</span></button>
+                <a href="mailto:redaction@africadome.example" class="w-9 h-9 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors flex items-center justify-center" aria-label="Contacter la journaliste"><span class="material-symbols-outlined text-[18px]">mail</span></a>
+              </div>
+            </div>
+
+            <div class="bg-surface-container-low p-space-md rounded-2xl shadow-md space-y-space-sm">
+              <div class="flex items-center justify-between pb-space-xs">
+                <h3 class="text-title-sm text-white flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">auto_stories</span>Dossiers liés</h3>
+                <a href="articles.html" class="text-label-badge text-primary uppercase hover:underline">Voir tout</a>
+              </div>
+              <div class="space-y-space-sm">
+                <a href="#" class="related group">
+                  <div class="related-thumb"><img src="articles-lie-amapiano.jpg" alt=""><span>6 min</span></div>
+                  <div class="min-w-0 space-y-1"><span class="text-[10px] font-extrabold tracking-wider text-secondary uppercase">Musique &amp; business</span><h5 class="related-title">L'amapiano et l'afrobeats conquièrent les charts : quelle redistribution pour les artistes locaux ?</h5></div>
+                </a>
+                <a href="#" class="related group">
+                  <div class="related-thumb"><img src="articles-lie-gaming-vr.jpg" alt=""><span>9 min</span></div>
+                  <div class="min-w-0 space-y-1"><span class="text-[10px] font-extrabold tracking-wider text-tertiary uppercase">Gaming &amp; VR</span><h5 class="related-title">Les studios de jeux vidéo panafricains : quand la mythologie devient un blockbuster interactif.</h5></div>
+                </a>
+                <a href="#" class="related group">
+                  <div class="related-thumb"><img src="articles-lie-fashion-tech.jpg" alt=""><span>7 min</span></div>
+                  <div class="min-w-0 space-y-1"><span class="text-[10px] font-extrabold tracking-wider text-primary uppercase">Design &amp; mode</span><h5 class="related-title">Fashion tech à Dakar : l'alliance du tissage ancestral et de la confection 3D durable.</h5></div>
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest p-space-lg rounded-2xl shadow-xl space-y-space-sm relative overflow-hidden">
+              <div class="absolute -right-6 -bottom-6 w-28 h-28 bg-primary-container/20 rounded-full blur-2xl pointer-events-none"></div>
+              <div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">mark_email_unread</span></div>
+              <h4 class="text-headline-md text-white font-bold leading-tight">La Lettre créative Africadôme</h4>
+              <p class="text-body-sm text-on-surface-variant">Chaque jeudi, notre veille sur la création panafricaine pour les professionnels, artistes et investisseurs.</p>
+              <form id="letterForm" class="space-y-2 pt-1">
+                <input type="email" required placeholder="votre.email@pro.com" class="w-full bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/60 text-body-sm px-3.5 py-2.5 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary-container" aria-label="Adresse e-mail">
+                <button class="w-full bg-primary-container text-on-primary-container hover:bg-primary text-title-sm font-bold py-2.5 rounded-lg transition-colors shadow-md">S'abonner gratuitement</button>
+              </form>
+              <p id="letterMsg" class="text-label-meta text-on-surface-variant/70 text-center">Aucun spam. Désinscription en 1 clic.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= À LIRE ÉGALEMENT ================= -->
+    <section class="w-full bg-surface-container-lowest py-space-2xl">
+      <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg space-y-space-xl">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-sm">
+          <div>
+            <span class="text-label-badge text-primary uppercase">Continuer l'exploration</span>
+            <h2 class="text-headline-lg md:text-headline-xl text-white mt-1">À lire également sur Africadôme</h2>
+          </div>
+          <a href="articles.html" class="text-primary hover:text-primary-fixed text-title-sm flex items-center gap-1 transition-colors">Découvrir tous les grands formats <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter-lg">
+          <article class="read-card group">
+            <div>
+              <div class="read-thumb"><img src="articles-suite-kigali.jpg" alt="Une architecte observe la maquette d'un éco-quartier"><span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-secondary-container text-white text-label-badge uppercase">Architecture &amp; ville</span><span class="read-time">10 min de lecture</span></div>
+              <div class="p-space-md space-y-2">
+                <span class="text-label-meta text-on-surface-variant">Grand format • Kigali</span>
+                <h3 class="read-title">Kigali &amp; Casablanca : les nouvelles métropoles modèles de l'éco-urbanisme bioclimatique</h3>
+                <p class="text-body-sm text-on-surface-variant line-clamp-2">Quand les matériaux ancestraux réinventent la résilience thermique des villes africaines.</p>
+              </div>
+            </div>
+            <div class="p-space-md pt-0 flex items-center justify-between text-label-meta text-on-surface-variant"><span class="font-semibold text-on-surface">Par Jean-Paul Bizimana</span><span>24 septembre 2026</span></div>
+          </article>
+          <article class="read-card group">
+            <div>
+              <div class="read-thumb"><img src="articles-suite-art.jpg" alt="Sculptures contemporaines dans une galerie d'art"><span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container text-label-badge uppercase">Arts visuels</span><span class="read-time">8 min de lecture</span></div>
+              <div class="p-space-md space-y-2">
+                <span class="text-label-meta text-on-surface-variant">Enquête marché • Luanda &amp; Le Cap</span>
+                <h3 class="read-title">Le marché de l'art contemporain africain en plein essor : la montée des collectionneurs locaux</h3>
+                <p class="text-body-sm text-on-surface-variant line-clamp-2">Les foires du continent révèlent le poids croissant des mécènes africains.</p>
+              </div>
+            </div>
+            <div class="p-space-md pt-0 flex items-center justify-between text-label-meta text-on-surface-variant"><span class="font-semibold text-on-surface">Par Fatou Ndiaye</span><span>21 septembre 2026</span></div>
+          </article>
+          <article class="read-card group">
+            <div>
+              <div class="read-thumb"><img src="articles-suite-fintech.jpg" alt="Deux entrepreneurs dans un espace de coworking"><span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-tertiary text-on-tertiary-container text-label-badge uppercase">Tech &amp; finance</span><span class="read-time">14 min de lecture</span></div>
+              <div class="p-space-md space-y-2">
+                <span class="text-label-meta text-on-surface-variant">Investigation fintech • Accra</span>
+                <h3 class="read-title">Paiements transfrontaliers : comment les néobanques panafricaines font baisser le coût des transferts</h3>
+                <p class="text-body-sm text-on-surface-variant line-clamp-2">Des corridors monétaires plus fluides accélèrent le commerce intra-africain.</p>
+              </div>
+            </div>
+            <div class="p-space-md pt-0 flex items-center justify-between text-label-meta text-on-surface-variant"><span class="font-semibold text-on-surface">Par David Mensah</span><span>18 septembre 2026</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COMMENTAIRES ================= -->
+    <section id="commentaires" class="w-full py-space-2xl bg-surface">
+      <div class="max-w-[1100px] mx-auto px-margin md:px-margin-md space-y-space-xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+          <div>
+            <span class="text-label-badge text-primary uppercase">Espace débats &amp; perspectives</span>
+            <h2 class="text-headline-lg md:text-headline-xl text-white">Commentaires &amp; analyses des lecteurs (<span class="tnum" data-comment-total>86</span>)</h2>
+          </div>
+          <label class="flex items-center gap-2">
+            <span class="text-label-meta text-on-surface-variant">Trier par :</span>
+            <select id="commentSort" class="bg-surface-container text-on-surface text-label-meta px-3 py-1.5 rounded-lg focus:outline-none">
+              <option value="pertinence">Plus pertinents</option>
+              <option value="recent">Plus récents</option>
+              <option value="verifie">Réponses vérifiées</option>
+            </select>
+          </label>
+        </div>
+
+        <form id="commentForm" class="bg-surface-container-low p-space-md md:p-space-lg rounded-2xl shadow-md">
+          <div class="flex items-start gap-space-sm">
+            <div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-title-sm shrink-0">Vous</div>
+            <div class="flex-1 space-y-space-sm">
+              <textarea id="commentText" rows="3" required minlength="10" placeholder="Partagez votre point de vue ou un éclairage terrain sur cette enquête…" class="w-full bg-surface-container text-on-surface placeholder:text-on-surface-variant/60 text-body-md p-3.5 rounded-xl focus:outline-none focus:ring-1 focus:ring-primary-container resize-none" aria-label="Votre commentaire"></textarea>
+              <div class="flex flex-wrap items-center justify-between gap-space-sm">
+                <span class="text-label-meta text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[15px] text-secondary">verified_user</span>Espace modéré selon la charte Africadôme</span>
+                <button class="bg-primary-container text-on-primary-container hover:bg-primary px-5 py-2 rounded-lg text-title-sm font-bold transition-colors shadow-sm">Publier l'analyse</button>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div id="commentList" class="space-y-space-md">
+          <div class="comment" data-likes="142" data-order="2" data-verified="1">
+            <div class="flex items-center gap-space-sm">
+              <img src="articles-commentaire-koffi.jpg" alt="" class="w-10 h-10 rounded-full object-cover shrink-0">
+              <div>
+                <div class="flex flex-wrap items-center gap-1.5"><span class="text-title-sm text-white">Koffi Agbodjan</span><span class="bg-secondary-container/20 text-secondary text-[10px] font-extrabold px-1.5 py-0.5 rounded">Expert créatif vérifié</span></div>
+                <span class="text-label-meta text-on-surface-variant">Producteur exécutif • Lomé, Togo • Il y a 4 heures</span>
+              </div>
+            </div>
+            <p class="comment-text">Analyse remarquable. Sur le terrain en Afrique de l'Ouest, la vraie révolution réside dans le regroupement de studios indépendants en consortiums : les décors à Cotonou, l'animation des personnages à Dakar et l'étalonnage à Lagos. Cette collaboration décuple notre force de frappe financière.</p>
+            <div class="comment-actions"><button class="comment-like"><span class="material-symbols-outlined text-[16px]">thumb_up</span><span class="tnum">142</span></button><button class="comment-reply"><span class="material-symbols-outlined text-[16px]">reply</span>Répondre</button></div>
+          </div>
+          <div class="comment" data-likes="89" data-order="1" data-verified="0">
+            <div class="flex items-center gap-space-sm">
+              <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-bold text-title-sm shrink-0">MK</div>
+              <div>
+                <div class="flex flex-wrap items-center gap-1.5"><span class="text-title-sm text-white">Mireille Kouadio</span><span class="bg-primary-container/20 text-primary-container text-[10px] font-extrabold px-1.5 py-0.5 rounded">Membre pro</span></div>
+                <span class="text-label-meta text-on-surface-variant">Investisseuse • Abidjan, Côte d'Ivoire • Il y a 6 heures</span>
+              </div>
+            </div>
+            <p class="comment-text">La fiscalité et la propriété intellectuelle restent le talon d'Achille. Tant que les licences de streaming et les créations par IA ne seront pas harmonisées à l'échelle continentale, nos pépites perdront des marges face aux agrégateurs multinationaux. C'est le chantier prioritaire des prochaines années !</p>
+            <div class="comment-actions"><button class="comment-like"><span class="material-symbols-outlined text-[16px]">thumb_up</span><span class="tnum">89</span></button><button class="comment-reply"><span class="material-symbols-outlined text-[16px]">reply</span>Répondre</button></div>
+          </div>
+        </div>
+
+        <div class="text-center pt-space-xs">
+          <button id="moreComments" class="bg-surface-container hover:bg-surface-container-high text-title-sm px-6 py-2.5 rounded-full transition-colors shadow-sm">Afficher les 84 autres contributions</button>
+          <p id="moreMsg" class="hidden mt-3 text-label-meta text-on-surface-variant">Les autres contributions s'afficheront une fois l'espace commentaires relié à votre base de données.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-surface-container-lowest border-t border-surface-container-high mt-12">
+    <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div class="lg:col-span-2 space-y-4">
+        <img src="logo.png" alt="Africadôme" class="h-12 w-auto">
+        <p class="text-on-surface-variant max-w-md text-sm">L'écosystème médiatique panafricain dédié aux créateurs, innovateurs et bâtisseurs du continent. Une voix contemporaine, audacieuse et connectée pour faire rayonner l'Afrique.</p>
+        <div class="flex gap-2">
+          <a href="#" aria-label="Podcasts" class="social"><span class="material-symbols-outlined text-[18px]">podcasts</span></a>
+          <a href="#" aria-label="Vidéos" class="social"><span class="material-symbols-outlined text-[18px]">smart_display</span></a>
+          <a href="#" aria-label="Radio" class="social"><span class="material-symbols-outlined text-[18px]">radio</span></a>
+          <a href="#" aria-label="Flux RSS" class="social"><span class="material-symbols-outlined text-[18px]">rss_feed</span></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Explorer</h3>
+        <ul class="space-y-2 text-sm text-on-surface-variant">
+          <li><a href="videos.html" class="hover:text-on-surface">Vidéos &amp; Reportages</a></li>
+          <li><a href="radio.html#podcasts" class="hover:text-on-surface">Podcasts Originaux</a></li>
+          <li><a href="culture.html" class="hover:text-on-surface">Arts &amp; Cultures</a></li>
+          <li><a href="createurs.html" class="hover:text-on-surface">Portraits de Créateurs</a></li>
+          <li><a href="opportunites.html" class="hover:text-on-surface">Appels &amp; Bourses</a></li>
+          <li><a href="evenement.html" class="hover:text-on-surface">Événements Africadôme</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Radios</h3>
+        <ul class="space-y-2 text-sm text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Afro Inspiration</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Creative Talks</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>New African Sounds</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Business &amp; ICC</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Heritage</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Newsletter</h3>
+        <p class="text-sm text-on-surface-variant mb-3">Chaque vendredi, la sélection des meilleures créations et opportunités du continent.</p>
+        <form id="newsletter" class="flex">
+          <input type="email" required placeholder="votre.email@domaine.com" class="w-full bg-surface-container border border-surface-container-high rounded-l-lg px-3 py-2 text-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:border-primary">
+          <button class="bg-primary-container text-on-primary-container px-3 rounded-r-lg hover:bg-primary transition-colors" aria-label="S'abonner"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+        </form>
+        <p id="newsletterMsg" class="text-xs text-secondary mt-2 hidden">Merci ! Votre inscription est bien prise en compte.</p>
+      </div>
+    </div>
+    <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md py-6 border-t border-surface-container-high/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-on-surface-variant">
+      <p>© 2026 Africadôme Media Network. Tous droits réservés.</p>
+      <div class="flex gap-5"><a href="#" class="hover:text-on-surface">Mentions légales</a><a href="#" class="hover:text-on-surface">Confidentialité</a><a href="#" class="hover:text-on-surface">Contact</a></div>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+  <script src="articles.js"></script>
+</body>
+</html>

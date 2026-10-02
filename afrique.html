@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr">
+<head>
+  <meta charset="utf-8">
+  <script>try { if (localStorage.getItem("africadome-theme") === "light") document.documentElement.classList.add("light"); } catch (e) {}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Afrique — cartographie culturelle — Africadôme</title>
+  <meta name="description" content="Cartographie interactive des scènes créatives africaines, festivals panafricains et dossiers régionaux.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind-config.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-surface font-sans text-on-surface antialiased">
+
+  <!-- ================= HEADER ================= -->
+  <header id="header" class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl border-b border-surface-container-high/80">
+    <div class="h-20 max-w-[1600px] mx-auto px-margin md:px-margin-md flex items-center justify-between gap-4">
+      <a href="#" class="shrink-0" aria-label="Africadôme - Accueil">
+        <img src="logo.png" alt="Africadôme — Créer • Produire • Entreprendre • Diffuser • Rayonner" class="h-10 sm:h-12 xl:h-10 2xl:h-12 w-auto">
+      </a>
+
+      <nav id="nav" class="hidden xl:flex items-center gap-1" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="videos.html" class="nav-link">Vidéos</a>
+        <a href="radio.html#podcasts" class="nav-link">Podcasts</a>
+        <a href="articles.html" class="nav-link">Articles</a>
+        <a href="radio.html" class="nav-link">Radio</a>
+        <div class="relative dropdown">
+          <button class="nav-link is-active flex items-center gap-0.5" aria-expanded="false">
+            Afrique <span class="material-symbols-outlined text-[18px]">expand_more</span>
+          </button>
+          <div class="dropdown-menu absolute left-0 top-full mt-2 w-56 bg-surface-container-high rounded-xl p-2 shadow-2xl border border-surface-container-highest">
+            <a href="afrique.html" class="dropdown-item">Vue d'ensemble</a>
+            <a href="afrique.html?region=west" class="dropdown-item">Afrique de l'Ouest</a>
+            <a href="afrique.html?region=central" class="dropdown-item">Afrique Centrale</a>
+            <a href="afrique.html?region=east" class="dropdown-item">Afrique de l'Est</a>
+            <a href="afrique.html?region=south" class="dropdown-item">Afrique Australe</a>
+            <a href="afrique.html?region=north" class="dropdown-item">Afrique du Nord</a>
+            <a href="afrique.html?region=diaspora" class="dropdown-item">Diasporas</a>
+          </div>
+        </div>
+        <a href="culture.html" class="nav-link">Culture</a>
+        <a href="createurs.html" class="nav-link">Créateurs</a>
+        <a href="apprendre.html" class="nav-link">Apprendre</a>
+        <a href="opportunites.html" class="nav-link">Opportunités</a>
+      </nav>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <button id="themeBtn" aria-label="Passer en mode clair" title="Mode clair / sombre" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-[20px]">light_mode</span>
+        </button>
+        <button id="searchBtn" aria-label="Rechercher" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-[20px]">search</span>
+        </button>
+        <div class="relative dropdown hidden sm:block">
+          <button id="langBtn" class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors text-xs font-semibold" aria-expanded="false">
+            <span class="material-symbols-outlined text-[16px]">language</span>
+            <span id="langLabel">FR</span>
+            <span class="material-symbols-outlined text-[14px]">expand_more</span>
+          </button>
+          <div class="dropdown-menu absolute right-0 top-full mt-2 w-40 bg-surface-container-high rounded-xl p-2 shadow-2xl border border-surface-container-highest">
+            <button class="dropdown-item w-full text-left" data-lang="FR">Français</button>
+            <button class="dropdown-item w-full text-left" data-lang="EN">English</button>
+            <button class="dropdown-item w-full text-left" data-lang="PT">Português</button>
+            <button class="dropdown-item w-full text-left" data-lang="SW">Kiswahili</button>
+          </div>
+        </div>
+        <div class="h-5 w-px bg-surface-container-highest hidden sm:block"></div>
+        <a href="#" class="hidden sm:inline-flex px-4 py-2 rounded-lg bg-primary-container text-on-primary-container text-sm font-semibold hover:bg-primary transition-colors">Se connecter</a>
+        <a href="#" class="hidden md:inline-flex xl:hidden 2xl:inline-flex px-4 py-2 rounded-lg border border-outline-variant text-on-surface text-sm font-semibold hover:bg-surface-container-high transition-colors">S'inscrire</a>
+        <button id="burger" class="xl:hidden w-9 h-9 rounded-lg flex items-center justify-center hover:bg-surface-container-high" aria-label="Menu" aria-expanded="false">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Barre de recherche -->
+    <div id="searchBar" class="search-bar max-w-[1600px] mx-auto px-margin md:px-margin-md">
+      <div class="relative flex items-center pb-4">
+        <span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px]">search</span>
+        <input type="search" placeholder="Rechercher une vidéo, un podcast, un créateur…" class="w-full bg-surface-container-low text-on-surface pl-10 pr-4 py-3 rounded-lg text-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:bg-surface-container-high transition-colors">
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu mobile -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-x-0 bottom-0 top-20 z-40 bg-surface xl:hidden overflow-y-auto p-6">
+    <nav class="flex flex-col gap-1 text-lg">
+      <a href="index.html" class="mobile-link">Accueil</a>
+      <a href="videos.html" class="mobile-link">Vidéos</a>
+      <a href="radio.html#podcasts" class="mobile-link">Podcasts</a>
+      <a href="articles.html" class="mobile-link">Articles</a>
+      <a href="radio.html" class="mobile-link">Radio</a>
+      <a href="afrique.html" class="mobile-link">Afrique</a>
+      <a href="culture.html" class="mobile-link">Culture</a>
+      <a href="createurs.html" class="mobile-link">Créateurs</a>
+      <a href="apprendre.html" class="mobile-link">Apprendre</a>
+      <a href="opportunites.html" class="mobile-link">Opportunités</a>
+    </nav>
+    <div class="grid grid-cols-2 gap-3 mt-6">
+      <a href="#" class="text-center px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-semibold">Se connecter</a>
+      <a href="#" class="text-center px-4 py-3 rounded-lg border border-outline-variant font-semibold">S'inscrire</a>
+    </div>
+  </div>
+
+  <main class="pt-20">
+    <!-- ================= EN-TÊTE ================= -->
+    <div class="relative w-full overflow-hidden bg-gradient-to-b from-surface-container-low via-surface to-surface">
+      <div class="absolute -top-32 right-1/4 w-96 h-96 rounded-full bg-primary/10 blur-[120px] pointer-events-none"></div>
+      <div class="absolute top-48 left-10 w-72 h-72 rounded-full bg-secondary-container/15 blur-[100px] pointer-events-none"></div>
+      <div class="relative z-10 max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pt-space-lg pb-space-2xl">
+        <nav aria-label="Fil d'Ariane" class="flex items-center gap-space-xs text-on-surface-variant text-label-meta mb-space-md">
+          <a href="index.html" class="hover:text-primary transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">home</span>Accueil</a>
+          <span class="material-symbols-outlined text-[13px] opacity-40">chevron_right</span>
+          <span class="text-primary font-semibold">Afrique &amp; cartographie culturelle</span>
+        </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-end mb-space-2xl">
+          <div class="lg:col-span-8 space-y-space-sm">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high text-primary text-label-badge uppercase"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>Observatoire géoculturel Africadôme</div>
+            <h1 class="text-headline-xl-mobile md:text-display-hero text-white">L'Afrique en mouvements : cartographie &amp; dynamiques culturelles</h1>
+            <p class="text-body-lg text-on-surface-variant max-w-3xl">Explorez les scènes créatives, musicales, technologiques et artistiques des grandes régions du continent et de ses diasporas. Une immersion au cœur de l'avant-garde africaine.</p>
+          </div>
+          <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-space-xs">
+            <div class="stat-row"><div class="flex items-center gap-space-sm"><span class="stat-ico bg-primary-container/20 text-primary"><span class="material-symbols-outlined">public</span></span><div><span class="text-headline-lg text-white block leading-none tnum">54</span><span class="text-body-sm text-on-surface-variant">Pays couverts</span></div></div><span class="text-label-badge text-secondary bg-secondary/10 px-2.5 py-1 rounded-full uppercase">Continent</span></div>
+            <div class="stat-row"><div class="flex items-center gap-space-sm"><span class="stat-ico bg-secondary/20 text-secondary"><span class="material-symbols-outlined">apartment</span></span><div><span class="text-headline-lg text-white block leading-none tnum">120+</span><span class="text-body-sm text-on-surface-variant">Villes créatives documentées</span></div></div><span class="text-label-badge text-primary bg-primary/10 px-2.5 py-1 rounded-full uppercase">+12 ce mois</span></div>
+            <div class="stat-row"><div class="flex items-center gap-space-sm"><span class="stat-ico bg-tertiary-container/30 text-tertiary"><span class="material-symbols-outlined">hub</span></span><div><span class="text-headline-lg text-white block leading-none tnum">1 450+</span><span class="text-body-sm text-on-surface-variant">Lieux culturels &amp; hubs</span></div></div><span class="text-label-badge text-tertiary bg-tertiary/10 px-2.5 py-1 rounded-full uppercase">Référencés</span></div>
+          </div>
+        </div>
+
+        <div id="regionNav" data-chip-group class="flex items-center gap-space-xs overflow-x-auto pb-space-xs pt-space-xs no-scrollbar">
+          <button class="chip !px-5 !py-2.5 is-active" data-region="all">Toutes les régions</button>
+          <button class="chip !px-5 !py-2.5" data-region="west">Afrique de l'Ouest</button>
+          <button class="chip !px-5 !py-2.5" data-region="central">Afrique Centrale</button>
+          <button class="chip !px-5 !py-2.5" data-region="east">Afrique de l'Est</button>
+          <button class="chip !px-5 !py-2.5" data-region="north">Afrique du Nord</button>
+          <button class="chip !px-5 !py-2.5" data-region="south">Afrique Australe</button>
+          <button class="chip !px-5 !py-2.5" data-region="diaspora">Diasporas mondiales</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= CARTE INTERACTIVE ================= -->
+    <section class="w-full bg-surface-dim py-space-xl">
+      <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-sm">
+          <div>
+            <span class="text-label-badge text-primary uppercase block mb-1">Radar &amp; clusters métropolitains</span>
+            <h2 class="text-headline-lg md:text-headline-xl text-white">Cartographie interactive des scènes émergentes</h2>
+          </div>
+          <div class="flex items-center gap-space-sm">
+            <span class="flex items-center gap-2 bg-surface-container px-3 py-1.5 rounded-lg text-on-surface-variant text-label-meta"><span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>Ébullition créative</span>
+            <span class="flex items-center gap-2 bg-surface-container px-3 py-1.5 rounded-lg text-on-surface-variant text-label-meta"><span class="w-2.5 h-2.5 rounded-full bg-primary"></span>Tech &amp; son</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-stretch">
+          <div class="lg:col-span-8 bg-surface-container-low rounded-xl p-space-md md:p-space-lg relative overflow-hidden flex flex-col justify-between min-h-[520px] shadow-lg">
+            <div class="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#ffc174_1px,transparent_1px)] [background-size:24px_24px]"></div>
+            <div class="relative z-10 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-space-sm">
+                <span class="material-symbols-outlined text-primary text-[28px]">explore</span>
+                <div>
+                  <p class="text-title-sm text-white leading-none">Matrice panafricaine des pôles créatifs</p>
+                  <p class="text-body-sm text-on-surface-variant mt-1">Sélectionnez un pôle pour afficher sa fiche</p>
+                </div>
+              </div>
+              <span class="hidden sm:flex items-center gap-1.5 bg-surface-container px-3 py-1.5 rounded-full text-on-surface-variant text-label-meta"><span class="material-symbols-outlined text-[16px] text-secondary">tune</span>Vue synthèse</span>
+            </div>
+
+            <div class="relative z-10 w-full my-space-md flex items-center justify-center">
+              <div id="hubMap" class="w-full max-w-[620px] h-[340px] relative rounded-xl bg-surface-container/60 overflow-hidden">
+                <svg class="absolute inset-0 w-full h-full opacity-35" fill="none" viewBox="0 0 600 340" aria-hidden="true">
+                  <path d="M 255 30 Q 330 40 385 75 L 420 110 Q 450 150 430 185 L 400 245 Q 370 300 340 315 Q 310 300 295 260 L 270 215 Q 220 205 175 185 Q 140 165 150 125 Q 165 75 215 50 Z" stroke="#ffc174" stroke-dasharray="4 4" stroke-width="1.5"/>
+                  <circle cx="300" cy="170" r="130" stroke="#ffc174" stroke-width="0.8" opacity="0.4"/>
+                  <circle cx="300" cy="170" r="70" stroke="#4edea3" stroke-width="0.8" opacity="0.4"/>
+                  <line x1="140" y1="150" x2="240" y2="175" stroke="#f59e0b" stroke-width="1"/>
+                  <line x1="240" y1="175" x2="300" y2="215" stroke="#f59e0b" stroke-width="1"/>
+                  <line x1="300" y1="215" x2="420" y2="195" stroke="#f59e0b" stroke-width="1"/>
+                  <line x1="420" y1="195" x2="370" y2="285" stroke="#f59e0b" stroke-width="1"/>
+                  <line x1="240" y1="175" x2="290" y2="65" stroke="#f59e0b" stroke-width="1"/>
+                </svg>
+                <button class="hub-marker" style="left:18%;top:40%" data-hub="dakar-abidjan" data-region="west"><span class="hub-dot bg-primary"><span class="hub-ping bg-primary/30"></span></span><span class="hub-label">Dakar &amp; Abidjan</span></button>
+                <button class="hub-marker" style="left:36%;top:48%" data-hub="lagos-accra" data-region="west"><span class="hub-dot hub-dot--lg bg-secondary"></span><span class="hub-label">Lagos &amp; Accra</span></button>
+                <button class="hub-marker" style="left:46%;top:60%" data-hub="douala-kinshasa" data-region="central"><span class="hub-dot bg-orange-400"></span><span class="hub-label">Douala &amp; Kinshasa</span></button>
+                <button class="hub-marker is-active" style="left:66%;top:54%" data-hub="nairobi-kigali" data-region="east"><span class="hub-dot hub-dot--lg bg-primary-container"></span><span class="hub-label">Nairobi &amp; Kigali</span></button>
+                <button class="hub-marker" style="left:44%;top:14%" data-hub="casa-caire" data-region="north"><span class="hub-dot bg-tertiary"></span><span class="hub-label">Casablanca &amp; Le Caire</span></button>
+                <button class="hub-marker" style="left:58%;top:80%" data-hub="joburg-maputo" data-region="south"><span class="hub-dot bg-emerald-300"></span><span class="hub-label">Johannesburg &amp; Maputo</span></button>
+              </div>
+            </div>
+
+            <div class="relative z-10 flex flex-wrap items-center justify-between gap-space-sm text-on-surface-variant text-body-sm">
+              <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-primary">sensors</span>Données compilées par le réseau de correspondants Africadôme</span>
+              <span class="text-label-meta text-primary font-semibold">Mise à jour : octobre 2026</span>
+            </div>
+          </div>
+
+          <aside id="hubPanel" class="lg:col-span-4 bg-surface-container rounded-xl p-space-lg flex flex-col justify-between shadow-lg" aria-live="polite">
+            <div>
+              <div class="flex items-center justify-between mb-space-sm">
+                <span id="hubTag" class="text-label-badge bg-primary/10 text-primary px-3 py-1 rounded-full uppercase">Afrique de l'Est • Pôle majeur</span>
+                <span class="material-symbols-outlined text-on-surface-variant text-[20px]">equalizer</span>
+              </div>
+              <h3 id="hubTitle" class="text-headline-lg text-white">Nairobi &amp; Kigali</h3>
+              <p id="hubFocus" class="text-title-sm text-primary mb-space-md">Hub animation 3D, gaming &amp; sound design</p>
+              <p id="hubDesc" class="text-body-md text-on-surface-variant mb-space-lg">Pionnières de l'économie créative numérique, ces deux capitales redéfinissent la narration visuelle africaine, du jeu vidéo indépendant au son spatial immersif.</p>
+              <div class="space-y-space-sm mb-space-lg">
+                <div class="hub-stat"><span class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">groups</span>Créateurs répertoriés</span><span id="hubCreators" class="text-title-sm text-white tnum">480+</span></div>
+                <div class="hub-stat"><span class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[20px]">festival</span>Festivals ce trimestre</span><span id="hubFestivals" class="text-title-sm text-white">7 événements</span></div>
+                <div class="hub-stat"><span class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-[20px]">monetization_on</span>Opportunités ouvertes</span><span id="hubOpps" class="text-title-sm text-white">14 bourses &amp; résidences</span></div>
+              </div>
+            </div>
+            <a href="createurs.html" class="w-full py-3 px-4 rounded-lg bg-primary text-on-primary text-title-sm font-bold flex items-center justify-center gap-2 hover:bg-primary-fixed transition-colors shadow-md">Explorer la scène locale <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOCUS RÉGIONAL ================= -->
+    <section class="w-full py-space-2xl bg-surface">
+      <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+        <div class="mb-space-lg flex items-center justify-between gap-4">
+          <div>
+            <span class="text-label-badge text-secondary uppercase block mb-1">Coup de projecteur territorial</span>
+            <h2 class="text-headline-lg md:text-headline-xl text-white">Focus régional du mois</h2>
+          </div>
+          <span class="hidden sm:inline-flex items-center gap-1 text-label-meta text-on-surface-variant bg-surface-container-high px-3 py-1.5 rounded-full"><span class="material-symbols-outlined text-[16px] text-primary">calendar_month</span>Édition octobre 2026</span>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden bg-surface-container-low shadow-xl grid grid-cols-1 lg:grid-cols-12 items-stretch">
+          <div class="lg:col-span-7 relative min-h-[460px] flex flex-col justify-end p-space-lg md:p-space-xl overflow-hidden">
+            <img src="afrique-focus-nairobi.jpg" alt="Jeunes créatifs dans un loft-studio à Nairobi" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent"></div>
+            <div class="relative z-10 space-y-space-sm">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="text-label-badge bg-primary-container text-on-primary-container px-3 py-1 rounded-full uppercase">Afrique de l'Est</span>
+                <span class="text-label-badge bg-surface-container-high/90 text-white px-3 py-1 rounded-full uppercase">Tech &amp; gaming</span>
+                <span class="text-label-badge bg-surface-container-high/90 text-white px-3 py-1 rounded-full uppercase">Animation 3D</span>
+              </div>
+              <h3 class="text-headline-lg md:text-headline-xl text-white max-w-xl">L'effervescence de Nairobi &amp; la « Silicon Savannah »</h3>
+              <p class="text-body-lg text-on-surface max-w-xl">Entre les studios de Kilimani et les collectifs de design sonore de Westlands, la jeunesse kényane redéfinit la création numérique avec une esthétique afrofuturiste assumée.</p>
+              <blockquote class="p-space-md rounded-lg bg-surface-container-highest/80 backdrop-blur-md max-w-xl">
+                <p class="text-body-md text-on-surface-variant italic">« Nous ne copions plus les canons occidentaux : nous créons des univers où l'animation, les contes swahilis et les algorithmes génératifs dialoguent d'égal à égal. »</p>
+                <footer class="mt-2 text-label-meta text-primary font-bold">— Wanjiku Mwangi, cofondatrice d'un collectif d'animation de Nairobi</footer>
+              </blockquote>
+            </div>
+          </div>
+          <div class="lg:col-span-5 p-space-lg md:p-space-xl flex flex-col justify-between bg-surface-container">
+            <div>
+              <h4 class="text-headline-md text-white mb-space-md flex items-center gap-2"><span class="material-symbols-outlined text-primary">pin_drop</span>3 lieux à découvrir</h4>
+              <div class="space-y-space-sm">
+                <div class="place-card"><div class="flex items-center justify-between gap-2"><span class="text-title-sm text-white">The GoDown Arts Centre</span><span class="text-label-meta text-secondary">Arts visuels &amp; danse</span></div><p class="text-body-sm text-on-surface-variant mt-1">Centre d'arts pluridisciplinaire emblématique de la scène indépendante nairobienne.</p></div>
+                <div class="place-card"><div class="flex items-center justify-between gap-2"><span class="text-title-sm text-white">Kilimani Creative Lab</span><span class="text-label-meta text-primary">3D, VR &amp; gaming</span></div><p class="text-body-sm text-on-surface-variant mt-1">Accélérateur pour les studios d'animation indépendants de la région des Grands Lacs.</p></div>
+                <div class="place-card"><div class="flex items-center justify-between gap-2"><span class="text-title-sm text-white">Westlands Sound Space</span><span class="text-label-meta text-tertiary">Musiques expérimentales</span></div><p class="text-body-sm text-on-surface-variant mt-1">Scène hybride mêlant sound design immersif, cuisine panafricaine et art numérique.</p></div>
+              </div>
+              <div class="mt-space-lg pt-space-md">
+                <h5 class="text-label-badge text-on-surface-variant uppercase mb-space-xs">Production récente remarquée</h5>
+                <div class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low">
+                  <span class="w-12 h-12 rounded bg-surface-container-highest shrink-0 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[24px]">movie</span></span>
+                  <div class="min-w-0">
+                    <p class="text-title-sm text-white truncate">« Matatu 2099 » — court métrage d'animation cyberpunk</p>
+                    <p class="text-body-sm text-on-surface-variant">Remarqué en festivals • Studio RiftValley</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pt-space-lg flex items-center justify-between gap-space-sm">
+              <a href="articles.html" class="inline-flex items-center gap-2 text-title-sm text-primary font-bold hover:underline">Lire le dossier spécial Nairobi <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+              <button class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center hover:text-primary transition-colors" data-toggle-fill aria-label="Sauvegarder le dossier"><span class="material-symbols-outlined text-[18px]">bookmark</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FESTIVALS ================= -->
+    <section id="agenda" class="w-full py-space-2xl bg-surface-container-lowest">
+      <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-sm">
+          <div>
+            <span class="text-label-badge text-primary uppercase block mb-1">Agenda culturel</span>
+            <h2 class="text-headline-lg md:text-headline-xl text-white">Les grands événements &amp; festivals panafricains</h2>
+          </div>
+          <p class="text-body-sm text-on-surface-variant max-w-md">Périodes habituelles indiquées à titre indicatif — vérifiez les dates officielles auprès des organisateurs.</p>
+        </div>
+
+        <div id="festivalGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter">
+          <div class="fest-card group" data-region="west">
+            <div>
+              <div class="fest-thumb"><img src="afrique-festival-cinema.jpg" alt="Illustration : soirée de festival de cinéma"><span class="fest-tag bg-primary-container text-on-primary-container">Cinéma</span><span class="fest-date">Fév.–mars 2027</span></div>
+              <div class="p-space-md">
+                <span class="fest-place"><span class="material-symbols-outlined text-[15px] text-primary">location_on</span>Ouagadougou, Burkina Faso</span>
+                <h3 class="fest-title">FESPACO</h3>
+                <p class="text-body-sm text-on-surface-variant mt-2 line-clamp-2">Festival panafricain du cinéma et de la télévision, biennal, qui décerne l'Étalon de Yennenga.</p>
+              </div>
+            </div>
+            <div class="p-space-md pt-0"><div class="fest-foot"><span class="text-white font-semibold">Biennale</span><span class="text-on-surface-variant">Dates à confirmer</span></div><button class="fest-btn" data-remind="FESPACO">Me prévenir <span class="material-symbols-outlined text-[16px]">notifications</span></button></div>
+          </div>
+          <div class="fest-card group" data-region="west">
+            <div>
+              <div class="fest-thumb"><img src="afrique-festival-art.jpg" alt="Illustration : grande salle d'exposition d'art contemporain"><span class="fest-tag bg-secondary text-on-secondary">Arts visuels</span><span class="fest-date">Prochaine édition</span></div>
+              <div class="p-space-md">
+                <span class="fest-place"><span class="material-symbols-outlined text-[15px] text-primary">location_on</span>Dakar, Sénégal</span>
+                <h3 class="fest-title">Biennale Dak'Art</h3>
+                <p class="text-body-sm text-on-surface-variant mt-2 line-clamp-2">Biennale de l'art africain contemporain, avec ses expositions « In » et ses nombreux événements « Off ».</p>
+              </div>
+            </div>
+            <div class="p-space-md pt-0"><div class="fest-foot"><span class="text-white font-semibold">Biennale</span><span class="text-on-surface-variant">Dates à confirmer</span></div><button class="fest-btn" data-remind="Biennale Dak'Art">Me prévenir <span class="material-symbols-outlined text-[16px]">notifications</span></button></div>
+          </div>
+          <div class="fest-card group" data-region="east">
+            <div>
+              <div class="fest-thumb"><img src="afrique-festival-electro.jpg" alt="Illustration : scène de festival électro de nuit"><span class="fest-tag bg-tertiary-container text-on-tertiary">Musique</span><span class="fest-date">Novembre</span></div>
+              <div class="p-space-md">
+                <span class="fest-place"><span class="material-symbols-outlined text-[15px] text-primary">location_on</span>Jinja, Ouganda</span>
+                <h3 class="fest-title">Nyege Nyege Festival</h3>
+                <p class="text-body-sm text-on-surface-variant mt-2 line-clamp-2">Rassemblement des musiques électroniques et alternatives d'Afrique de l'Est et d'ailleurs.</p>
+              </div>
+            </div>
+            <div class="p-space-md pt-0"><div class="fest-foot"><span class="text-white font-semibold">Annuel</span><span class="text-on-surface-variant">Dates à confirmer</span></div><button class="fest-btn" data-remind="Nyege Nyege Festival">Me prévenir <span class="material-symbols-outlined text-[16px]">notifications</span></button></div>
+          </div>
+          <div class="fest-card group" data-region="west">
+            <div>
+              <div class="fest-thumb"><img src="afrique-festival-mode.jpg" alt="Illustration : défilé de mode"><span class="fest-tag bg-primary text-on-primary">Mode &amp; design</span><span class="fest-date">Fin octobre</span></div>
+              <div class="p-space-md">
+                <span class="fest-place"><span class="material-symbols-outlined text-[15px] text-primary">location_on</span>Lagos, Nigéria</span>
+                <h3 class="fest-title">Lagos Fashion Week</h3>
+                <p class="text-body-sm text-on-surface-variant mt-2 line-clamp-2">Rendez-vous majeur des créateurs de mode africains, avec un accent sur la mode durable.</p>
+              </div>
+            </div>
+            <div class="p-space-md pt-0"><div class="fest-foot"><span class="text-white font-semibold">Annuel</span><span class="text-on-surface-variant">Dates à confirmer</span></div><button class="fest-btn" data-remind="Lagos Fashion Week">Me prévenir <span class="material-symbols-outlined text-[16px]">notifications</span></button></div>
+          </div>
+          <div class="fest-card group" data-region="west">
+            <div>
+              <div class="fest-thumb"><img src="afrique-festival-fleuve.jpg" alt="Illustration : concert au bord d'un fleuve au crépuscule"><span class="fest-tag bg-secondary-container text-white">Patrimoine</span><span class="fest-date">Février</span></div>
+              <div class="p-space-md">
+                <span class="fest-place"><span class="material-symbols-outlined text-[15px] text-primary">location_on</span>Ségou, Mali</span>
+                <h3 class="fest-title">Festival sur le Niger</h3>
+                <p class="text-body-sm text-on-surface-variant mt-2 line-clamp-2">Musiques, arts et rencontres au bord du fleuve Niger, autour du patrimoine culturel mandingue.</p>
+              </div>
+            </div>
+            <div class="p-space-md pt-0"><div class="fest-foot"><span class="text-white font-semibold">Annuel</span><span class="text-on-surface-variant">Dates à confirmer</span></div><button class="fest-btn" data-remind="Festival sur le Niger">Me prévenir <span class="material-symbols-outlined text-[16px]">notifications</span></button></div>
+          </div>
+        </div>
+        <p data-empty class="hidden text-on-surface-variant py-10 text-center">Aucun festival référencé pour cette région pour le moment — <a href="#contribuer" class="text-primary hover:underline">proposez-en un</a>.</p>
+      </div>
+    </section>
+
+    <!-- ================= DOSSIERS RÉGIONAUX ================= -->
+    <section class="w-full py-space-2xl bg-surface">
+      <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-sm">
+          <div>
+            <span class="text-label-badge text-primary uppercase block mb-1">Grands formats &amp; enquêtes de terrain</span>
+            <h2 class="text-headline-lg md:text-headline-xl text-white">Dossiers régionaux &amp; reportages immersion</h2>
+          </div>
+          <p class="text-body-md text-on-surface-variant max-w-md">Nos correspondants arpentent les capitales et les villes secondaires pour décrypter les mutations culturelles de fond.</p>
+        </div>
+        <div id="dossierGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter-lg">
+          <article class="dossier-card group" data-region="west">
+            <div>
+              <div class="dossier-thumb"><img src="afrique-dossier-cotonou.jpg" alt="Cour d'une galerie d'art contemporain"><div class="absolute top-3 left-3 flex items-center gap-2"><span class="text-label-badge bg-primary text-on-primary px-3 py-1 rounded-full uppercase">Afrique de l'Ouest</span><span class="dossier-media"><span class="material-symbols-outlined text-[14px] text-primary">play_circle</span>Vidéo incluse</span></div><span class="dossier-time">11 min de lecture</span></div>
+              <div class="p-space-lg">
+                <div class="flex items-center gap-2 text-on-surface-variant text-label-meta mb-space-xs"><span>Par Yao Agbessi</span><span>•</span><span>Cotonou, Bénin</span></div>
+                <h3 class="dossier-title">Comment Cotonou s'affirme comme une capitale des arts contemporains</h3>
+                <p class="text-body-md text-on-surface-variant mt-space-sm">Depuis la restitution par la France de 26 œuvres du trésor royal d'Abomey en 2021, la métropole béninoise voit fleurir fondations, résidences et galeries.</p>
+              </div>
+            </div>
+            <div class="px-space-lg pb-space-lg"><a href="articles.html" class="inline-flex items-center gap-2 text-title-sm text-primary hover:underline">Lire le grand reportage <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div>
+          </article>
+          <article class="dossier-card group" data-region="east">
+            <div>
+              <div class="dossier-thumb"><img src="afrique-dossier-kampala.jpg" alt="Studio de musique électronique avec synthétiseurs et percussions"><div class="absolute top-3 left-3 flex items-center gap-2"><span class="text-label-badge bg-secondary-container text-white px-3 py-1 rounded-full uppercase">Afrique de l'Est</span><span class="dossier-media"><span class="material-symbols-outlined text-[14px] text-secondary">graphic_eq</span>Podcast 32 min</span></div><span class="dossier-time">16 min de lecture</span></div>
+              <div class="p-space-lg">
+                <div class="flex items-center gap-2 text-on-surface-variant text-label-meta mb-space-xs"><span>Par Selam Tesfaye</span><span>•</span><span>Kampala &amp; Addis-Abeba</span></div>
+                <h3 class="dossier-title">La scène électro underground, de Kampala à Addis-Abeba</h3>
+                <p class="text-body-md text-on-surface-variant mt-space-sm">De l'éthio-jazz hybridé aux synthétiseurs modulaires jusqu'aux polyrythmies accélérées : enquête sur un mouvement sonore qui fait danser bien au-delà du continent.</p>
+              </div>
+            </div>
+            <div class="px-space-lg pb-space-lg"><a href="articles.html" class="inline-flex items-center gap-2 text-title-sm text-primary hover:underline">Lire le grand reportage <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div>
+          </article>
+          <article class="dossier-card group" data-region="north">
+            <div>
+              <div class="dossier-thumb"><img src="afrique-dossier-atlas.jpg" alt="Un réalisateur filme dans un village de l'Atlas au crépuscule"><div class="absolute top-3 left-3 flex items-center gap-2"><span class="text-label-badge bg-tertiary-container text-on-tertiary px-3 py-1 rounded-full uppercase">Afrique du Nord</span><span class="dossier-media"><span class="material-symbols-outlined text-[14px] text-tertiary">movie</span>Extraits vidéo</span></div><span class="dossier-time">13 min de lecture</span></div>
+              <div class="p-space-lg">
+                <div class="flex items-center gap-2 text-on-surface-variant text-label-meta mb-space-xs"><span>Par Yassine Benali</span><span>•</span><span>Alger &amp; Marrakech</span></div>
+                <h3 class="dossier-title">Cinéma amazigh et renouveau du documentaire maghrébin</h3>
+                <p class="text-body-md text-on-surface-variant mt-space-sm">Une nouvelle vague de documentaristes interroge les mémoires orales, les paysages oasiens et l'identité amazighe avec une grande force poétique.</p>
+              </div>
+            </div>
+            <div class="px-space-lg pb-space-lg"><a href="articles.html" class="inline-flex items-center gap-2 text-title-sm text-primary hover:underline">Lire le grand reportage <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div>
+          </article>
+        </div>
+        <p data-empty class="hidden text-on-surface-variant py-10 text-center">Pas encore de dossier pour cette région — nos correspondants y travaillent.</p>
+      </div>
+    </section>
+
+    <!-- ================= CONTRIBUER ================= -->
+    <section id="contribuer" class="w-full py-space-2xl bg-surface-dim">
+      <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+        <div class="relative rounded-2xl bg-gradient-to-r from-surface-container via-surface-container-high to-surface-container p-space-lg md:p-space-2xl shadow-2xl overflow-hidden">
+          <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-primary/10 blur-[90px] pointer-events-none"></div>
+          <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+            <div class="lg:col-span-8 space-y-space-sm">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-label-badge uppercase"><span class="material-symbols-outlined text-[14px]">verified</span>Réseau collaboratif &amp; journalisme participatif</div>
+              <h2 class="text-headline-lg md:text-headline-xl text-white">Contribuer au guide culturel Africadôme</h2>
+              <p class="text-body-lg text-on-surface-variant max-w-2xl">Journaliste culturel, animateur de tiers-lieu, curateur ou créateur indépendant, sur le continent ou dans la diaspora ? Participez à la mise à jour de la cartographie des scènes créatives africaines.</p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-space-xs text-body-sm">
+                <span class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>Badge contributeur vérifié</span>
+                <span class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>Rémunération à la pige</span>
+                <span class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>Diffusion panafricaine</span>
+              </div>
+            </div>
+            <div class="lg:col-span-4 flex flex-col gap-space-sm">
+              <a href="mailto:guide@africadome.example?subject=Proposer%20un%20lieu%20ou%20un%20festival" class="w-full py-3.5 px-6 rounded-xl bg-primary-container text-on-primary-container text-title-sm font-bold flex items-center justify-center gap-2 hover:bg-primary transition-all shadow-lg"><span class="material-symbols-outlined text-[20px]">add_location_alt</span>Proposer un lieu ou un festival</a>
+              <a href="mailto:guide@africadome.example?subject=Candidature%20correspondant" class="w-full py-3.5 px-6 rounded-xl bg-surface-container-highest text-white text-title-sm flex items-center justify-center gap-2 hover:bg-surface-bright transition-all shadow-md"><span class="material-symbols-outlined text-[20px]">badge</span>Postuler comme correspondant</a>
+              <p class="text-center text-label-meta text-on-surface-variant/70 mt-1">Réponse sous 72 h par notre comité éditorial.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-surface-container-lowest border-t border-surface-container-high mt-12">
+    <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div class="lg:col-span-2 space-y-4">
+        <img src="logo.png" alt="Africadôme" class="h-12 w-auto">
+        <p class="text-on-surface-variant max-w-md text-sm">L'écosystème médiatique panafricain dédié aux créateurs, innovateurs et bâtisseurs du continent. Une voix contemporaine, audacieuse et connectée pour faire rayonner l'Afrique.</p>
+        <div class="flex gap-2">
+          <a href="#" aria-label="Podcasts" class="social"><span class="material-symbols-outlined text-[18px]">podcasts</span></a>
+          <a href="#" aria-label="Vidéos" class="social"><span class="material-symbols-outlined text-[18px]">smart_display</span></a>
+          <a href="#" aria-label="Radio" class="social"><span class="material-symbols-outlined text-[18px]">radio</span></a>
+          <a href="#" aria-label="Flux RSS" class="social"><span class="material-symbols-outlined text-[18px]">rss_feed</span></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Explorer</h3>
+        <ul class="space-y-2 text-sm text-on-surface-variant">
+          <li><a href="videos.html" class="hover:text-on-surface">Vidéos &amp; Reportages</a></li>
+          <li><a href="radio.html#podcasts" class="hover:text-on-surface">Podcasts Originaux</a></li>
+          <li><a href="culture.html" class="hover:text-on-surface">Arts &amp; Cultures</a></li>
+          <li><a href="createurs.html" class="hover:text-on-surface">Portraits de Créateurs</a></li>
+          <li><a href="opportunites.html" class="hover:text-on-surface">Appels &amp; Bourses</a></li>
+          <li><a href="evenement.html" class="hover:text-on-surface">Événements Africadôme</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Radios</h3>
+        <ul class="space-y-2 text-sm text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Afro Inspiration</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Creative Talks</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>New African Sounds</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Business &amp; ICC</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Heritage</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Newsletter</h3>
+        <p class="text-sm text-on-surface-variant mb-3">Chaque vendredi, la sélection des meilleures créations et opportunités du continent.</p>
+        <form id="newsletter" class="flex">
+          <input type="email" required placeholder="votre.email@domaine.com" class="w-full bg-surface-container border border-surface-container-high rounded-l-lg px-3 py-2 text-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:border-primary">
+          <button class="bg-primary-container text-on-primary-container px-3 rounded-r-lg hover:bg-primary transition-colors" aria-label="S'abonner"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+        </form>
+        <p id="newsletterMsg" class="text-xs text-secondary mt-2 hidden">Merci ! Votre inscription est bien prise en compte.</p>
+      </div>
+    </div>
+    <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md py-6 border-t border-surface-container-high/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-on-surface-variant">
+      <p>© 2026 Africadôme Media Network. Tous droits réservés.</p>
+      <div class="flex gap-5"><a href="#" class="hover:text-on-surface">Mentions légales</a><a href="#" class="hover:text-on-surface">Confidentialité</a><a href="#" class="hover:text-on-surface">Contact</a></div>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+  <script src="afrique.js"></script>
+</body>
+</html>

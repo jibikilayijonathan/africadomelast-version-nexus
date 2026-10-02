@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr">
+<head>
+  <meta charset="utf-8">
+  <script>try { if (localStorage.getItem("africadome-theme") === "light") document.documentElement.classList.add("light"); } catch (e) {}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Africadôme — Créer · Produire · Entreprendre · Diffuser · Rayonner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind-config.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-surface font-sans text-on-surface antialiased">
+
+  <!-- ================= HEADER ================= -->
+  <header id="header" class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl border-b border-surface-container-high/80">
+    <div class="h-20 max-w-[1600px] mx-auto px-margin md:px-margin-md flex items-center justify-between gap-4">
+      <a href="#" class="shrink-0" aria-label="Africadôme - Accueil">
+        <img src="logo.png" alt="Africadôme — Créer • Produire • Entreprendre • Diffuser • Rayonner" class="h-10 sm:h-12 xl:h-10 2xl:h-12 w-auto">
+      </a>
+
+      <nav id="nav" class="hidden xl:flex items-center gap-1" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link is-active" aria-current="page">Accueil</a>
+        <a href="videos.html" class="nav-link">Vidéos</a>
+        <a href="radio.html#podcasts" class="nav-link">Podcasts</a>
+        <a href="articles.html" class="nav-link">Articles</a>
+        <a href="radio.html" class="nav-link">Radio</a>
+        <div class="relative dropdown">
+          <button class="nav-link flex items-center gap-0.5" aria-expanded="false">
+            Afrique <span class="material-symbols-outlined text-[18px]">expand_more</span>
+          </button>
+          <div class="dropdown-menu absolute left-0 top-full mt-2 w-56 bg-surface-container-high rounded-xl p-2 shadow-2xl border border-surface-container-highest">
+            <a href="afrique.html" class="dropdown-item">Vue d'ensemble</a>
+            <a href="afrique.html?region=west" class="dropdown-item">Afrique de l'Ouest</a>
+            <a href="afrique.html?region=central" class="dropdown-item">Afrique Centrale</a>
+            <a href="afrique.html?region=east" class="dropdown-item">Afrique de l'Est</a>
+            <a href="afrique.html?region=south" class="dropdown-item">Afrique Australe</a>
+            <a href="afrique.html?region=north" class="dropdown-item">Afrique du Nord</a>
+            <a href="afrique.html?region=diaspora" class="dropdown-item">Diasporas</a>
+          </div>
+        </div>
+        <a href="culture.html" class="nav-link">Culture</a>
+        <a href="createurs.html" class="nav-link">Créateurs</a>
+        <a href="apprendre.html" class="nav-link">Apprendre</a>
+        <a href="opportunites.html" class="nav-link">Opportunités</a>
+      </nav>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <button id="themeBtn" aria-label="Passer en mode clair" title="Mode clair / sombre" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-[20px]">light_mode</span>
+        </button>
+        <button id="searchBtn" aria-label="Rechercher" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-[20px]">search</span>
+        </button>
+        <div class="relative dropdown hidden sm:block">
+          <button id="langBtn" class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors text-xs font-semibold" aria-expanded="false">
+            <span class="material-symbols-outlined text-[16px]">language</span>
+            <span id="langLabel">FR</span>
+            <span class="material-symbols-outlined text-[14px]">expand_more</span>
+          </button>
+          <div class="dropdown-menu absolute right-0 top-full mt-2 w-40 bg-surface-container-high rounded-xl p-2 shadow-2xl border border-surface-container-highest">
+            <button class="dropdown-item w-full text-left" data-lang="FR">Français</button>
+            <button class="dropdown-item w-full text-left" data-lang="EN">English</button>
+            <button class="dropdown-item w-full text-left" data-lang="PT">Português</button>
+            <button class="dropdown-item w-full text-left" data-lang="SW">Kiswahili</button>
+          </div>
+        </div>
+        <div class="h-5 w-px bg-surface-container-highest hidden sm:block"></div>
+        <a href="#" class="hidden sm:inline-flex px-4 py-2 rounded-lg bg-primary-container text-on-primary-container text-sm font-semibold hover:bg-primary transition-colors">Se connecter</a>
+        <a href="#" class="hidden md:inline-flex xl:hidden 2xl:inline-flex px-4 py-2 rounded-lg border border-outline-variant text-on-surface text-sm font-semibold hover:bg-surface-container-high transition-colors">S'inscrire</a>
+        <button id="burger" class="xl:hidden w-9 h-9 rounded-lg flex items-center justify-center hover:bg-surface-container-high" aria-label="Menu" aria-expanded="false">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Barre de recherche -->
+    <div id="searchBar" class="search-bar max-w-[1600px] mx-auto px-margin md:px-margin-md">
+      <div class="relative flex items-center pb-4">
+        <span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px]">search</span>
+        <input type="search" placeholder="Rechercher une vidéo, un podcast, un créateur…" class="w-full bg-surface-container-low text-on-surface pl-10 pr-4 py-3 rounded-lg text-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:bg-surface-container-high transition-colors">
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu mobile -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-x-0 bottom-0 top-20 z-40 bg-surface xl:hidden overflow-y-auto p-6">
+    <nav class="flex flex-col gap-1 text-lg">
+      <a href="index.html" class="mobile-link">Accueil</a>
+      <a href="videos.html" class="mobile-link">Vidéos</a>
+      <a href="radio.html#podcasts" class="mobile-link">Podcasts</a>
+      <a href="articles.html" class="mobile-link">Articles</a>
+      <a href="radio.html" class="mobile-link">Radio</a>
+      <a href="afrique.html" class="mobile-link">Afrique</a>
+      <a href="culture.html" class="mobile-link">Culture</a>
+      <a href="createurs.html" class="mobile-link">Créateurs</a>
+      <a href="apprendre.html" class="mobile-link">Apprendre</a>
+      <a href="opportunites.html" class="mobile-link">Opportunités</a>
+    </nav>
+    <div class="grid grid-cols-2 gap-3 mt-6">
+      <a href="#" class="text-center px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-semibold">Se connecter</a>
+      <a href="#" class="text-center px-4 py-3 rounded-lg border border-outline-variant font-semibold">S'inscrire</a>
+    </div>
+  </div>
+
+  <main class="pt-24 pb-8">
+    <!-- ================= TOP : HERO + GRILLE + RADIO ================= -->
+    <section class="max-w-[1600px] mx-auto px-margin md:px-margin-md grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1.7fr_1.8fr_1fr] gap-4">
+
+      <!-- Hero carrousel -->
+      <div id="hero" class="theme-dark relative h-[460px] lg:h-[440px] rounded-2xl overflow-hidden bg-surface-container shadow-lg">
+        <span class="absolute top-5 left-5 z-20 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-primary text-[11px] font-extrabold uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> À la une
+        </span>
+
+        <article class="hero-slide is-active">
+          <img src="cinema-tournage.jpg" alt="Une jeune réalisatrice règle sa caméra sur un plateau de tournage de nuit" class="hero-img" style="object-position: 65% center">
+          <div class="hero-content">
+            <span class="tag bg-secondary-container">Culture</span>
+            <h1 class="text-3xl md:text-[40px] md:leading-[46px] font-extrabold tracking-tight text-white mt-3 mb-3">La nouvelle génération qui réinvente l'Afrique créative</h1>
+            <p class="text-on-surface/90 mb-6 max-w-sm">Portraits de talents, idées et projets qui transforment le continent.</p>
+            <a href="#" class="play-btn"><span class="play-circle"><span class="material-symbols-outlined fill">play_arrow</span></span>Regarder <span class="text-primary font-medium">12:45</span></a>
+          </div>
+        </article>
+        <article class="hero-slide">
+          <img src="journaliste-micro.jpg" alt="Une journaliste interviewe une commerçante dans un marché" class="hero-img" style="object-position: 30% center">
+          <div class="hero-content">
+            <span class="tag bg-violet-600">Podcast</span>
+            <h2 class="text-3xl md:text-[40px] md:leading-[46px] font-extrabold tracking-tight text-white mt-3 mb-3">Micro tendu : la parole aux marchés d'Afrique</h2>
+            <p class="text-on-surface/90 mb-6 max-w-sm">Un journalisme de terrain qui donne la voix à celles et ceux qui font l'économie réelle.</p>
+            <a href="#" class="play-btn"><span class="play-circle"><span class="material-symbols-outlined fill">play_arrow</span></span>Écouter <span class="text-primary font-medium">24:10</span></a>
+          </div>
+        </article>
+        <article class="hero-slide">
+          <img src="chanteur-scene.jpg" alt="Un chanteur sur scène sous les projecteurs" class="hero-img" style="object-position: 75% center">
+          <div class="hero-content">
+            <span class="tag bg-orange-500">Musique</span>
+            <h2 class="text-3xl md:text-[40px] md:leading-[46px] font-extrabold tracking-tight text-white mt-3 mb-3">Afrobeats, makossa, amapiano : la bande-son du monde</h2>
+            <p class="text-on-surface/90 mb-6 max-w-sm">Comment les sons africains ont conquis les scènes internationales.</p>
+            <a href="#" class="play-btn"><span class="play-circle"><span class="material-symbols-outlined fill">play_arrow</span></span>Regarder <span class="text-primary font-medium">10:20</span></a>
+          </div>
+        </article>
+        <article class="hero-slide">
+          <img src="allee-baobabs.jpg" alt="L'allée des baobabs au coucher du soleil" class="hero-img" style="object-position: 65% center">
+          <div class="hero-content">
+            <span class="tag bg-sky-600">Documentaire</span>
+            <h2 class="text-3xl md:text-[40px] md:leading-[46px] font-extrabold tracking-tight text-white mt-3 mb-3">Docu : la beauté sauvage du continent</h2>
+            <p class="text-on-surface/90 mb-6 max-w-sm">Des paysages millénaires filmés par une nouvelle génération de documentaristes.</p>
+            <a href="#" class="play-btn"><span class="play-circle"><span class="material-symbols-outlined fill">play_arrow</span></span>Regarder <span class="text-primary font-medium">14:02</span></a>
+          </div>
+        </article>
+        <article class="hero-slide">
+          <img src="culture-tenues.jpg" alt="Famille en tenues traditionnelles yoruba" class="hero-img" style="object-position: 60% center">
+          <div class="hero-content">
+            <span class="tag bg-secondary-container">Héritage</span>
+            <h2 class="text-3xl md:text-[40px] md:leading-[46px] font-extrabold tracking-tight text-white mt-3 mb-3">Tenues traditionnelles : l'héritage qui se porte avec fierté</h2>
+            <p class="text-on-surface/90 mb-6 max-w-sm">Agbada, gele, perles de corail : quand la mode raconte l'histoire.</p>
+            <a href="#" class="play-btn"><span class="play-circle"><span class="material-symbols-outlined fill">play_arrow</span></span>Regarder <span class="text-primary font-medium">08:50</span></a>
+          </div>
+        </article>
+
+        <div class="absolute z-20 bottom-6 right-6 flex items-center gap-4">
+          <div id="heroDots" class="hidden sm:flex items-center gap-1.5"></div>
+          <button id="heroPrev" class="round-btn" aria-label="Précédent"><span class="material-symbols-outlined text-[20px]">chevron_left</span></button>
+          <button id="heroNext" class="round-btn" aria-label="Suivant"><span class="material-symbols-outlined text-[20px]">chevron_right</span></button>
+        </div>
+      </div>
+
+      <!-- Grille à la une -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-4 lg:h-[440px]">
+        <a href="#" class="feat group theme-dark">
+          <img src="vr-textile.jpg" alt="" class="feat-img" style="object-position: 55% center">
+          <span class="tag bg-indigo-600 absolute top-4 left-4 z-10">Tech &amp; IA</span>
+          <div class="feat-body">
+            <h3>IA &amp; créativité : les outils qui changent la création</h3>
+            <span class="play-btn play-btn--sm"><span class="play-circle"><span class="material-symbols-outlined fill">play_arrow</span></span><span class="text-primary font-medium">08:32</span></span>
+          </div>
+        </a>
+        <a href="#" class="feat group theme-dark">
+          <img src="musicien-scene.jpg" alt="" class="feat-img" style="object-position: 45% center">
+          <span class="tag bg-orange-500 absolute top-4 left-4 z-10">Musique</span>
+          <div class="feat-body">
+            <h3>Afro beats : la révolution continue</h3>
+            <span class="play-btn play-btn--sm"><span class="play-circle"><span class="material-symbols-outlined fill">play_arrow</span></span><span class="text-primary font-medium">07:21</span></span>
+          </div>
+        </a>
+        <a href="#" class="feat group theme-dark">
+          <img src="entrepreneurs.jpg" alt="" class="feat-img" style="object-position: 75% center">
+          <span class="tag bg-rose-600 absolute top-4 left-4 z-10">Société</span>
+          <div class="feat-body">
+            <h3>Entreprendre jeune : ces projets qui inspirent l'Afrique</h3>
+            <span class="play-btn play-btn--sm"><span class="play-circle"><span class="material-symbols-outlined fill">play_arrow</span></span><span class="text-primary font-medium">06:18</span></span>
+          </div>
+        </a>
+        <a href="#" class="feat group theme-dark">
+          <img src="tournage-nollywood.jpg" alt="" class="feat-img" style="object-position: 60% center">
+          <span class="tag bg-sky-600 absolute top-4 left-4 z-10">Cinéma</span>
+          <div class="feat-body">
+            <h3>Dans les coulisses d'un tournage Nollywood</h3>
+            <span class="play-btn play-btn--sm"><span class="play-circle"><span class="material-symbols-outlined fill">play_arrow</span></span><span class="text-primary font-medium">09:55</span></span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Panneau radio -->
+      <aside id="radio" class="lg:col-span-2 2xl:col-span-1 bg-surface-container rounded-2xl p-5 flex flex-col shadow-lg 2xl:h-[440px]">
+        <div class="flex items-center justify-between">
+          <h2 class="text-lg font-extrabold tracking-tight text-white">AFRICADÔME <span class="text-primary-container">RADIO</span></h2>
+          <span class="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-red-400">
+            <span class="live-dot"></span> En direct
+          </span>
+        </div>
+        <div id="waveform" class="waveform" aria-hidden="true"></div>
+
+        <div class="flex items-center justify-between gap-3">
+          <div class="min-w-0">
+            <h3 id="nowTitle" class="text-xl font-bold text-white">Afro Inspiration</h3>
+            <p id="nowDesc" class="text-sm text-on-surface-variant">La meilleure musique africaine et diasporique</p>
+          </div>
+          <button id="radioPlay" class="big-play" aria-label="Écouter la radio">
+            <span class="material-symbols-outlined fill text-[30px]">play_arrow</span>
+          </button>
+        </div>
+
+        <div class="flex justify-between mt-3 mb-2.5 text-sm">
+          <a href="#" class="radio-tab"><span class="material-symbols-outlined text-[18px]">calendar_month</span>Programme</a>
+          <a href="#" class="radio-tab"><span class="material-symbols-outlined text-[18px]">podcasts</span>Podcasts</a>
+          <a href="#" class="radio-tab"><span class="material-symbols-outlined text-[18px]">sensors</span>Émissions</a>
+        </div>
+
+        <div class="flex items-center gap-3 bg-surface-container-high rounded-xl px-3 py-2.5">
+          <span class="eq"><i></i><i></i><i></i><i></i><i></i></span>
+          <div class="min-w-0">
+            <p class="text-[10px] font-extrabold uppercase tracking-wider text-primary-container">Maintenant</p>
+            <p id="nowShow" class="text-sm font-semibold text-white truncate">Afro Inspiration</p>
+          </div>
+          <span class="ml-auto text-xs text-on-surface-variant">10:00 - 12:00</span>
+        </div>
+
+        <ul class="mt-1 text-sm divide-y divide-surface-container-high">
+          <li class="schedule-row"><span class="material-symbols-outlined text-violet-400">mic</span><span class="font-semibold text-white">Creative Talks</span><span class="ml-auto text-xs text-on-surface-variant">Rencontres &amp; idées</span></li>
+          <li class="schedule-row"><span class="material-symbols-outlined text-primary-container">newspaper</span><span class="font-semibold text-white">Essentiels Afrique</span><span class="ml-auto text-xs text-on-surface-variant">Culture &amp; société</span></li>
+          <li class="schedule-row"><span class="material-symbols-outlined text-sky-400">rocket_launch</span><span class="font-semibold text-white">Next Gen</span><span class="ml-auto text-xs text-on-surface-variant">Talents en mouvement</span></li>
+        </ul>
+
+        <a href="radio.html" class="mt-auto pt-2 block">
+          <span class="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-surface-container-highest text-white text-sm font-semibold hover:bg-primary-container hover:text-on-primary-container transition-colors">
+            Voir le programme complet <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </span>
+        </a>
+      </aside>
+    </section>
+
+    <!-- ================= ÉCOUTER EN DIRECT ================= -->
+    <section class="max-w-[1600px] mx-auto px-margin md:px-margin-md mt-4">
+      <div class="bg-surface-container rounded-2xl px-5 py-4 flex flex-col lg:flex-row lg:items-center gap-4 shadow-lg">
+        <div class="shrink-0 lg:pr-6 lg:border-r border-surface-container-highest">
+          <p class="text-xs font-extrabold uppercase tracking-wider text-primary-container">Écouter en direct</p>
+          <p class="text-lg font-extrabold text-white">AFRICADÔME RADIO</p>
+        </div>
+        <div id="stations" class="flex-1 flex gap-3 overflow-x-auto no-scrollbar lg:justify-between">
+          <button class="station is-active" data-title="Afro Inspiration" data-desc="La meilleure musique africaine et diasporique" style="--c:#4edea3">
+            <span class="station-ico"><span class="material-symbols-outlined">graphic_eq</span></span>
+            <span class="text-left"><span class="block font-semibold text-white whitespace-nowrap">Afro Inspiration</span><span class="text-xs text-primary">En direct</span></span>
+          </button>
+          <button class="station" data-title="Creative Talks" data-desc="Rencontres, idées et inspirations créatives" style="--c:#a78bfa">
+            <span class="station-ico"><span class="material-symbols-outlined">mic</span></span>
+            <span class="text-left"><span class="block font-semibold text-white whitespace-nowrap">Creative Talks</span><span class="text-xs text-primary">En direct</span></span>
+          </button>
+          <button class="station" data-title="New African Sounds" data-desc="Les nouveaux sons du continent" style="--c:#fb923c">
+            <span class="station-ico"><span class="material-symbols-outlined">music_note</span></span>
+            <span class="text-left"><span class="block font-semibold text-white whitespace-nowrap">New African Sounds</span><span class="text-xs text-primary">En direct</span></span>
+          </button>
+          <button class="station" data-title="Business &amp; ICC" data-desc="Industries culturelles et créatives" style="--c:#f59e0b">
+            <span class="station-ico"><span class="material-symbols-outlined">work</span></span>
+            <span class="text-left"><span class="block font-semibold text-white whitespace-nowrap">Business &amp; ICC</span><span class="text-xs text-primary">En direct</span></span>
+          </button>
+          <button class="station" data-title="Heritage" data-desc="Patrimoine, histoire et traditions" style="--c:#2dd4bf">
+            <span class="station-ico"><span class="material-symbols-outlined">account_balance</span></span>
+            <span class="text-left"><span class="block font-semibold text-white whitespace-nowrap">Heritage</span><span class="text-xs text-primary">En direct</span></span>
+          </button>
+        </div>
+        <a href="radio.html#webradios" class="shrink-0 inline-flex items-center gap-2 text-sm font-semibold text-on-surface hover:text-primary transition-colors lg:pl-6 lg:border-l border-surface-container-highest">
+          Toutes les radios <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= POUR VOUS + OPPORTUNITÉS ================= -->
+    <section class="max-w-[1600px] mx-auto px-margin md:px-margin-md mt-10 grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_380px] gap-6">
+      <div id="pour-vous" class="min-w-0">
+        <div class="flex items-end justify-between gap-4 mb-4">
+          <div>
+            <h2 class="text-2xl md:text-[28px] font-bold tracking-tight text-white">Pour vous</h2>
+            <p class="text-sm text-on-surface-variant mt-1">Une sélection de vidéos et podcasts selon vos centres d'intérêt.</p>
+          </div>
+          <div class="hidden sm:flex items-center gap-2">
+            <button id="cardsPrev" class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:text-primary transition-colors disabled:opacity-40" aria-label="Précédent"><span class="material-symbols-outlined text-[20px]">chevron_left</span></button>
+            <button id="cardsNext" class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:text-primary transition-colors disabled:opacity-40" aria-label="Suivant"><span class="material-symbols-outlined text-[20px]">chevron_right</span></button>
+          </div>
+        </div>
+
+        <div id="chips" class="flex gap-2 overflow-x-auto no-scrollbar mb-4">
+          <button class="chip is-active" data-filter="all">Tout</button>
+          <button class="chip" data-filter="pourvous">Pour vous</button>
+          <button class="chip" data-filter="cameroun">Cameroun</button>
+          <button class="chip" data-filter="cinema">Cinéma</button>
+          <button class="chip" data-filter="musique">Musique</button>
+          <button class="chip" data-filter="tech">Tech &amp; IA</button>
+          <button class="chip" data-filter="createurs">Créateurs</button>
+          <button class="chip" data-filter="societe">Société</button>
+          <button class="chip" data-filter="mode">Mode</button>
+          <button class="chip" data-filter="podcasts">Podcasts</button>
+        </div>
+
+        <div id="cards" class="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-2"></div>
+      </div>
+
+      <aside id="opportunites" class="bg-surface-container rounded-2xl p-5 shadow-lg self-start">
+        <div class="flex items-center justify-between mb-2">
+          <h2 class="text-xl font-bold text-white">Opportunités</h2>
+          <a href="opportunites.html" class="text-sm font-semibold text-primary hover:underline">Voir toutes</a>
+        </div>
+        <ul class="divide-y divide-surface-container-highest/60">
+          <li><a href="#" class="opp group">
+            <span class="opp-ico text-primary-container"><span class="material-symbols-outlined">campaign</span></span>
+            <span class="min-w-0"><span class="opp-title">Appel à projets</span><span class="block text-sm text-on-surface-variant truncate">Festival Écrans Noirs 2026</span></span>
+            <span class="ml-auto shrink-0 bg-secondary-container/30 text-secondary text-[11px] font-extrabold uppercase px-2 py-0.5 rounded-full">Nouveau</span>
+          </a></li>
+          <li><a href="#" class="opp group">
+            <span class="opp-ico text-violet-400"><span class="material-symbols-outlined">theater_comedy</span></span>
+            <span class="min-w-0"><span class="opp-title">Casting</span><span class="block text-sm text-on-surface-variant truncate">Court-métrage étudiant</span></span>
+            <span class="ml-auto shrink-0 bg-error-container text-on-error-container text-[11px] font-extrabold uppercase px-2 py-0.5 rounded-full">2 j</span>
+          </a></li>
+          <li><a href="#" class="opp group">
+            <span class="opp-ico text-secondary"><span class="material-symbols-outlined">brush</span></span>
+            <span class="min-w-0"><span class="opp-title">Résidence artistique</span><span class="block text-sm text-on-surface-variant truncate">Yaoundé Creative Lab</span></span>
+            <span class="ml-auto shrink-0 bg-primary-container text-on-primary-container text-[11px] font-extrabold uppercase px-2 py-0.5 rounded-full">5 j</span>
+          </a></li>
+          <li><a href="#" class="opp group">
+            <span class="opp-ico text-tertiary"><span class="material-symbols-outlined">school</span></span>
+            <span class="min-w-0"><span class="opp-title">Formation</span><span class="block text-sm text-on-surface-variant truncate">IA générative &amp; création</span></span>
+            <span class="ml-auto shrink-0 bg-surface-bright text-white text-[11px] font-extrabold uppercase px-2 py-0.5 rounded-full">7 j</span>
+          </a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- ================= BANNIÈRE CTA ================= -->
+    <section id="cta" class="max-w-[1600px] mx-auto px-margin md:px-margin-md mt-10">
+      <div class="relative overflow-hidden rounded-3xl shadow-2xl cta-bg theme-dark">
+        <img src="entrepreneurs.jpg" alt="" class="cta-img hidden lg:block">
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 md:p-10">
+          <div class="lg:col-span-5">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/25 text-white text-[11px] font-extrabold uppercase tracking-wider mb-3">
+              <span class="material-symbols-outlined text-[16px]">diversity_3</span> Communauté Africadôme
+            </span>
+            <h2 class="text-2xl md:text-[32px] md:leading-10 font-extrabold tracking-tight text-white">Apprendre. Créer. Partager. Rayonner.</h2>
+            <p class="text-white/90 mt-2 mb-5">Rejoignez la communauté Africadôme et accédez à des formations, des ressources et des opportunités uniques.</p>
+            <a href="#" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary-container text-on-primary-container font-bold hover:bg-primary transition-colors shadow-lg">
+              <span class="material-symbols-outlined text-[20px]">person_add</span> S'inscrire gratuitement
+            </a>
+          </div>
+          <div class="lg:col-span-4 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-3">
+            <div class="stat"><strong data-count="25" data-prefix="+" data-suffix="K">+25K</strong><span>Membres</span></div>
+            <div class="stat"><strong data-count="500" data-prefix="+">+500</strong><span>Contenus</span></div>
+            <div class="stat"><strong data-count="10">10</strong><span>Pays</span></div>
+            <div class="stat"><strong data-count="1">1</strong><span>Ambition</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-surface-container-lowest border-t border-surface-container-high mt-12">
+    <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div class="lg:col-span-2 space-y-4">
+        <img src="logo.png" alt="Africadôme" class="h-12 w-auto">
+        <p class="text-on-surface-variant max-w-md text-sm">L'écosystème médiatique panafricain dédié aux créateurs, innovateurs et bâtisseurs du continent. Une voix contemporaine, audacieuse et connectée pour faire rayonner l'Afrique.</p>
+        <div class="flex gap-2">
+          <a href="#" aria-label="Podcasts" class="social"><span class="material-symbols-outlined text-[18px]">podcasts</span></a>
+          <a href="#" aria-label="Vidéos" class="social"><span class="material-symbols-outlined text-[18px]">smart_display</span></a>
+          <a href="#" aria-label="Radio" class="social"><span class="material-symbols-outlined text-[18px]">radio</span></a>
+          <a href="#" aria-label="Flux RSS" class="social"><span class="material-symbols-outlined text-[18px]">rss_feed</span></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Explorer</h3>
+        <ul class="space-y-2 text-sm text-on-surface-variant">
+          <li><a href="videos.html" class="hover:text-on-surface">Vidéos &amp; Reportages</a></li>
+          <li><a href="radio.html#podcasts" class="hover:text-on-surface">Podcasts Originaux</a></li>
+          <li><a href="culture.html" class="hover:text-on-surface">Arts &amp; Cultures</a></li>
+          <li><a href="createurs.html" class="hover:text-on-surface">Portraits de Créateurs</a></li>
+          <li><a href="opportunites.html" class="hover:text-on-surface">Appels &amp; Bourses</a></li>
+          <li><a href="evenement.html" class="hover:text-on-surface">Événements Africadôme</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Radios</h3>
+        <ul class="space-y-2 text-sm text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Afro Inspiration</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Creative Talks</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>New African Sounds</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Business &amp; ICC</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span>Heritage</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-3">Newsletter</h3>
+        <p class="text-sm text-on-surface-variant mb-3">Chaque vendredi, la sélection des meilleures créations et opportunités du continent.</p>
+        <form id="newsletter" class="flex">
+          <input type="email" required placeholder="votre.email@domaine.com" class="w-full bg-surface-container border border-surface-container-high rounded-l-lg px-3 py-2 text-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:border-primary">
+          <button class="bg-primary-container text-on-primary-container px-3 rounded-r-lg hover:bg-primary transition-colors" aria-label="S'abonner"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+        </form>
+        <p id="newsletterMsg" class="text-xs text-secondary mt-2 hidden">Merci ! Votre inscription est bien prise en compte.</p>
+      </div>
+    </div>
+    <details class="max-w-[1600px] mx-auto px-margin md:px-margin-md pb-6 text-xs text-on-surface-variant">
+      <summary class="cursor-pointer font-semibold text-on-surface hover:text-primary w-fit">Crédits photos</summary>
+      <ul class="mt-3 grid md:grid-cols-2 gap-x-8 gap-y-1.5">
+            <li><a href="https://commons.wikimedia.org/wiki/File:Traditional_Attire_That_Reflects_Yoruba_Cultural_Heritage.jpg" target="_blank" rel="noopener" class="hover:text-on-surface underline-offset-2 hover:underline">Traditional Attire That Reflects Yoruba Cultural Heritage</a> — 4TO SPAIN, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener" class="hover:text-on-surface">CC BY-SA 4.0</a>, via Wikimedia Commons</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Digital_Renaissance.jpg" target="_blank" rel="noopener" class="hover:text-on-surface underline-offset-2 hover:underline">Digital Renaissance</a> — Slickcityceo, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener" class="hover:text-on-surface">CC BY-SA 4.0</a>, via Wikimedia Commons</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Beautiful_Nubia_performing_at_EMUfest_2012.jpg" target="_blank" rel="noopener" class="hover:text-on-surface underline-offset-2 hover:underline">Beautiful Nubia performing at EMUfest 2012</a> — Sweetafrique, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener" class="hover:text-on-surface">CC BY-SA 4.0</a>, via Wikimedia Commons</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Esophur.jpg" target="_blank" rel="noopener" class="hover:text-on-surface underline-offset-2 hover:underline">Esophur</a> — Legendarycharles, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.fr" target="_blank" rel="noopener" class="hover:text-on-surface">CC0</a>, via Wikimedia Commons</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Christian_youth_fellowship_golden_jubilee.jpg" target="_blank" rel="noopener" class="hover:text-on-surface underline-offset-2 hover:underline">Christian youth fellowship golden jubilee</a> — Njang Dickson Akwo, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener" class="hover:text-on-surface">CC BY-SA 4.0</a>, via Wikimedia Commons</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:A_film_crew_in_Tanzania.jpg" target="_blank" rel="noopener" class="hover:text-on-surface underline-offset-2 hover:underline">A film crew in Tanzania</a> — Thukuk, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener" class="hover:text-on-surface">CC BY-SA 4.0</a>, via Wikimedia Commons</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Shooting_a_nollywood_movie_in_Awka.jpg" target="_blank" rel="noopener" class="hover:text-on-surface underline-offset-2 hover:underline">Shooting a nollywood movie in Awka</a> — Bestvillage, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener" class="hover:text-on-surface">CC BY-SA 4.0</a>, via Wikimedia Commons</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Nigerian_fashion_models_at_work_(2).jpg" target="_blank" rel="noopener" class="hover:text-on-surface underline-offset-2 hover:underline">Nigerian fashion models at work (2)</a> — Kenogenic, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener" class="hover:text-on-surface">CC BY-SA 4.0</a>, via Wikimedia Commons</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Grilled_Fish_in_Bafia_-_Cameroon.jpg" target="_blank" rel="noopener" class="hover:text-on-surface underline-offset-2 hover:underline">Grilled Fish in Bafia - Cameroon</a> — Bediong, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener" class="hover:text-on-surface">CC BY-SA 4.0</a>, via Wikimedia Commons</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Baobab_at_sunset_-_Tanzania.jpg" target="_blank" rel="noopener" class="hover:text-on-surface underline-offset-2 hover:underline">Baobab at sunset - Tanzania</a> — Gopal Vijayaraghavan, <a href="https://creativecommons.org/licenses/by/2.0/deed.fr" target="_blank" rel="noopener" class="hover:text-on-surface">CC BY 2.0</a>, via Wikimedia Commons</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Sunset,_Allee_des_Baobabs,_Madagascar_(27610142306).jpg" target="_blank" rel="noopener" class="hover:text-on-surface underline-offset-2 hover:underline">Sunset, Allee des Baobabs, Madagascar (27610142306)</a> — Rod Waddington, <a href="https://creativecommons.org/licenses/by-sa/2.0/deed.fr" target="_blank" rel="noopener" class="hover:text-on-surface">CC BY-SA 2.0</a>, via Wikimedia Commons</li>
+      </ul>
+      <p class="mt-3">Photos recadrées pour la mise en page. Licences Creative Commons : réutilisation libre avec attribution (et partage dans les mêmes conditions pour les licences BY-SA).</p>
+    </details>
+    <div class="max-w-[1600px] mx-auto px-margin md:px-margin-md py-6 border-t border-surface-container-high/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-on-surface-variant">
+      <p>© 2026 Africadôme Media Network. Tous droits réservés.</p>
+      <div class="flex gap-5"><a href="#" class="hover:text-on-surface">Mentions légales</a><a href="#" class="hover:text-on-surface">Confidentialité</a><a href="#" class="hover:text-on-surface">Contact</a></div>
+    </div>
+  </footer>
+
+  <audio id="radioAudio" preload="none"></audio>
+  <script src="site.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
