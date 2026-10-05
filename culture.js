@@ -43,8 +43,8 @@
     const hero = guide.closest("section");
     const text = [$("h2", hero).textContent, $("p", hero).textContent].join(". ");
     const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = "fr-FR";
-    const voice = synth.getVoices().find((v) => v.lang && v.lang.startsWith("fr"));
+    utter.lang = window.AFD_SPEECH_LANG || "fr-FR";
+    const voice = synth.getVoices().find((v) => v.lang && v.lang.startsWith(utter.lang.slice(0, 2)));
     if (voice) utter.voice = voice;
     utter.onend = utter.onerror = () => setGuide(false);
     synth.cancel();

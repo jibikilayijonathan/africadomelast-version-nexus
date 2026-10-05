@@ -836,3 +836,9 @@ body.radio-on .eq i { animation-play-state: running; }
 .stay-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px; border-radius: 10px; background: var(--sc-high); }
 .stay-btn { padding: 6px 12px; border-radius: 8px; background: var(--sc-highest); color: var(--primary); font-size: 11px; font-weight: 800; letter-spacing: .05em; transition: background .2s, color .2s; flex-shrink: 0; }
 .stay-btn:hover { background: var(--primary); color: #472a00; }
+
+/* ---------- Langues (i18n.js) ---------- */
+html.i18n-pending body { visibility: hidden; }
+.lang-chip { padding: 6px 12px; border-radius: 8px; background: var(--sc-high); color: var(--on-surface-variant); font-size: 14px; font-weight: 700; transition: background .2s, color .2s; }
+.lang-chip:hover { color: var(--on-surface); }
+.lang-chip.is-active, .dropdown-item.is-active { background: var(--primary-container); color: var(--on-primary-container); }

@@ -19,9 +19,16 @@ $$(".dropdown").forEach((dd) => {
 });
 document.addEventListener("click", () => $$(".dropdown").forEach((d) => d.classList.remove("is-open")));
 
-$$("[data-lang]").forEach((b) =>
-  b.addEventListener("click", () => ($("#langLabel").textContent = b.dataset.lang))
-);
+/* ---------- Langue (i18n.js) ---------- */
+const currentLang = (window.AFD_LANG || "fr").toUpperCase();
+if ($("#langLabel")) $("#langLabel").textContent = currentLang;
+$$("[data-lang]").forEach((b) => {
+  b.classList.toggle("is-active", b.dataset.lang === currentLang);
+  b.setAttribute("lang", b.dataset.lang.toLowerCase());
+  b.addEventListener("click", () => {
+    if (b.dataset.lang !== currentLang && window.setLanguage) window.setLanguage(b.dataset.lang);
+  });
+});
 
 /* ---------- Menu mobile ---------- */
 const burger = $("#burger");

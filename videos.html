@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <script>try { if (localStorage.getItem("africadome-theme") === "light") document.documentElement.classList.add("light"); } catch (e) {}</script>
+  <script src="i18n.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vidéos — Africadôme</title>
   <meta name="description" content="Documentaires, séries originales, masterclasses et reportages de la création africaine contemporaine.">
@@ -104,6 +105,13 @@
     <div class="grid grid-cols-2 gap-3 mt-6">
       <a href="#" class="text-center px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-semibold">Se connecter</a>
       <a href="#" class="text-center px-4 py-3 rounded-lg border border-outline-variant font-semibold">S'inscrire</a>
+    </div>
+    <div class="mt-6 flex items-center gap-2 flex-wrap" aria-label="Langue">
+      <span class="material-symbols-outlined text-on-surface-variant">language</span>
+      <button class="lang-chip" data-lang="FR">FR</button>
+      <button class="lang-chip" data-lang="EN">EN</button>
+      <button class="lang-chip" data-lang="PT">PT</button>
+      <button class="lang-chip" data-lang="SW">SW</button>
     </div>
   </div>
 

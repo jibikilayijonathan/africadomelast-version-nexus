@@ -49,9 +49,9 @@
     const text = [$("h1").textContent, ...$$("#articleBody h2, #articleBody .article-p, #articleBody blockquote").map((el) => el.textContent)]
       .join(". ").replace(/\s+/g, " ");
     const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = "fr-FR";
+    utter.lang = window.AFD_SPEECH_LANG || "fr-FR";
     utter.rate = 1;
-    const voice = synth.getVoices().find((v) => v.lang && v.lang.startsWith("fr"));
+    const voice = synth.getVoices().find((v) => v.lang && v.lang.startsWith(utter.lang.slice(0, 2)));
     if (voice) utter.voice = voice;
     utter.onend = () => setListening(false);
     utter.onerror = () => setListening(false);
