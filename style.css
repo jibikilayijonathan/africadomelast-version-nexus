@@ -901,3 +901,58 @@ html.i18n-pending body { visibility: hidden; }
 .show-play { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--sc-highest); color: var(--white); transition: background .2s, color .2s; }
 .show-row:hover .show-play { background: var(--primary-container); color: var(--on-primary-container); }
 #podNotify.is-on { color: var(--primary); }
+/* Chinois : polices système adaptées aux caractères CJK */
+html[lang="zh"] body { font-family: "Plus Jakarta Sans", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", "Hiragino Sans GB", sans-serif; }
+html[lang="zh"] .uppercase { letter-spacing: .02em; }
+
+/* =========================================================
+   PAGES CONNEXION & INSCRIPTION
+   ========================================================= */
+.auth-lang { display: flex; align-items: center; gap: 2px; padding: 3px; border-radius: 999px; background: var(--sc-low); }
+.auth-lang button { padding: 2px 9px; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: .04em; color: var(--on-surface-variant); transition: color .2s, background .2s; }
+.auth-lang button:hover { color: var(--on-surface); }
+.auth-lang button.is-active { background: var(--primary); color: rgb(var(--c-on-primary)); }
+.auth-eq { display: flex; align-items: flex-end; gap: 3px; height: 24px; flex-shrink: 0; }
+.auth-eq i { width: 4px; border-radius: 99px; background: var(--primary); animation: authEq 1s ease-in-out infinite; }
+.auth-eq i:nth-child(1) { height: 40%; } .auth-eq i:nth-child(2) { height: 80%; animation-delay: .15s; }
+.auth-eq i:nth-child(3) { height: 30%; animation-delay: .3s; } .auth-eq i:nth-child(4) { height: 100%; animation-delay: .08s; }
+.auth-eq i:nth-child(5) { height: 60%; animation-delay: .2s; }
+@keyframes authEq { 50% { transform: scaleY(.45); } }
+.auth-eq i { transform-origin: bottom; }
+.social-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 16px; border-radius: 8px; background: var(--sc-high); color: var(--on-surface); font-size: 15px; font-weight: 600; transition: background .2s, transform .2s; }
+.social-btn:hover { background: var(--sc-highest); transform: scale(1.01); }
+.auth-divider { display: flex; align-items: center; gap: 8px; color: var(--on-surface-variant); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; }
+.auth-divider::before, .auth-divider::after { content: ""; flex: 1; height: 1px; background: var(--sc-highest); }
+.auth-field { position: relative; display: flex; align-items: center; border-radius: 8px; background: var(--sc-lowest); box-shadow: 0 0 0 1px transparent; transition: background .2s, box-shadow .2s; }
+.auth-field:focus-within { background: var(--sc-high); box-shadow: 0 0 0 2px rgb(var(--c-primary) / .35); }
+.auth-field.is-invalid { box-shadow: 0 0 0 1px rgb(var(--c-error) / .8); }
+.auth-field > .material-symbols-outlined { position: absolute; left: 12px; font-size: 20px; color: var(--on-surface-variant); pointer-events: none; }
+.auth-field > .material-symbols-outlined:last-child:not(:first-child) { left: auto; right: 12px; }
+.auth-field input, .auth-field select { width: 100%; padding: 12px 44px 12px 42px; background: transparent; color: var(--on-surface); font-size: 14px; outline: none; border: 0; }
+.auth-field select option { background: var(--sc); color: var(--on-surface); }
+.auth-field input::placeholder { color: rgb(var(--c-on-surface-variant) / .5); }
+.pwd-toggle { position: absolute; right: 8px; padding: 4px; border-radius: 6px; color: var(--on-surface-variant); display: flex; }
+.pwd-toggle:hover { color: var(--on-surface); background: var(--sc-highest); }
+.auth-error { color: var(--c-error-text, rgb(var(--c-error))); font-size: 12px; font-weight: 500; }
+.auth-submit { width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 24px; border-radius: 8px; background: var(--primary-container); color: var(--on-primary-container); font-size: 18px; font-weight: 700; box-shadow: 0 10px 24px rgb(var(--c-primary-container) / .2); transition: background .2s, transform .2s; }
+.auth-submit:hover:not(:disabled) { background: var(--primary); transform: scale(1.01); }
+.auth-submit:disabled { cursor: wait; }
+.auth-submit.is-done { background: rgb(var(--c-secondary)); color: rgb(var(--c-on-secondary)); }
+.auth-spinner { width: 16px; height: 16px; border-radius: 50%; border: 2px solid currentColor; border-top-color: transparent; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.auth-msg { padding: 10px 12px; border-radius: 8px; background: rgb(var(--c-secondary) / .12); color: rgb(var(--c-secondary)); font-size: 13px; }
+.role-pill { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; border-radius: 8px; background: var(--sc-highest); color: var(--on-surface); font-size: 15px; font-weight: 600; transition: background .2s, color .2s; }
+.role-pill .material-symbols-outlined { color: var(--primary); }
+.role-pill:hover { background: var(--sc-bright); }
+.role-pill.is-active { background: var(--primary-container); color: var(--on-primary-container); box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+.role-pill.is-active .material-symbols-outlined { color: var(--on-primary-container); }
+.pwd-bars { display: flex; gap: 4px; margin-top: 4px; }
+.pwd-bars i { flex: 1; height: 6px; border-radius: 99px; background: var(--sc-highest); transition: background .3s; }
+.pwd-bars i.is-weak { background: rgb(var(--c-error)); }
+.pwd-bars i.is-medium { background: var(--primary-container); }
+.pwd-bars i.is-strong { background: rgb(var(--c-secondary)); }
+.pwd-label.is-weak { color: rgb(var(--c-error)); } .pwd-label.is-medium { color: var(--primary); } .pwd-label.is-strong { color: rgb(var(--c-secondary)); }
+.perk { display: flex; align-items: flex-start; gap: 10px; padding: 8px; border-radius: 8px; background: rgb(var(--c-surface-container) / .7); backdrop-filter: blur(10px); }
+.perk-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgb(var(--c-primary-container) / .2); color: var(--primary); font-size: 20px; }
+.perk-title { display: block; color: var(--on-surface); font-size: 15px; font-weight: 600; }
+.perk-text { display: block; color: var(--on-surface-variant); font-size: 13px; line-height: 18px; }

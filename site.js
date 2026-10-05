@@ -34,23 +34,26 @@ $$("[data-lang]").forEach((b) => {
 const burger = $("#burger");
 const mobileMenu = $("#mobileMenu");
 function setMobileMenu(open) {
+  if (!burger || !mobileMenu) return;
   mobileMenu.classList.toggle("is-open", open);
   burger.setAttribute("aria-expanded", open);
   $(".material-symbols-outlined", burger).textContent = open ? "close" : "menu";
   document.body.style.overflow = open ? "hidden" : "";
 }
-burger.addEventListener("click", () => setMobileMenu(!mobileMenu.classList.contains("is-open")));
-$$("a", mobileMenu).forEach((a) => a.addEventListener("click", () => setMobileMenu(false)));
+if (burger && mobileMenu) {
+  burger.addEventListener("click", () => setMobileMenu(!mobileMenu.classList.contains("is-open")));
+  $$("a", mobileMenu).forEach((a) => a.addEventListener("click", () => setMobileMenu(false)));
+}
 
 /* ---------- Recherche ---------- */
 const searchBar = $("#searchBar");
-$("#searchBtn").addEventListener("click", () => {
+if (searchBar && $("#searchBtn")) $("#searchBtn").addEventListener("click", () => {
   const open = searchBar.classList.toggle("is-open");
   if (open) setTimeout(() => $("input", searchBar).focus(), 250);
 });
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
-    searchBar.classList.remove("is-open");
+    if (searchBar) searchBar.classList.remove("is-open");
     setMobileMenu(false);
   }
 });

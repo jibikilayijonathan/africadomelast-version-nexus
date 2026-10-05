@@ -1,5 +1,5 @@
 /* =========================================================
-   AFRICADÔME — traduction de l'interface (FR / EN / PT / SW)
+   AFRICADÔME — traduction de l'interface (FR / EN / PT / SW / ZH)
    Le site est rédigé en français. Pour une autre langue, ce script
    charge i18n-<langue>.js (dictionnaire « texte français → traduction »)
    et remplace les textes de la page, y compris ceux ajoutés plus tard
@@ -8,7 +8,7 @@
    ========================================================= */
 
 (function () {
-  const LANGS = ["fr", "en", "pt", "sw"];
+  const LANGS = ["fr", "en", "pt", "sw", "zh"];
   const KEY = "africadome-lang";
   let lang = (new URLSearchParams(location.search).get("lang") || "").toLowerCase();
   try {
@@ -19,7 +19,7 @@
   }
   if (!LANGS.includes(lang)) lang = "fr";
   window.AFD_LANG = lang;
-  window.AFD_SPEECH_LANG = { fr: "fr-FR", en: "en-GB", pt: "pt-PT", sw: "sw-KE" }[lang];
+  window.AFD_SPEECH_LANG = { fr: "fr-FR", en: "en-GB", pt: "pt-PT", sw: "sw-KE", zh: "zh-CN" }[lang];
 
   // Changement de langue : mémorise puis recharge la page
   window.setLanguage = function (next) {
