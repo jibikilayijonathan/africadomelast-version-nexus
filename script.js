@@ -201,3 +201,15 @@ renderCards();
   }, { threshold: 0.6 });
   els.forEach((el) => io.observe(el));
 })();
+
+/* ---------- Bande partenaires : duplication pour un défilement sans couture ---------- */
+(function partnersMarquee() {
+  const track = $("#partnersTrack");
+  if (!track) return;
+  $$(".partner-item", track).forEach((item) => {
+    const clone = item.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    clone.setAttribute("tabindex", "-1");
+    track.appendChild(clone);
+  });
+})();

@@ -5,46 +5,76 @@
    ========================================================= */
 
 (function afriquePage() {
-  // Chiffres indicatifs, à relier à la base de l'Observatoire
+  // Les 11 États membres de la CEEAC — chiffres indicatifs, à relier à la base de l'Observatoire
   const HUBS = {
-    "dakar-abidjan": {
-      tag: "Afrique de l'Ouest • Pôle majeur", title: "Dakar & Abidjan",
-      focus: "Pôle cinéma, mode & musiques urbaines",
-      desc: "Entre les séries télévisées d'Abidjan et les ateliers d'art de Dakar, un axe d'une grande effervescence stylistique.",
-      creators: "620+", festivals: "11 événements", opps: "19 appels & bourses",
+    "cameroun": {
+      tag: "CEEAC • Capitale : Yaoundé", title: "Cameroun",
+      focus: "Makossa, bikutsi, cinéma & arts visuels",
+      desc: "De Douala à Yaoundé, une scène foisonnante portée par le makossa, le bikutsi et un cinéma en plein essor, avec le festival Écrans Noirs comme rendez-vous majeur.",
+      creators: "420+", festivals: "6 événements", opps: "11 appels & bourses",
     },
-    "lagos-accra": {
-      tag: "Golfe de Guinée • Hypercentre", title: "Lagos & Accra",
-      focus: "Épicentre afrobeats, Nollywood & tech",
-      desc: "Mégalopoles créatives dont les industries musicales et cinématographiques rayonnent bien au-delà du continent.",
-      creators: "940+", festivals: "15 événements", opps: "28 appels & bourses",
+    "rdc": {
+      tag: "CEEAC • Capitale : Kinshasa", title: "RD Congo",
+      focus: "Rumba, peinture populaire & mode",
+      desc: "Kinshasa, berceau de la rumba congolaise inscrite au patrimoine immatériel de l'UNESCO, de la peinture populaire et de la culture de la sape.",
+      creators: "610+", festivals: "8 événements", opps: "9 appels & bourses",
     },
-    "douala-kinshasa": {
-      tag: "Afrique Centrale • Pôle émergent", title: "Douala & Kinshasa",
-      focus: "Rumba, makossa, arts plastiques & cinéma",
-      desc: "Deux métropoles bouillonnantes où la musique, la peinture populaire et une nouvelle génération de cinéastes réinventent les récits urbains.",
-      creators: "390+", festivals: "6 événements", opps: "9 appels & bourses",
+    "congo": {
+      tag: "CEEAC • Capitale : Brazzaville", title: "Congo",
+      focus: "Rumba, musiques & arts plastiques",
+      desc: "Brazzaville accueille le FESPAM, festival panafricain de musique, et partage avec Kinshasa l'héritage de la rumba congolaise.",
+      creators: "230+", festivals: "4 événements", opps: "5 appels & bourses",
     },
-    "nairobi-kigali": {
-      tag: "Afrique de l'Est • Pôle majeur", title: "Nairobi & Kigali",
-      focus: "Hub animation 3D, gaming & sound design",
-      desc: "Pionnières de l'économie créative numérique, ces deux capitales redéfinissent la narration visuelle africaine, du jeu vidéo indépendant au son spatial immersif.",
-      creators: "480+", festivals: "7 événements", opps: "14 bourses & résidences",
+    "gabon": {
+      tag: "CEEAC • Capitale : Libreville", title: "Gabon",
+      focus: "Patrimoine, musiques & cinéma",
+      desc: "De Libreville aux forêts de l'intérieur, une création nourrie par les traditions du bwiti, l'art des masques et une jeune scène urbaine.",
+      creators: "160+", festivals: "3 événements", opps: "4 appels & bourses",
     },
-    "casa-caire": {
-      tag: "Afrique du Nord • Patrimoine & contemporain", title: "Casablanca & Le Caire",
-      focus: "Arts visuels, design & patrimoine vivant",
-      desc: "Un carrefour méditerranéen où l'architecture moderniste rencontre le cinéma d'auteur et l'art contemporain.",
-      creators: "530+", festivals: "9 événements", opps: "16 bourses & résidences",
+    "guinee-eq": {
+      tag: "CEEAC • Capitale : Malabo", title: "Guinée équatoriale",
+      focus: "Danses traditionnelles & création insulaire",
+      desc: "Entre Malabo, sur l'île de Bioko, et Bata sur le continent, des traditions comme le balélé dialoguent avec une scène artistique émergente.",
+      creators: "70+", festivals: "2 événements", opps: "2 appels & bourses",
     },
-    "joburg-maputo": {
-      tag: "Afrique Australe • Son & esthétique", title: "Johannesburg & Maputo",
-      focus: "Amapiano, arts contemporains & mode éthique",
-      desc: "Le berceau de l'amapiano et d'un marché de l'art contemporain parmi les plus dynamiques du continent.",
-      creators: "710+", festivals: "12 événements", opps: "21 bourses & résidences",
+    "sao-tome": {
+      tag: "CEEAC • Capitale : São Tomé", title: "Sao Tomé-et-Principe",
+      focus: "Théâtre, musique & arts insulaires",
+      desc: "Le tchiloli, théâtre populaire unique, et les rythmes de l'ússua font de l'archipel un carrefour culturel lusophone de l'Atlantique.",
+      creators: "50+", festivals: "2 événements", opps: "2 appels & bourses",
+    },
+    "tchad": {
+      tag: "CEEAC • Capitale : N'Djamena", title: "Tchad",
+      focus: "Musiques sahéliennes & patrimoine",
+      desc: "N'Djamena, au carrefour du Sahel et de l'Afrique centrale, où se mêlent musiques traditionnelles, poésie orale et nouvelles scènes urbaines.",
+      creators: "110+", festivals: "3 événements", opps: "3 appels & bourses",
+    },
+    "rca": {
+      tag: "CEEAC • Capitale : Bangui", title: "République centrafricaine",
+      focus: "Polyphonies & traditions vivantes",
+      desc: "Les chants polyphoniques des Pygmées Aka, inscrits au patrimoine immatériel de l'UNESCO, et une scène musicale résiliente à Bangui.",
+      creators: "60+", festivals: "2 événements", opps: "2 appels & bourses",
+    },
+    "rwanda": {
+      tag: "CEEAC • Capitale : Kigali", title: "Rwanda",
+      focus: "Danse intore, imigongo & tech créative",
+      desc: "Kigali s'affirme comme un pôle créatif et numérique, entre danse intore, art imigongo et jeunes studios de design.",
+      creators: "290+", festivals: "5 événements", opps: "8 appels & bourses",
+    },
+    "burundi": {
+      tag: "CEEAC • Capitale : Gitega", title: "Burundi",
+      focus: "Tambours royaux & musiques",
+      desc: "Le rituel de la danse du tambour royal, inscrit au patrimoine immatériel de l'UNESCO, rythme une culture musicale reconnue bien au-delà de Bujumbura.",
+      creators: "90+", festivals: "2 événements", opps: "3 appels & bourses",
+    },
+    "angola": {
+      tag: "CEEAC • Capitale : Luanda", title: "Angola",
+      focus: "Semba, kizomba & kuduro",
+      desc: "De Luanda au monde lusophone, l'Angola a donné naissance au semba, à la kizomba et au kuduro, moteurs d'une industrie musicale dynamique.",
+      creators: "380+", festivals: "5 événements", opps: "7 appels & bourses",
     },
   };
-  const REGION_HUB = { west: "dakar-abidjan", central: "douala-kinshasa", east: "nairobi-kigali", north: "casa-caire", south: "joburg-maputo" };
+  const REGION_HUB = { central: "cameroun" };
 
   const markers = $$(".hub-marker");
   const panel = $("#hubPanel");
@@ -65,7 +95,7 @@
     panel.classList.add("is-updating");
   }
   markers.forEach((m) => {
-    m.setAttribute("aria-label", "Afficher le pôle " + HUBS[m.dataset.hub].title);
+    m.setAttribute("aria-label", "Afficher la fiche " + HUBS[m.dataset.hub].title);
     m.addEventListener("click", () => showHub(m.dataset.hub));
   });
 

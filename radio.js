@@ -84,27 +84,44 @@ const RADIO_STREAM_URL = "";
     });
   });
 
-  /* ---------- Podcasts : filtres & lecture ---------- */
-  $$("#podcastChips .chip").forEach((chip) =>
-    chip.addEventListener("click", () => {
-      const cat = chip.dataset.cat;
-      $$("#podcastGrid .podcast-card").forEach((card) =>
-        card.classList.toggle("is-hidden", !!cat && card.dataset.cat !== cat)
-      );
-    })
-  );
-  $$(".listen-btn").forEach((btn) =>
-    btn.addEventListener("click", () => {
+  /* ---------- Podcasts : filtres (puces + liens du texte) & lecture ---------- */
+  const tiles = $$("#podcasts .pod-tile");
+  const podChips = $$("#podcastChips .chip");
+  function filterPodcasts(cat) {
+    podChips.forEach((c) => c.classList.toggle("is-active", c.dataset.cat === cat));
+    tiles.forEach((t) => t.classList.toggle("is-hidden", !!cat && !t.dataset.cat.split(" ").includes(cat)));
+    let any = false;
+    $$("#podcasts .pod-row").forEach((row) => {
+      const visible = $$(".pod-tile", row).some((t) => !t.classList.contains("is-hidden"));
+      row.classList.toggle("is-hidden", !visible);
+      any = any || visible;
+    });
+    $("#podcastEmpty").classList.toggle("hidden", any);
+  }
+  podChips.forEach((chip) => chip.addEventListener("click", () => filterPodcasts(chip.dataset.cat)));
+  $$("#podcasts button.pod-link").forEach((link) => link.addEventListener("click", () => filterPodcasts(link.dataset.cat)));
+
+  // Clic sur une jaquette : ouverture de la fiche du podcast (sauf bouton lecture)
+  $$("#podcasts .pod-tile[data-href]").forEach((tile) => {
+    const go = () => (location.href = tile.dataset.href);
+    tile.addEventListener("click", (e) => { if (!e.target.closest(".tile-play")) go(); });
+    tile.addEventListener("keydown", (e) => { if (e.key === "Enter" && e.target === tile) go(); });
+  });
+
+  $$("#podcasts button.tile-play").forEach((btn) =>
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       const on = !btn.classList.contains("is-playing");
-      $$(".listen-btn").forEach((b) => {
+      $$("#podcasts .tile-play").forEach((b) => {
         b.classList.remove("is-playing");
         $(".material-symbols-outlined", b).textContent = "play_arrow";
-        $("span:last-child", b).textContent = "Écouter";
+        b.setAttribute("aria-label", "Écouter");
       });
       if (on) {
         btn.classList.add("is-playing");
         $(".material-symbols-outlined", btn).textContent = "pause";
-        $("span:last-child", btn).textContent = "En lecture";
+        btn.setAttribute("aria-label", "Mettre en pause");
         setPlaying(false); // un seul flux audio à la fois
       }
     })

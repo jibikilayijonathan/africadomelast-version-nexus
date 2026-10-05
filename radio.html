@@ -372,15 +372,12 @@
       </section>
 
       <!-- ================= PODCASTS ================= -->
-      <section id="podcasts" class="space-y-space-lg">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-          <div>
-            <div class="flex items-center gap-2 text-primary text-label-badge uppercase"><span class="w-2 h-2 rounded-full bg-primary"></span>À écouter à la demande</div>
-            <h2 class="text-headline-lg md:text-headline-xl text-white">Podcasts populaires &amp; replays</h2>
-            <p class="text-body-md text-on-surface-variant">Plus de 350 épisodes d'enquêtes, d'histoires et de témoignages.</p>
-            <a href="podcast.html" class="inline-flex items-center gap-1 mt-2 text-label-meta text-primary font-semibold hover:underline"><span class="material-symbols-outlined text-[16px]">graphic_eq</span>Épisode à la une : Creative Talks n° 48<span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
-          </div>
-          <div id="podcastChips" data-chip-group class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+      <section id="podcasts" class="space-y-space-xl">
+        <div class="max-w-4xl">
+          <div class="flex items-center gap-2 text-primary text-label-badge uppercase"><span class="w-2 h-2 rounded-full bg-primary"></span>À écouter à la demande</div>
+          <h2 class="text-headline-lg md:text-headline-xl text-white mt-1">Podcasts à la demande</h2>
+          <p class="text-body-md text-on-surface-variant mt-2">Envie d'écouter ? Laissez-vous inspirer par nos sélections <button class="pod-link" data-cat="tech">Tech &amp; IA</button>, <button class="pod-link" data-cat="musique">Musique</button>, <button class="pod-link" data-cat="societe">Société</button> ou <button class="pod-link" data-cat="histoire">Histoire</button>… Ou bien pourquoi ne pas essayer l'un de nos <a href="podcast.html" class="pod-link">Africadôme Originals</a> ?</p>
+          <div id="podcastChips" data-chip-group class="flex items-center gap-2 overflow-x-auto no-scrollbar mt-space-md pb-1">
             <button class="chip is-active" data-cat="">Tous</button>
             <button class="chip" data-cat="societe">Société</button>
             <button class="chip" data-cat="tech">Tech &amp; IA</button>
@@ -389,76 +386,61 @@
           </div>
         </div>
 
-        <div id="podcastGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
-          <div class="podcast-card group" data-cat="tech">
-            <div class="podcast-cover">
-              <img src="radio-podcast-ia.jpg" alt="Couverture du podcast Tech &amp; IA" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-              <span class="podcast-dur tnum">42 min</span>
-            </div>
-            <div class="flex flex-col justify-between w-full h-full space-y-space-xs">
-              <div>
-                <div class="flex items-center justify-between"><span class="text-label-badge text-tertiary uppercase">Tech &amp; IA • Épisode 18</span><span class="text-label-meta text-on-surface-variant">Hier</span></div>
-                <h3 class="text-headline-md text-white group-hover:text-primary transition-colors line-clamp-1">Comment l'IA générative transforme le cinéma nigérian</h3>
-                <p class="text-body-sm text-on-surface-variant line-clamp-2">Dans les studios de Lagos, scénaristes et artistes VFX utilisent de nouveaux outils pour réduire fortement leurs coûts.</p>
-              </div>
-              <div class="flex items-center justify-between pt-space-xs">
-                <span class="text-label-meta text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">headset</span>18,4k écoutes</span>
-                <button class="listen-btn"><span class="material-symbols-outlined fill text-[18px]">play_arrow</span><span>Écouter</span></button>
-              </div>
-            </div>
-          </div>
-          <div class="podcast-card group" data-cat="societe">
-            <div class="podcast-cover">
-              <img src="radio-podcast-textiles.jpg" alt="Créatrice de mode entourée de tissus" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-              <span class="podcast-dur tnum">34 min</span>
-            </div>
-            <div class="flex flex-col justify-between w-full h-full space-y-space-xs">
-              <div>
-                <div class="flex items-center justify-between"><span class="text-label-badge text-secondary uppercase">Société • Épisode 09</span><span class="text-label-meta text-on-surface-variant">Il y a 3 jours</span></div>
-                <h3 class="text-headline-md text-white group-hover:text-secondary transition-colors line-clamp-1">Textiles africains : du tissage ancestral aux défilés de Paris</h3>
-                <p class="text-body-sm text-on-surface-variant line-clamp-2">Rencontre avec les tisseuses de Côte d'Ivoire qui réinventent le pagne tout en préservant leurs coopératives.</p>
-              </div>
-              <div class="flex items-center justify-between pt-space-xs">
-                <span class="text-label-meta text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">headset</span>12,9k écoutes</span>
-                <button class="listen-btn"><span class="material-symbols-outlined fill text-[18px]">play_arrow</span><span>Écouter</span></button>
-              </div>
-            </div>
-          </div>
-          <div class="podcast-card group" data-cat="musique">
-            <div class="podcast-cover">
-              <img src="radio-podcast-amapiano.jpg" alt="Producteur devant une console de mixage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-              <span class="podcast-dur tnum">51 min</span>
-            </div>
-            <div class="flex flex-col justify-between w-full h-full space-y-space-xs">
-              <div>
-                <div class="flex items-center justify-between"><span class="text-label-badge text-primary uppercase">Musique • Épisode 44</span><span class="text-label-meta text-on-surface-variant">Il y a 5 jours</span></div>
-                <h3 class="text-headline-md text-white group-hover:text-primary transition-colors line-clamp-1">L'odyssée de l'amapiano : comment Pretoria a conquis les charts</h3>
-                <p class="text-body-sm text-on-surface-variant line-clamp-2">Des townships sud-africains aux clubs londoniens, décryptage d'un phénomène planétaire.</p>
-              </div>
-              <div class="flex items-center justify-between pt-space-xs">
-                <span class="text-label-meta text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">headset</span>26,1k écoutes</span>
-                <button class="listen-btn"><span class="material-symbols-outlined fill text-[18px]">play_arrow</span><span>Écouter</span></button>
-              </div>
-            </div>
-          </div>
-          <div class="podcast-card group" data-cat="histoire">
-            <div class="podcast-cover">
-              <img src="radio-podcast-benin.jpg" alt="Sculptures en bronze dans un musée" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-              <span class="podcast-dur tnum">29 min</span>
-            </div>
-            <div class="flex flex-col justify-between w-full h-full space-y-space-xs">
-              <div>
-                <div class="flex items-center justify-between"><span class="text-label-badge text-tertiary uppercase">Histoire • Épisode 12</span><span class="text-label-meta text-on-surface-variant">Il y a 1 semaine</span></div>
-                <h3 class="text-headline-md text-white group-hover:text-tertiary transition-colors line-clamp-1">Les trésors du royaume du Bénin : le chemin de la restitution</h3>
-                <p class="text-body-sm text-on-surface-variant line-clamp-2">L'histoire des bronzes d'Edo et le mouvement panafricain de réappropriation du patrimoine.</p>
-              </div>
-              <div class="flex items-center justify-between pt-space-xs">
-                <span class="text-label-meta text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">headset</span>15,7k écoutes</span>
-                <button class="listen-btn"><span class="material-symbols-outlined fill text-[18px]">play_arrow</span><span>Écouter</span></button>
-              </div>
-            </div>
+        <!-- Rangée 1 : les plus écoutés -->
+        <div class="pod-row">
+          <h3 class="pod-row-title">Les plus écoutés</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-md">
+            <div class="pod-tile" data-cat="tech" data-href="podcast-fiche.html?id=ia-cinema" role="link" tabindex="0"><div class="pod-cover theme-dark"><img src="radio-podcast-ia.jpg" alt="Couverture du podcast Tech &amp; IA"><span class="pod-cover-text"><span class="pod-cover-kicker">Tech &amp; IA • Ép. 18</span>Comment l'IA générative transforme le cinéma nigérian</span><button class="tile-play" aria-label="Écouter"><span class="material-symbols-outlined fill">play_arrow</span></button><span class="pod-ribbon">Africadôme</span></div></div>
+            <div class="pod-tile" data-cat="societe" data-href="podcast-fiche.html?id=textiles" role="link" tabindex="0"><div class="pod-cover theme-dark"><img src="radio-podcast-textiles.jpg" alt="Créatrice de mode entourée de tissus"><span class="pod-cover-text"><span class="pod-cover-kicker">Société • Ép. 09</span>Textiles africains : du tissage ancestral aux défilés de Paris</span><button class="tile-play" aria-label="Écouter"><span class="material-symbols-outlined fill">play_arrow</span></button><span class="pod-ribbon">Africadôme</span></div></div>
+            <div class="pod-tile" data-cat="musique" data-href="podcast-fiche.html?id=amapiano" role="link" tabindex="0"><div class="pod-cover theme-dark"><img src="radio-podcast-amapiano.jpg" alt="Producteur devant une console de mixage"><span class="pod-cover-text"><span class="pod-cover-kicker">Musique • Ép. 44</span>L'odyssée de l'amapiano : comment Pretoria a conquis les charts</span><button class="tile-play" aria-label="Écouter"><span class="material-symbols-outlined fill">play_arrow</span></button><span class="pod-ribbon">Africadôme</span></div></div>
+            <div class="pod-tile" data-cat="histoire" data-href="podcast-fiche.html?id=benin" role="link" tabindex="0"><div class="pod-cover theme-dark"><img src="radio-podcast-benin.jpg" alt="Sculptures en bronze dans un musée"><span class="pod-cover-text"><span class="pod-cover-kicker">Histoire • Ép. 12</span>Les trésors du royaume du Bénin : le chemin de la restitution</span><button class="tile-play" aria-label="Écouter"><span class="material-symbols-outlined fill">play_arrow</span></button><span class="pod-ribbon">Africadôme</span></div></div>
+            <a href="podcast.html" class="pod-tile" data-cat="tech"><div class="pod-cover theme-dark"><img src="podcast-cover.jpg" alt="Kora stylisée baignée de lumières ambre et violettes"><span class="pod-cover-text"><span class="pod-cover-kicker">Creative Talks • Ép. 48</span>IA générative et droits d'auteur</span><span class="tile-play" aria-hidden="true"><span class="material-symbols-outlined fill">play_arrow</span></span><span class="pod-ribbon">Original</span></div></a>
+            <div class="pod-tile" data-cat="musique" data-href="podcast-fiche.html?id=creative-talks-47" role="link" tabindex="0"><div class="pod-cover theme-dark"><img src="podcast-ep47.jpg" alt="Concert d'afrobeats devant une foule"><span class="pod-cover-text"><span class="pod-cover-kicker">Creative Talks • Ép. 47</span>Afrobeats &amp; conquête mondiale : qui contrôle les catalogues ?</span><button class="tile-play" aria-label="Écouter"><span class="material-symbols-outlined fill">play_arrow</span></button><span class="pod-ribbon">Original</span></div></div>
           </div>
         </div>
+
+        <!-- Bannières -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+          <a href="podcast.html" class="pod-banner theme-dark group">
+            <img src="podcast-hote.jpg" alt="">
+            <span class="pod-banner-body">
+              <span class="pod-banner-badge">Épisode à la une</span>
+              <span class="pod-banner-title">Creative Talks n° 48 : IA générative et droits d'auteur</span>
+              <span class="pod-banner-cta">Découvrir<span class="material-symbols-outlined text-[18px]">arrow_right</span></span>
+            </span>
+          </a>
+          <a href="#webradios" class="pod-banner pod-banner--alt theme-dark group">
+            <img src="radio-host-elhadj.jpg" alt="">
+            <span class="pod-banner-body">
+              <span class="pod-banner-badge">Série patrimoine</span>
+              <span class="pod-banner-title">Heritage &amp; Rhythms : l'anthologie de la kora et du balafon</span>
+              <span class="pod-banner-cta">Découvrir<span class="material-symbols-outlined text-[18px]">arrow_right</span></span>
+            </span>
+          </a>
+        </div>
+
+        <!-- Rangée 2 : exclusivités -->
+        <div class="pod-row">
+          <div class="flex items-center justify-between gap-2"><h3 class="pod-row-title">Exclusivités Africadôme Originals</h3><a href="podcast.html" class="text-title-sm text-primary hover:underline">Voir plus</a></div>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-space-lg">
+            <a href="podcast-fiche.html?id=creative-talks-46" class="pod-tile pod-tile--lg" data-cat="societe"><div class="pod-cover theme-dark"><img src="podcast-ep46.jpg" alt="Caméra de cinéma sur un plateau de tournage"><span class="pod-cover-text"><span class="pod-cover-kicker">Creative Talks • Ép. 46</span>Financer le cinéma indépendant</span><span class="pod-ribbon">Original</span></div><span class="pod-tile-title">Financer le cinéma indépendant au Nigeria et au Sénégal</span><span class="pod-tile-meta">De : <span>Mireille Kouadio</span></span></a>
+            <div class="pod-tile pod-tile--lg" data-cat="musique histoire" data-href="podcast-fiche.html?id=sahel-rhythms" role="link" tabindex="0"><div class="pod-cover theme-dark"><img src="videos-top-tombouctou.jpg" alt="Vue aérienne de Tombouctou au coucher du soleil"><span class="pod-cover-text"><span class="pod-cover-kicker">Série originale</span>Sahel Rhythms</span><button class="tile-play" aria-label="Écouter"><span class="material-symbols-outlined fill">play_arrow</span></button><span class="pod-ribbon">Original</span></div><span class="pod-tile-title">Sahel Rhythms : musique &amp; héritages sonores</span><span class="pod-tile-meta">De : <span>Elhadj Traoré</span></span></div>
+            <div class="pod-tile pod-tile--lg" data-cat="tech societe" data-href="podcast-fiche.html?id=fintech" role="link" tabindex="0"><div class="pod-cover theme-dark"><img src="videos-top-mobilite-rwanda.jpg" alt="Un entrepreneur dans un atelier d'assemblage de véhicules électriques"><span class="pod-cover-text"><span class="pod-cover-kicker">Série originale</span>Fintech &amp; Création</span><button class="tile-play" aria-label="Écouter"><span class="material-symbols-outlined fill">play_arrow</span></button><span class="pod-ribbon">Original</span></div><span class="pod-tile-title">Fintech &amp; Création : la monétisation des créateurs</span><span class="pod-tile-meta">De : <span>Awa Diop</span></span></div>
+            <div class="pod-tile pod-tile--lg" data-cat="histoire" data-href="podcast-fiche.html?id=griots" role="link" tabindex="0"><div class="pod-cover theme-dark"><img src="videos-indigo-bogolan.jpg" alt="Une créatrice ajuste des tissus teints à l'indigo sur un mannequin"><span class="pod-cover-text"><span class="pod-cover-kicker">Série originale</span>Paroles de griots 2.0</span><button class="tile-play" aria-label="Écouter"><span class="material-symbols-outlined fill">play_arrow</span></button><span class="pod-ribbon">Original</span></div><span class="pod-tile-title">Paroles de griots 2.0 : storytelling &amp; mythes modernes</span><span class="pod-tile-meta">De : <span>Koffi Mensah</span></span></div>
+          </div>
+        </div>
+
+        <!-- Rangée 3 : inclus dans l'abonnement -->
+        <div class="pod-row">
+          <h3 class="pod-row-title">Inclus dans l'abonnement : les plus écoutés</h3>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-space-lg">
+            <div class="pod-tile pod-tile--lg" data-cat="musique" data-href="podcast-fiche.html?id=afro-inspiration" role="link" tabindex="0"><div class="pod-cover theme-dark"><img src="videos-afrobeats-scene.jpg" alt="Une chanteuse et son orchestre sur une scène dorée"><span class="pod-cover-text"><span class="pod-cover-kicker">Afro Inspiration</span>Le best-of de la semaine</span><button class="tile-play" aria-label="Écouter"><span class="material-symbols-outlined fill">play_arrow</span></button><span class="pod-ribbon">Inclus</span></div><span class="pod-tile-title">Afro Inspiration : le best-of de la semaine</span><span class="pod-tile-meta">De : <span>Fatou Diallo &amp; Kemi Adewale</span></span></div>
+            <div class="pod-tile pod-tile--lg" data-cat="societe" data-href="podcast-fiche.html?id=voix-terrain" role="link" tabindex="0"><div class="pod-cover theme-dark"><img src="journaliste-micro.jpg" alt="Une journaliste interviewe une commerçante dans un marché"><span class="pod-cover-text"><span class="pod-cover-kicker">Voix du terrain</span>La parole aux marchés</span><button class="tile-play" aria-label="Écouter"><span class="material-symbols-outlined fill">play_arrow</span></button><span class="pod-ribbon">Inclus</span></div><span class="pod-tile-title">Voix du terrain : la parole aux marchés d'Afrique</span><span class="pod-tile-meta">De : <span>La rédaction Africadôme</span></span></div>
+            <div class="pod-tile pod-tile--lg" data-cat="tech" data-href="podcast-fiche.html?id=cosmos" role="link" tabindex="0"><div class="pod-cover theme-dark"><img src="videos-top-karoo.jpg" alt="Une astrophysicienne près d'un radiotélescope sous un ciel étoilé"><span class="pod-cover-text"><span class="pod-cover-kicker">Sciences</span>Écouter le cosmos</span><button class="tile-play" aria-label="Écouter"><span class="material-symbols-outlined fill">play_arrow</span></button><span class="pod-ribbon">Inclus</span></div><span class="pod-tile-title">Écouter les confins du cosmos depuis le désert du Karoo</span><span class="pod-tile-meta">De : <span>La rédaction Africadôme</span></span></div>
+            <div class="pod-tile pod-tile--lg" data-cat="musique" data-href="podcast-fiche.html?id=pantsula" role="link" tabindex="0"><div class="pod-cover theme-dark"><img src="videos-top-pantsula.jpg" alt="Danseurs de rue lors d'une battle dans un entrepôt"><span class="pod-cover-text"><span class="pod-cover-kicker">New Sounds</span>Pantsula 2.0</span><button class="tile-play" aria-label="Écouter"><span class="material-symbols-outlined fill">play_arrow</span></button><span class="pod-ribbon">Inclus</span></div><span class="pod-tile-title">Pantsula 2.0 : la danse urbaine comme manifeste</span><span class="pod-tile-meta">De : <span>DJ Moh</span></span></div>
+          </div>
+        </div>
+        <p id="podcastEmpty" class="hidden text-on-surface-variant text-body-md">Aucun podcast dans cette catégorie pour le moment.</p>
       </section>
 
       <!-- ================= VOIX DE L'ANTENNE ================= -->
@@ -479,7 +461,7 @@
       </section>
 
       <!-- ================= APPEL À SOUMISSION ================= -->
-      <section class="rounded-xl bg-gradient-to-r from-surface-container-low via-surface-container to-surface-container-high p-space-lg md:p-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg shadow-xl relative overflow-hidden">
+      <section id="soumettre" class="rounded-xl bg-gradient-to-r from-surface-container-low via-surface-container to-surface-container-high p-space-lg md:p-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg shadow-xl relative overflow-hidden">
         <div class="absolute -right-16 -bottom-16 w-64 h-64 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
         <div class="relative space-y-space-xs max-w-2xl">
           <span class="inline-block px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container text-label-badge uppercase">Créateurs sonores &amp; podcasteurs</span>
