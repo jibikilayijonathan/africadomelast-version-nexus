@@ -842,3 +842,62 @@ html.i18n-pending body { visibility: hidden; }
 .lang-chip { padding: 6px 12px; border-radius: 8px; background: var(--sc-high); color: var(--on-surface-variant); font-size: 14px; font-weight: 700; transition: background .2s, color .2s; }
 .lang-chip:hover { color: var(--on-surface); }
 .lang-chip.is-active, .dropdown-item.is-active { background: var(--primary-container); color: var(--on-primary-container); }
+
+/* =========================================================
+   PAGE ÉPISODE DE PODCAST
+   ========================================================= */
+.platform-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 8px 10px; border-radius: 8px; background: var(--sc-high); color: var(--white); font-size: 14px; font-weight: 600; transition: background .2s; }
+.platform-btn:hover { background: var(--sc-highest); }
+.platform-btn > span { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.guest-card { display: flex; align-items: center; gap: 10px; padding: 8px; border-radius: 10px; background: rgb(var(--c-surface-container-high) / .6); transition: background .2s; }
+.guest-card:hover { background: var(--sc-high); }
+.guest-card img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+
+.pod-wave { height: 64px; display: flex; align-items: center; gap: 3px; overflow: hidden; }
+.pod-wave i { flex: 1; min-width: 2px; border-radius: 99px; background: var(--sc-highest); transition: background .2s; }
+.pod-wave i.is-played { background: var(--primary-container); }
+#podScrub:hover .pod-wave i:not(.is-played) { background: #3c414a; }
+#podScrub:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; border-radius: 8px; }
+.pod-marker { position: absolute; top: -4px; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: var(--on-surface-variant); transition: background .2s, transform .2s; }
+.pod-marker:hover { transform: scale(1.3); background: var(--primary); }
+.pod-marker.is-passed { background: var(--primary); }
+.pod-ctrl { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--sc); color: var(--on-surface); transition: background .2s, transform .2s; }
+.pod-ctrl:hover { background: var(--sc-high); transform: scale(1.05); }
+.pod-action { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 8px; background: var(--sc); color: var(--on-surface); font-size: 15px; font-weight: 600; transition: background .2s, color .2s; }
+.pod-action:hover { background: var(--sc-high); }
+.pod-action.is-on { color: var(--primary); }
+
+.pod-tab { display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border-radius: 8px; color: var(--on-surface-variant); font-size: 15px; font-weight: 600; transition: background .2s, color .2s; }
+.pod-tab:hover { color: var(--white); background: var(--sc); }
+.pod-tab.is-active { background: var(--primary-container); color: var(--on-primary-container); box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+
+.chapter { position: relative; width: 100%; display: flex; align-items: center; gap: 16px; padding: 16px; border-radius: 12px; background: var(--sc); overflow: hidden; transition: background .2s; }
+.chapter:hover { background: var(--sc-high); }
+.chapter-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: var(--sc-high); color: var(--primary); transition: background .2s, color .2s; }
+.chapter:hover .chapter-icon, .chapter.is-current .chapter-icon { background: var(--primary-container); color: var(--on-primary-container); }
+.chapter-time { color: var(--primary); font-size: 11px; font-weight: 800; letter-spacing: .06em; }
+.chapter-title { color: var(--white); font-size: 15px; font-weight: 700; }
+.chapter.is-current { background: var(--sc-high); box-shadow: 0 6px 16px rgba(0,0,0,.25); }
+.chapter.is-current::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--primary-container); }
+.chapter.is-current .chapter-time { padding: 2px 8px; border-radius: 4px; background: rgb(var(--c-primary-container) / .2); }
+
+.line { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: 12px; background: var(--sc); overflow: hidden; transition: background .2s; }
+.line p { color: var(--on-surface); font-size: 14px; line-height: 1.7; }
+.line.is-current { background: var(--sc-high); box-shadow: 0 6px 16px rgba(0,0,0,.25); }
+.line.is-current::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--primary); }
+.line.is-current p { color: var(--white); font-weight: 500; }
+.line-play { color: var(--on-surface-variant); transition: color .2s; }
+.line-play:hover { color: var(--primary); }
+.line mark { background: rgb(var(--c-primary-container) / .35); color: inherit; border-radius: 3px; padding: 0 2px; }
+.ref-row { display: flex; align-items: flex-start; gap: 12px; padding: 12px; border-radius: 8px; background: var(--sc-high); }
+
+.ep-row { display: flex; align-items: flex-start; gap: 10px; padding: 8px; border-radius: 12px; background: rgb(var(--c-surface-container-high) / .6); transition: background .2s; }
+.ep-row:hover { background: var(--sc-high); }
+.ep-row img { width: 56px; height: 56px; border-radius: 8px; object-fit: cover; flex-shrink: 0; transition: transform .2s; }
+.ep-row:hover img { transform: scale(1.05); }
+.show-row { display: flex; align-items: center; gap: 10px; padding: 8px; border-radius: 12px; background: rgb(var(--c-surface-container-high) / .4); transition: background .2s; }
+.show-row:hover { background: var(--sc-high); }
+.show-badge { width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+.show-play { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--sc-highest); color: var(--white); transition: background .2s, color .2s; }
+.show-row:hover .show-play { background: var(--primary-container); color: var(--on-primary-container); }
+#podNotify.is-on { color: var(--primary); }
